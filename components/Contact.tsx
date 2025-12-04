@@ -11,7 +11,7 @@ export const Contact: React.FC = () => {
       {/* Background Texture & Image */}
       <div className="absolute inset-0">
         <img
-          src="./images/texture leaf.png"
+          src="/images/texture leaf.png"
           className="w-full h-full object-cover opacity-20 mix-blend-overlay grayscale"
           alt="Texture"
         />

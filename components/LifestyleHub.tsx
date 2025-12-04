@@ -9,25 +9,25 @@ export const LifestyleHub: React.FC = () => {
     {
       id: 1,
       title: t('lifestyle_1_title'),
-      image: "./images/7 clubhouse.png",
+      image: "/images/7 clubhouse.png",
       description: t('lifestyle_1_desc')
     },
     {
       id: 2,
       title: t('lifestyle_2_title'),
-      image: "./images/8 hotspring.png",
+      image: "/images/8 hotspring.png",
       description: t('lifestyle_2_desc')
     },
     {
       id: 3,
       title: t('lifestyle_3_title'),
-      image: "./images/lifestyle lounge.png",
+      image: "/images/lifestyle lounge.png",
       description: t('lifestyle_3_desc')
     },
     {
       id: 4,
       title: t('lifestyle_4_title'),
-      image: "./images/lifestyle library.png",
+      image: "/images/lifestyle library.png",
       description: t('lifestyle_4_desc')
     }
   ];

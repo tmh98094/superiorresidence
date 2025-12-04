@@ -31,15 +31,15 @@ export const Services: React.FC = () => {
         {/* Image Grid Side */}
         <div className="order-1 lg:order-2 grid grid-cols-2 gap-4">
           <FadeIn delay={0} className="col-span-2">
-            <img src="./images/6 butler service.png" alt="Butler Service" className="w-full h-64 md:h-80 object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+            <img src="/images/6 butler service.png" alt="Butler Service" className="w-full h-64 md:h-80 object-cover grayscale hover:grayscale-0 transition-all duration-700" />
             <p className="text-xs font-sans tracking-widest mt-2 text-stone-500">{t('service_butler')}</p>
           </FadeIn>
           <FadeIn delay={200}>
-            <img src="./images/6 chauffer service.png" alt="Chauffeur" className="w-full h-48 object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+            <img src="/images/6 chauffer service.png" alt="Chauffeur" className="w-full h-48 object-cover grayscale hover:grayscale-0 transition-all duration-700" />
             <p className="text-xs font-sans tracking-widest mt-2 text-stone-500">{t('service_chauffeur')}</p>
           </FadeIn>
           <FadeIn delay={400}>
-            <img src="./images/6 chef service.png" alt="Private Chef" className="w-full h-48 object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+            <img src="/images/6 chef service.png" alt="Private Chef" className="w-full h-48 object-cover grayscale hover:grayscale-0 transition-all duration-700" />
             <p className="text-xs font-sans tracking-widest mt-2 text-stone-500">{t('service_chef')}</p>
           </FadeIn>
         </div>

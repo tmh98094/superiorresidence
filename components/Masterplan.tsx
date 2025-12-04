@@ -33,7 +33,7 @@ export const Masterplan: React.FC = () => {
         {/* Map Container */}
         <div className="relative w-full aspect-[16/9] lg:aspect-[21/9] bg-stone-900 overflow-hidden group">
           <img
-            src="./images/4 master map.png"
+            src="/images/4 master map.png"
             alt="Drone View Masterplan"
             className="w-full h-full object-cover opacity-60 transition-transform duration-[3s] group-hover:scale-105"
           />

@@ -10,7 +10,7 @@ export const LocationMap: React.FC = () => {
       {/* Background Image - Mountain Range */}
       <div className="absolute inset-0">
         <img
-          src="./images/3 location.png"
+          src="/images/3 location.png"
           alt="Mountains Background"
           className="w-full h-full object-cover opacity-30 mix-blend-luminosity"
         />
@@ -49,7 +49,7 @@ export const LocationMap: React.FC = () => {
               {/* Abstract Vertical Map */}
               <div className="relative w-full h-full flex justify-center items-center">
                 <img
-                  src="./images/5 features.png"
+                  src="/images/5 features.png"
                   className="absolute inset-0 w-full h-full object-cover opacity-40 mask-image-vertical"
                   style={{ maskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)' }}
                   alt="Topography"

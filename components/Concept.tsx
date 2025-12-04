@@ -36,7 +36,7 @@ export const Concept: React.FC = () => {
           <FadeIn direction="left" delay={300}>
             <div className="aspect-[4/3] overflow-hidden">
               <img
-                src="./images/2 concept.png"
+                src="/images/2 concept.png"
                 alt="Architecture in nature"
                 className="w-full h-full object-cover transition-transform duration-[2s] hover:scale-105"
               />
