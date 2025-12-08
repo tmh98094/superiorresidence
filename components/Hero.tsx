@@ -30,6 +30,9 @@ export const Hero: React.FC = () => {
     gsap.set(heroTextRef.current, { opacity: 0, y: 20 });
     gsap.set(scrollIndicatorRef.current, { opacity: 0 });
 
+    // Calculate the target position (45% of viewport height minus 15px for offset)
+    const targetY = -(window.innerHeight * 0.45) + 15;
+
     // Animation sequence
     timeline
       // Wait 1 second with logo centered
@@ -38,7 +41,7 @@ export const Hero: React.FC = () => {
       .to(
         logoRef.current,
         {
-          y: 'calc(-45vh + 15px)', // Move up to header position with 15px offset
+          y: targetY, // Move up to header position with 15px offset
           scale: 1,
           duration: 1.2,
           onStart: () => {
