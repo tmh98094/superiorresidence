@@ -150,7 +150,7 @@ export const Hero: React.FC = () => {
 
       {/* Hero Text Content */}
       <div className="relative h-full flex flex-col justify-end pb-32 md:justify-center md:pb-0 items-center text-center px-4 z-10 pointer-events-none">
-        <div ref={heroTextRef} className="mt-[10vh]">
+        <div ref={heroTextRef} className="mt-[10vh] opacity-0">
           {/* Subtitle - Freehold Landed Homes */}
           <div className="mb-6">
             <h2 className="font-sans text-[0.6rem] md:text-xs tracking-[0.4em] text-white/80 uppercase">
@@ -175,7 +175,7 @@ export const Hero: React.FC = () => {
       {/* Scroll Indicator */}
       <div
         ref={scrollIndicatorRef}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 z-20 animate-bounce"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 z-20 animate-bounce opacity-0"
       >
         <ChevronDown size={32} strokeWidth={1} />
       </div>
