@@ -19,6 +19,11 @@ import { Floaters } from './components/Floaters';
 const AppContent: React.FC = () => {
   const { state, setLoadingComplete } = useAnimation();
 
+  // Scroll to top on mount/refresh
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       {state.isLoading && <LoadingScreen onLoadComplete={setLoadingComplete} />}

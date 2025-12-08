@@ -10,12 +10,14 @@ export const Footer: React.FC = () => {
     <footer className="bg-forest-black text-stone-500 py-12 border-t border-stone-900">
       <div className="max-w-[1800px] mx-auto px-6">
         {/* Logo */}
-        <div className="flex justify-center mb-8">
-          <img
-            src="/images/logo2.png"
-            alt="Superior Residence"
-            className="w-32 h-auto"
-          />
+        <div className="flex justify-center mb-6">
+          <div className="w-48 h-48 relative overflow-hidden">
+            <img
+              src="/images/logo2.png"
+              alt="Superior Residence"
+              className="absolute inset-0 w-full h-full object-cover object-center scale-150"
+            />
+          </div>
         </div>
 
         {/* Font Toggle Button */}
