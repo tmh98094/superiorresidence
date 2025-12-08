@@ -39,11 +39,14 @@ export const translations = {
 
         // Concept/Prelude
         prelude_label: 'PRELUDE',
-        prelude_title_1: 'WHERE FAMILY',
-        prelude_title_2: 'MEETS NATURE',
-        prelude_title_3: 'AND LEGACY BEGINS',
-        prelude_text_1: 'Superior Residence is more than a home — it is a sanctuary where family bonds flourish, nature embraces every corner, and feng shui principles guide harmonious living.',
-        prelude_text_2: 'Here, we honor tradition while building legacies. Every detail is crafted to nurture prosperity, health, and lasting memories for generations to come.',
+        prelude_title: 'WHERE GENERATIONS CAN THRIVE',
+        prelude_text_1: 'Amid the rush of the modern world, Superior Residence Taman Indah Jaya stands as a return to what truly endures - family, nature and quiet strength of roots that run deep.',
+        prelude_text_2: 'Here, luxury is not loud, it is lived. Each home is built not only with stone and timber, but with intention - to ground, to nourish, and to carry forward a legacy of harmony.',
+        prelude_text_3: 'Here, nature is not the backdrop - it is the heart of the home, where prosperity blooms.',
+
+        // Awards
+        awards_label: 'RECOGNITION',
+        awards_title: 'A COLLECTION OF AWARD WINNING HOMES BY PROPERTYGURU',
 
         // Location
         location_heading: 'Nestled in Ayer Hitam, where comfort meets convenience.',
@@ -172,11 +175,14 @@ export const translations = {
 
         // Concept/Prelude
         prelude_label: '序言',
-        prelude_title_1: '家庭与自然',
-        prelude_title_2: '相遇之处',
-        prelude_title_3: '传承由此开始',
-        prelude_text_1: 'Superior Residence 不仅仅是一个家——它是一个庇护所，家庭纽带在这里蓬勃发展，自然拥抱每一个角落，风水原则引导和谐生活。',
-        prelude_text_2: '在这里，我们尊重传统，同时建立传承。每一个细节都精心打造，为子孙后代培育繁荣、健康和持久的回忆。',
+        prelude_title: '世代繁荣之地',
+        prelude_text_1: '在现代世界的喧嚣中，Superior Residence Taman Indah Jaya 代表着对真正持久事物的回归——家庭、自然和深深扎根的宁静力量。',
+        prelude_text_2: '在这里，奢华不是喧嚣的，而是生活的。每个家不仅用石头和木材建造，更是用意图建造——扎根、滋养，并传承和谐的遗产。',
+        prelude_text_3: '在这里，自然不是背景——它是家的核心，繁荣在此绽放。',
+
+        // Awards
+        awards_label: '荣誉',
+        awards_title: 'PROPERTYGURU 获奖住宅系列',
 
         // Location
         location_heading: '坐落在亚依淡，舒适与便利的交汇处。',

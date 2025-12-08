@@ -7,6 +7,7 @@ import { Hero } from './components/Hero';
 import { Prelude } from './components/Prelude';
 import { LushGreens } from './components/LushGreens';
 import { Unveiling } from './components/Unveiling';
+import { Awards } from './components/Awards';
 import { SanctuaryCards } from './components/SanctuaryCards';
 import { Location } from './components/Location';
 import { GoogleMapEmbed } from './components/GoogleMapEmbed';
@@ -26,6 +27,7 @@ const AppContent: React.FC = () => {
         <Prelude />
         <LushGreens />
         <Unveiling />
+        <Awards />
         <SanctuaryCards />
         <Location />
         <GoogleMapEmbed />
