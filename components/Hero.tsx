@@ -69,6 +69,8 @@ export const Hero: React.FC = () => {
         },
         '+=0'
       )
+      // Wait for nav items to appear, then fade in hero text
+      .to({}, { duration: 0.2 })
       // Fade in hero text
       .to(
         heroTextRef.current,
@@ -80,7 +82,7 @@ export const Hero: React.FC = () => {
             setShowHeroText();
           },
         },
-        '-=0.3'
+        '+=0'
       )
       // Fade in scroll indicator
       .to(
