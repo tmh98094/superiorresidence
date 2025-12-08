@@ -32,3 +32,40 @@
     animation: ken-burns 25s ease-out infinite alternate;
   }
 }
+
+/* Logo Intro Animation */
+@keyframes floatToHeader {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, -45vh) scale(0.7);
+    opacity: 0;
+  }
+}
+
+.logo-float-to-header {
+  animation: floatToHeader 800ms ease-out forwards;
+}
+
+/* Animation timing utilities */
+.duration-800 {
+  transition-duration: 800ms;
+}
+
+/* Fade in animation for nav items and hero text */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 500ms ease-out forwards;
+}

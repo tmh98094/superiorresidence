@@ -3,29 +3,51 @@ export const translations = {
         // Navbar
         nav_home: 'Home',
         nav_prelude: 'Prelude',
-        nav_homes: 'Anyara Homes',
-        nav_masterplan: 'Anyara Masterplan',
+        nav_floorplan: 'Floor Plan',
+        nav_siteplan: 'Site Plan',
+        nav_location: 'Location',
+        nav_homes: 'Superior Homes',
+        nav_masterplan: 'Superior Masterplan',
         nav_gallery: 'Gallery',
         nav_register: 'Register',
 
         // Hero
-        hero_subtitle: 'One-Acre Freehold Lots',
+        hero_subtitle: 'Freehold Landed Homes',
+        hero_title: 'A sanctuary of heart and homes.',
         hero_title_1: 'FOR THOSE WHO',
         hero_title_2: 'LIVE THE EXTRAORDINARY',
 
+        // Lush Greens
+        lushgreens_text: 'Live amidst lush greens — find your sanctuary within',
+
+        // Unveiling
+        unveiling_text: 'UNVEILING',
+        unveiling_brand: 'Residence',
+
+        // Sanctuary Cards
+        sanctuary_heading: 'A sanctuary of hearts and homes.',
+        card_family_title: 'Family Haven',
+        card_family_desc: 'Every space at Superior Residences is designed to nurture connection — from open living areas that bring families together to private retreats where bonds deepen.',
+        card_heritage_title: 'Heritage Crafted',
+        card_heritage_desc: 'Superior Residence is a place where roots run deep. Built on feng shui principles and timeless design, each home honors tradition while embracing modern comfort.',
+        card_prosperity_title: 'Prosperous Living',
+        card_prosperity_desc: 'True prosperity flows from balance. Our homes are positioned to harness positive energy, creating spaces where health, wealth, and harmony flourish naturally.',
+
         // Concept/Prelude
         prelude_label: 'PRELUDE',
-        prelude_title_1: 'HERE,',
-        prelude_title_2: 'EACH HOME',
-        prelude_title_3: 'SPEAKS FOR ITSELF',
-        prelude_text_1: 'Our vision for Anyara Hills is simple. To craft a canvas that allows for the curation of a masterpiece — one that reflects the unique story behind extraordinary individuals.',
-        prelude_text_2: 'Carefully guided by the contours of the land, each unit represents the raw beauty of nature with no two lots being exactly the same.',
+        prelude_title_1: 'WHERE FAMILY',
+        prelude_title_2: 'MEETS NATURE',
+        prelude_title_3: 'AND LEGACY BEGINS',
+        prelude_text_1: 'Superior Residence is more than a home — it is a sanctuary where family bonds flourish, nature embraces every corner, and feng shui principles guide harmonious living.',
+        prelude_text_2: 'Here, we honor tradition while building legacies. Every detail is crafted to nurture prosperity, health, and lasting memories for generations to come.',
 
         // Location
+        location_heading: 'Nestled in Ayer Hitam, where comfort meets convenience.',
+        map_heading: 'The charm of Superior Residences, a desired enclave in Ayer Hitam.',
         location_title_1: 'BANJARAN',
         location_title_2: 'TITIWANGSA',
         location_subtitle: 'Live amidst one of the oldest rainforests in the world',
-        location_description: 'Nestled against the majestic Banjaran Titiwangsa, Anyara Hills is graced by a natural phenomenon that elevates its allure — geographic rising.',
+        location_description: 'Nestled in the heart of Ayer Hitam, Superior Residence offers a perfect blend of tranquility and accessibility.',
 
         // Masterplan
         masterplan_title_1: 'ALL THIS,',
@@ -33,8 +55,8 @@ export const translations = {
         masterplan_subtitle: 'Strategically located to provide seclusion without isolation.',
 
         // Features
-        features_title_1: '584 ACRES OF',
-        features_title_2: 'EXTRAORDINARY LIVING',
+        features_title_1: 'SUPERIOR RESIDENCE',
+        features_title_2: 'PREMIUM LIVING',
         feature_1_title: '584 Acres',
         feature_1_desc: 'Of Freehold Private Masterplan',
         feature_2_title: '1 Acre Lots',
@@ -104,31 +126,53 @@ export const translations = {
         footer_sales_enquiry: 'Sales Enquiry',
         footer_privacy: 'Privacy Policy',
         footer_terms: 'Terms of Use',
-        footer_rights: '© 2024 Goldhill Fortune Sdn Bhd. All Rights Reserved.',
+        footer_rights: '© 2024 Superior Residence. All Rights Reserved.',
     },
     cn: {
         // Navbar
         nav_home: '首页',
         nav_prelude: '序言',
-        nav_homes: 'Anyara 住宅',
-        nav_masterplan: 'Anyara 总体规划',
+        nav_floorplan: '平面图',
+        nav_siteplan: '总平面图',
+        nav_location: '位置',
+        nav_homes: 'Superior 住宅',
+        nav_masterplan: 'Superior 总体规划',
         nav_gallery: '画廊',
         nav_register: '注册',
 
         // Hero
-        hero_subtitle: '一英亩永久地契地段',
+        hero_subtitle: '永久地契住宅',
+        hero_title: '心灵与家园的庇护所。',
         hero_title_1: '为那些',
         hero_title_2: '活出非凡的人',
 
+        // Lush Greens
+        lushgreens_text: '生活在郁郁葱葱的绿色中——在这里找到您的庇护所',
+
+        // Unveiling
+        unveiling_text: '揭幕',
+        unveiling_brand: '住宅',
+
+        // Sanctuary Cards
+        sanctuary_heading: '心灵与家园的庇护所。',
+        card_family_title: '家庭港湾',
+        card_family_desc: 'Superior Residences 的每一个空间都旨在培养联系——从将家人聚集在一起的开放式生活区到加深纽带的私人休憩处。',
+        card_heritage_title: '传承工艺',
+        card_heritage_desc: 'Superior Residence 是一个根深蒂固的地方。建立在风水原则和永恒设计之上，每个家都尊重传统，同时拥抱现代舒适。',
+        card_prosperity_title: '繁荣生活',
+        card_prosperity_desc: '真正的繁荣源于平衡。我们的住宅定位于汲取正能量，创造健康、财富和和谐自然蓬勃发展的空间。',
+
         // Concept/Prelude
         prelude_label: '序言',
-        prelude_title_1: '在这里，',
-        prelude_title_2: '每一个家',
-        prelude_title_3: '都自成一格',
-        prelude_text_1: '我们对 Anyara Hills 的愿景很简单。打造一幅画布，让您策划一件杰作——反映非凡个人背后的独特故事。',
-        prelude_text_2: '在地形轮廓的精心引导下，每个单元都代表着大自然的原始之美，没有两个地段是完全相同的。',
+        prelude_title_1: '家庭与自然',
+        prelude_title_2: '相遇之处',
+        prelude_title_3: '传承由此开始',
+        prelude_text_1: 'Superior Residence 不仅仅是一个家——它是一个庇护所，家庭纽带在这里蓬勃发展，自然拥抱每一个角落，风水原则引导和谐生活。',
+        prelude_text_2: '在这里，我们尊重传统，同时建立传承。每一个细节都精心打造，为子孙后代培育繁荣、健康和持久的回忆。',
 
         // Location
+        location_heading: '坐落在亚依淡，舒适与便利的交汇处。',
+        map_heading: 'Superior Residences 的魅力，亚依淡的理想居所。',
         location_title_1: '蒂迪旺沙',
         location_title_2: '山脉',
         location_subtitle: '生活在世界上最古老的雨林之一',
@@ -140,8 +184,8 @@ export const translations = {
         masterplan_subtitle: '战略位置提供隐居而不孤立。',
 
         // Features
-        features_title_1: '584 英亩',
-        features_title_2: '非凡生活',
+        features_title_1: 'SUPERIOR RESIDENCE',
+        features_title_2: '优质生活',
         feature_1_title: '584 英亩',
         feature_1_desc: '永久地契私人总体规划',
         feature_2_title: '1 英亩地段',
@@ -211,7 +255,7 @@ export const translations = {
         footer_sales_enquiry: '销售咨询',
         footer_privacy: '隐私政策',
         footer_terms: '使用条款',
-        footer_rights: '© 2024 Goldhill Fortune Sdn Bhd. 保留所有权利。',
+        footer_rights: '© 2024 Superior Residence. 保留所有权利。',
     }
 };
 

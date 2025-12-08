@@ -1,33 +1,36 @@
 import React from 'react';
 import { LanguageProvider } from './LanguageContext';
+import { AnimationProvider } from './AnimationContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { Concept } from './components/Concept';
-import { LocationMap } from './components/LocationMap';
-import { Masterplan } from './components/Masterplan';
-import { Features } from './components/Features';
-import { Services } from './components/Services';
-import { LifestyleHub } from './components/LifestyleHub';
-import { Gallery } from './components/Gallery';
+import { Prelude } from './components/Prelude';
+import { LushGreens } from './components/LushGreens';
+import { Unveiling } from './components/Unveiling';
+import { SanctuaryCards } from './components/SanctuaryCards';
+import { Location } from './components/Location';
+import { GoogleMapEmbed } from './components/GoogleMapEmbed';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { Floaters } from './components/Floaters';
 
 function App() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-forest-black overflow-x-hidden selection:bg-gold-accent selection:text-white">
-        <Navbar />
-        <Hero />
-        <Concept />
-        <LocationMap />
-        <Masterplan />
-        <Features />
-        <Services />
-        <LifestyleHub />
-        <Gallery />
-        <Contact />
-        <Footer />
-      </div>
+      <AnimationProvider>
+        <div className="min-h-screen bg-forest-black overflow-x-hidden selection:bg-gold-accent selection:text-white">
+          <Navbar />
+          <Hero />
+          <Prelude />
+          <LushGreens />
+          <Unveiling />
+          <SanctuaryCards />
+          <Location />
+          <GoogleMapEmbed />
+          <Contact />
+          <Footer />
+          <Floaters />
+        </div>
+      </AnimationProvider>
     </LanguageProvider>
   );
 }

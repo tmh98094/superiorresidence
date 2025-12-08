@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
         <div>
           <p className="font-bold text-stone-300 mb-4">{t('footer_sales_enquiry')}</p>
           <p className="text-xl font-display text-white mb-2">+6019 660 6511</p>
-          <p>anyarahills.com</p>
+          <p>superiorresidence.com</p>
         </div>
 
         <div className="flex items-center space-x-6 md:justify-center">

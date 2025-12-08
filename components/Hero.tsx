@@ -1,50 +1,178 @@
-
-import React from 'react';
-import { FadeIn } from './FadeIn';
+import React, { useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
+import { useAnimation } from '../AnimationContext';
+import gsap from 'gsap';
 
 export const Hero: React.FC = () => {
   const { t } = useLanguage();
+  const { state, setLogoInHeader, setShowNavItems, setShowHeroText } = useAnimation();
+  const logoRef = useRef<HTMLDivElement>(null);
+  const logoContainerRef = useRef<HTMLDivElement>(null);
+  const heroTextRef = useRef<HTMLDivElement>(null);
+  const scrollIndicatorRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!logoRef.current || !logoContainerRef.current || !heroTextRef.current || !scrollIndicatorRef.current) return;
+
+    const timeline = gsap.timeline({
+      defaults: { ease: 'power2.inOut' },
+    });
+
+    // Initial state - logo is large and centered
+    gsap.set(logoRef.current, { 
+      scale: 2, 
+      y: '0vh',
+      opacity: 1 
+    });
+    gsap.set(heroTextRef.current, { opacity: 0, y: 20 });
+    gsap.set(scrollIndicatorRef.current, { opacity: 0 });
+
+    // Animation sequence
+    timeline
+      // Wait 1 second with logo centered
+      .to({}, { duration: 1 })
+      // Float logo to header position and scale down
+      .to(
+        logoRef.current,
+        {
+          y: '-45vh', // Move up to header position (adjusted higher)
+          scale: 1,
+          duration: 1.2,
+          onStart: () => {
+            // Trigger navbar to show (it will fade in behind the logo)
+            setLogoInHeader();
+          },
+          onComplete: () => {
+            // Change logo container to fixed positioning at navbar height
+            if (logoContainerRef.current && logoRef.current) {
+              logoContainerRef.current.style.position = 'fixed';
+              logoContainerRef.current.style.top = '0';
+              logoContainerRef.current.style.left = '0';
+              logoContainerRef.current.style.right = '0';
+              logoContainerRef.current.style.bottom = 'auto';
+              logoContainerRef.current.style.height = '6rem'; // Match navbar height (py-6 = 1.5rem top + 1.5rem bottom)
+              
+              // Position logo in the center of the fixed navbar
+              logoRef.current.style.position = 'absolute';
+              logoRef.current.style.top = '50%';
+              logoRef.current.style.left = '50%';
+              logoRef.current.style.transform = 'translate(-50%, -50%)';
+            }
+            // Show nav items
+            setTimeout(() => {
+              setShowNavItems();
+            }, 100);
+          },
+        },
+        '+=0'
+      )
+      // Fade in hero text
+      .to(
+        heroTextRef.current,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          onStart: () => {
+            setShowHeroText();
+          },
+        },
+        '-=0.3'
+      )
+      // Fade in scroll indicator
+      .to(
+        scrollIndicatorRef.current,
+        {
+          opacity: 1,
+          duration: 0.5,
+        },
+        '-=0.2'
+      );
+
+    return () => {
+      timeline.kill();
+    };
+  }, [setLogoInHeader, setShowNavItems, setShowHeroText]);
+
   return (
     <div id="home" className="relative w-full h-screen overflow-hidden">
-      {/* Background with Ken Burns Effect */}
+      {/* Background - Static hero image */}
       <div className="absolute inset-0 overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center animate-ken-burns"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: 'url("/images/1 hero.png")',
-            transformOrigin: 'center center'
+            transformOrigin: 'center center',
           }}
-        ></div>
+        />
         {/* Overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-forest-black/90"></div>
       </div>
 
-      {/* Content */}
+      {/* Animated Logo - Starts centered, moves to top, becomes fixed */}
+      <div ref={logoContainerRef} className="absolute inset-0 z-[60] pointer-events-none">
+        <div
+          ref={logoRef}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
+          <a href="#home" className="flex flex-col items-center cursor-pointer group pointer-events-auto">
+            {/* Logo Icon */}
+            <div className="mb-2">
+              <svg
+                width="32"
+                height="24"
+                viewBox="0 0 40 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="text-stone-100 group-hover:text-gold-accent transition-colors duration-500"
+              >
+                <path d="M20 0L40 30H0L20 0Z" fill="currentColor" fillOpacity="0.2" />
+                <path d="M20 5L36 28H4L20 5Z" stroke="currentColor" strokeWidth="1" />
+                <path d="M20 12L30 28H10L20 12Z" fill="currentColor" />
+              </svg>
+            </div>
+
+            {/* Brand Name */}
+            <h1 className="font-display tracking-[0.2em] text-xl text-stone-100 whitespace-nowrap group-hover:text-gold-accent transition-colors duration-500">
+              SUPERIOR
+            </h1>
+            <span className="font-sans text-[0.5rem] tracking-[0.3em] text-stone-400 uppercase">
+              Residence
+            </span>
+          </a>
+        </div>
+      </div>
+
+      {/* Hero Text Content */}
       <div className="relative h-full flex flex-col justify-end pb-32 md:justify-center md:pb-0 items-center text-center px-4 z-10 pointer-events-none">
-        <div className="mt-[10vh]">
-          <FadeIn delay={0} direction="up" className="mb-6">
+        <div ref={heroTextRef} className="mt-[10vh]">
+          {/* Subtitle - Freehold Landed Homes */}
+          <div className="mb-6">
             <h2 className="font-sans text-[0.6rem] md:text-xs tracking-[0.4em] text-white/80 uppercase">
               {t('hero_subtitle')}
             </h2>
-          </FadeIn>
+          </div>
 
-          <FadeIn delay={200} direction="up">
+          {/* Main Headline - A sanctuary of heart and homes. */}
+          <div>
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl text-white leading-[1.1] mb-6 tracking-wide drop-shadow-lg">
-              {t('hero_title_1')}<br />
-              <span className="italic font-serif font-light text-stone-200">{t('hero_title_2')}</span>
+              {t('hero_title')}
             </h1>
-          </FadeIn>
+          </div>
 
-          <FadeIn delay={400} direction="up">
+          {/* Decorative Line */}
+          <div>
             <div className="h-16 w-[1px] bg-gradient-to-b from-transparent via-gold-accent to-transparent mt-8 mx-auto"></div>
-          </FadeIn>
+          </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-white/50 z-20 transition-opacity duration-500 delay-[1000ms]">
+      <div
+        ref={scrollIndicatorRef}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 z-20 animate-bounce"
+      >
         <ChevronDown size={32} strokeWidth={1} />
       </div>
     </div>
