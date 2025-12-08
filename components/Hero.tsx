@@ -51,6 +51,9 @@ export const Hero: React.FC = () => {
           onComplete: () => {
             // Change logo container to fixed positioning at navbar height
             if (logoContainerRef.current && logoRef.current) {
+              // First, get the current position before changing to fixed
+              const currentTransform = window.getComputedStyle(logoRef.current).transform;
+              
               logoContainerRef.current.style.position = 'fixed';
               logoContainerRef.current.style.top = '0';
               logoContainerRef.current.style.left = '0';
@@ -59,10 +62,14 @@ export const Hero: React.FC = () => {
               logoContainerRef.current.style.height = '6rem'; // Match navbar height (py-6 = 1.5rem top + 1.5rem bottom)
               
               // Position logo in the center of the fixed navbar (moved down 15px)
+              // Keep the transform from GSAP to avoid jump
               logoRef.current.style.position = 'absolute';
               logoRef.current.style.top = 'calc(50% + 15px)';
               logoRef.current.style.left = '50%';
-              logoRef.current.style.transform = 'translate(-50%, -50%)';
+              logoRef.current.style.transform = 'translate(-50%, -50%) scale(1)';
+              
+              // Clear GSAP's inline y transform
+              gsap.set(logoRef.current, { y: 0 });
             }
             // Show nav items
             setTimeout(() => {
