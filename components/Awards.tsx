@@ -22,7 +22,10 @@ export const Awards: React.FC = () => {
             <img
               src="/images/propertyguru-award.png"
               alt="PropertyGuru Asia Property Awards"
-              className="w-full h-auto"
+              className="w-full h-auto rounded-xl shadow-2xl hover:scale-105 transition-transform duration-500"
+              style={{ 
+                filter: 'drop-shadow(0 10px 30px rgba(197, 160, 89, 0.15))',
+              }}
             />
           </div>
         </FadeIn>
