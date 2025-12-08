@@ -10,13 +10,13 @@ export const Footer: React.FC = () => {
 
         <div>
           <p className="font-bold text-stone-300 mb-4">{t('footer_sales_office')}</p>
-          <p className="leading-relaxed">KHK LAND<br />Ground Floor, Tower 1, Avenue 3<br />The Horizon, Bangsar South<br />59200 Kuala Lumpur</p>
+          <p className="leading-relaxed">SUPERIOR PROPERTY DEVELOPMENT<br />Lot 101, Jalan Batu Pahat<br />86100 Ayer Hitam,<br />Johor, Malaysia.</p>
         </div>
 
         <div>
           <p className="font-bold text-stone-300 mb-4">{t('footer_sales_enquiry')}</p>
-          <p className="text-xl font-display text-white mb-2">+6019 660 6511</p>
-          <p>superiorresidence.com</p>
+          <p className="text-xl font-display text-white mb-2">+607 7582 997</p>
+          <p>superiorpropertydevelopment.com.my</p>
         </div>
 
         <div className="flex items-center space-x-6 md:justify-center">

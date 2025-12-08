@@ -1,117 +1,75 @@
-import React, { useState } from 'react';
-import { useLanguage } from '../LanguageContext';
+import React from 'react';
 import { FadeIn } from './FadeIn';
-
-interface CardData {
-  id: string;
-  titleKey: string;
-  descKey: string;
-  image: string;
-}
-
-const CARDS: CardData[] = [
-  {
-    id: 'family',
-    titleKey: 'card_family_title',
-    descKey: 'card_family_desc',
-    image: '/images/Card1.png',
-  },
-  {
-    id: 'heritage',
-    titleKey: 'card_heritage_title',
-    descKey: 'card_heritage_desc',
-    image: '/images/Card2.png',
-  },
-  {
-    id: 'prosperity',
-    titleKey: 'card_prosperity_title',
-    descKey: 'card_prosperity_desc',
-    image: '/images/Card3.png',
-  },
-];
+import { useLanguage } from '../LanguageContext';
 
 export const SanctuaryCards: React.FC = () => {
   const { t } = useLanguage();
-  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+
+  const ITEMS = [
+    {
+      id: 1,
+      title: t('sanctuary_1_title'),
+      image: '/images/Card1.png',
+      description: t('sanctuary_1_desc'),
+    },
+    {
+      id: 2,
+      title: t('sanctuary_2_title'),
+      image: '/images/Card2.png',
+      description: t('sanctuary_2_desc'),
+    },
+    {
+      id: 3,
+      title: t('sanctuary_3_title'),
+      image: '/images/Card3.png',
+      description: t('sanctuary_3_desc'),
+    },
+    {
+      id: 4,
+      title: t('sanctuary_4_title'),
+      image: '/images/Card4.png',
+      description: t('sanctuary_4_desc'),
+    },
+  ];
 
   return (
-    <section className="relative py-24 md:py-32 bg-forest-black overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Heading */}
-        <FadeIn direction="up">
-          <h2 className="font-display text-3xl md:text-5xl text-white text-center mb-16 leading-relaxed">
-            {t('sanctuary_heading' as any)}
+    <section className="bg-forest-black py-0 md:py-24 relative overflow-hidden">
+      <div className="max-w-[1800px] mx-auto">
+        <FadeIn className="mb-12 px-6 md:px-12 text-center md:text-left">
+          <span className="font-sans text-xs tracking-[0.2em] text-gold-accent block mb-4">
+            {t('sanctuary_label')}
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl text-white">
+            {t('sanctuary_title')}{' '}
+            <span className="font-serif italic text-stone-300">
+              {t('sanctuary_title_highlight')}
+            </span>
           </h2>
         </FadeIn>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {CARDS.map((card, index) => (
-            <FadeIn key={card.id} direction="up" delay={index * 150}>
-              <div
-                className="relative h-[400px] md:h-[500px] group cursor-pointer overflow-hidden rounded-lg"
-                onMouseEnter={() => setHoveredCard(card.id)}
-                onMouseLeave={() => setHoveredCard(null)}
-              >
-                {/* Background Image - Always visible */}
-                <div
-                  className={`absolute inset-0 bg-cover bg-center transition-all duration-700 ${
-                    hoveredCard === card.id ? 'scale-110' : 'scale-100'
-                  }`}
-                  style={{ backgroundImage: `url("${card.image}")` }}
-                />
-
-                {/* Dark Overlay - Darker by default, lighter on hover */}
-                <div
-                  className={`absolute inset-0 transition-all duration-500 ${
-                    hoveredCard === card.id
-                      ? 'bg-gradient-to-t from-black/80 via-black/40 to-transparent'
-                      : 'bg-gradient-to-t from-black/90 via-black/60 to-black/30'
-                  }`}
-                />
-
-                {/* Content */}
-                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
-                  {/* Title - Always visible */}
-                  <h3
-                    className={`font-display text-2xl md:text-3xl text-white mb-4 transition-all duration-500 ${
-                      hoveredCard === card.id
-                        ? 'translate-y-0'
-                        : 'translate-y-4'
-                    }`}
-                  >
-                    {t(card.titleKey as any)}
+        <div className="flex flex-col md:flex-row h-[100vh] md:h-[600px] w-full">
+          {ITEMS.map((item, idx) => (
+            <div
+              key={item.id}
+              className="relative flex-1 group overflow-hidden border-b md:border-b-0 md:border-r border-stone-800 transition-[flex] duration-700 ease-in-out hover:flex-[2] grayscale hover:grayscale-0"
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+              <div className="absolute inset-0 p-8 flex flex-col justify-end opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <h3 className="font-display text-2xl md:text-3xl text-white mb-2">
+                    {item.title}
                   </h3>
-
-                  {/* Description - Only visible on hover */}
-                  <p
-                    className={`font-sans text-sm md:text-base text-stone-300 leading-relaxed transition-all duration-500 ${
-                      hoveredCard === card.id
-                        ? 'opacity-100 translate-y-0 max-h-40'
-                        : 'opacity-0 translate-y-4 max-h-0'
-                    }`}
-                  >
-                    {t(card.descKey as any)}
+                  <p className="font-serif text-stone-300 italic opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                    {item.description}
                   </p>
                 </div>
-
-                {/* Decorative Border - Only on hover */}
-                <div
-                  className={`absolute inset-4 border border-gold-accent/40 transition-all duration-500 ${
-                    hoveredCard === card.id
-                      ? 'opacity-100 scale-100'
-                      : 'opacity-0 scale-95'
-                  }`}
-                />
-
-                {/* Gold accent line at bottom */}
-                <div
-                  className={`absolute bottom-0 left-0 h-1 bg-gold-accent transition-all duration-500 ${
-                    hoveredCard === card.id ? 'w-full' : 'w-0'
-                  }`}
-                />
               </div>
-            </FadeIn>
+            </div>
           ))}
         </div>
       </div>
