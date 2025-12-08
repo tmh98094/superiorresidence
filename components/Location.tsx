@@ -32,12 +32,12 @@ export const Location: React.FC = () => {
       </div>
 
       {/* Location Heading - Top Left Corner */}
-      <div className="absolute top-8 left-8 md:top-12 md:left-12 z-20 max-w-md">
+      <div className="absolute top-8 left-8 md:top-12 md:left-12 z-20 max-w-xs md:max-w-md">
         <FadeIn direction="right">
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl text-white leading-relaxed">
+          <h2 className="font-display text-lg md:text-2xl lg:text-3xl xl:text-4xl text-white leading-relaxed">
             {t('location_heading' as any)}
           </h2>
-          <div className="w-16 h-[2px] bg-gold-accent mt-4"></div>
+          <div className="w-12 md:w-16 h-[2px] bg-gold-accent mt-3 md:mt-4"></div>
         </FadeIn>
       </div>
 
