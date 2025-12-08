@@ -33,13 +33,13 @@ export const SanctuaryCards: React.FC = () => {
   ];
 
   return (
-    <section className="bg-forest-black py-0 md:py-24 relative overflow-hidden">
+    <section className="bg-forest-black py-16 md:py-24 relative overflow-hidden">
       <div className="max-w-[1800px] mx-auto">
         <FadeIn className="mb-12 px-6 md:px-12 text-center md:text-left">
           <span className="font-sans text-xs tracking-[0.2em] text-gold-accent block mb-4">
             {t('sanctuary_label')}
           </span>
-          <h2 className="font-display text-4xl md:text-5xl text-white">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-white">
             {t('sanctuary_title')}{' '}
             <span className="font-serif italic text-stone-300">
               {t('sanctuary_title_highlight')}
@@ -48,7 +48,7 @@ export const SanctuaryCards: React.FC = () => {
         </FadeIn>
 
         <div className="flex flex-col md:flex-row h-[100vh] md:h-[600px] w-full">
-          {ITEMS.map((item, idx) => (
+          {ITEMS.map((item) => (
             <div
               key={item.id}
               className="relative flex-1 group overflow-hidden border-b md:border-b-0 md:border-r border-stone-800 transition-[flex] duration-700 ease-in-out hover:flex-[2]"
