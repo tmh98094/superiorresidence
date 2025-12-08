@@ -80,42 +80,19 @@ export const Unveiling: React.FC = () => {
           <div className="w-[1px] h-24 bg-gradient-to-b from-gold-accent via-gold-accent/50 to-transparent"></div>
         </div>
 
-        {/* Leaf Icon */}
+        {/* Logo */}
         <div
-          className={`mb-4 transition-all duration-700 ${
+          className={`transition-all duration-700 ${
             animationPhase >= 3
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-4'
           }`}
         >
-          <svg
-            width="40"
-            height="30"
-            viewBox="0 0 40 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="text-stone-100"
-          >
-            <path d="M20 0L40 30H0L20 0Z" fill="currentColor" fillOpacity="0.2" />
-            <path d="M20 5L36 28H4L20 5Z" stroke="currentColor" strokeWidth="1" />
-            <path d="M20 12L30 28H10L20 12Z" fill="currentColor" />
-          </svg>
-        </div>
-
-        {/* Superior Residence Text */}
-        <div
-          className={`text-center transition-all duration-700 delay-100 ${
-            animationPhase >= 3
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-4'
-          }`}
-        >
-          <h2 className="font-display tracking-[0.25em] text-3xl md:text-5xl text-stone-100">
-            SUPERIOR
-          </h2>
-          <span className="font-sans text-sm tracking-[0.4em] text-stone-400 uppercase">
-            {t('unveiling_brand')}
-          </span>
+          <img
+            src="/images/logo1.png"
+            alt="Superior Residence"
+            className="w-32 md:w-40 h-auto mx-auto"
+          />
         </div>
       </div>
     </section>

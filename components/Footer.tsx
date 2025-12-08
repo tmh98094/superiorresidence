@@ -6,8 +6,17 @@ export const Footer: React.FC = () => {
   const { t } = useLanguage();
   return (
     <footer className="bg-forest-black text-stone-500 py-12 border-t border-stone-900">
-      <div className="max-w-[1800px] mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-xs font-sans">
+      <div className="max-w-[1800px] mx-auto px-6">
+        {/* Logo */}
+        <div className="flex justify-center mb-8">
+          <img
+            src="/images/logo2.png"
+            alt="Superior Residence"
+            className="w-32 h-auto"
+          />
+        </div>
 
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-xs font-sans">
         <div>
           <p className="font-bold text-stone-300 mb-4">{t('footer_sales_office')}</p>
           <p className="leading-relaxed">SUPERIOR PROPERTY DEVELOPMENT<br />Lot 101, Jalan Batu Pahat<br />86100 Ayer Hitam,<br />Johor, Malaysia.</p>
@@ -31,7 +40,7 @@ export const Footer: React.FC = () => {
           </div>
           <p className="mt-4 text-[10px] opacity-50">{t('footer_rights')}</p>
         </div>
-
+        </div>
       </div>
     </footer>
   );

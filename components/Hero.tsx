@@ -121,29 +121,12 @@ export const Hero: React.FC = () => {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-[2]"
         >
           <a href="#home" className="flex flex-col items-center cursor-pointer group pointer-events-auto">
-            {/* Logo Icon */}
-            <div className="mb-2">
-              <svg
-                width="32"
-                height="24"
-                viewBox="0 0 40 30"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="text-stone-100 group-hover:text-gold-accent transition-colors duration-500"
-              >
-                <path d="M20 0L40 30H0L20 0Z" fill="currentColor" fillOpacity="0.2" />
-                <path d="M20 5L36 28H4L20 5Z" stroke="currentColor" strokeWidth="1" />
-                <path d="M20 12L30 28H10L20 12Z" fill="currentColor" />
-              </svg>
-            </div>
-
-            {/* Brand Name */}
-            <h1 className="font-display tracking-[0.2em] text-xl text-stone-100 whitespace-nowrap group-hover:text-gold-accent transition-colors duration-500">
-              SUPERIOR
-            </h1>
-            <span className="font-sans text-[0.5rem] tracking-[0.3em] text-stone-400 uppercase">
-              Residence
-            </span>
+            {/* Logo - Gold PNG */}
+            <img
+              src="/images/logo1.png"
+              alt="Superior Residence"
+              className="w-24 h-auto transition-opacity duration-500 group-hover:opacity-80"
+            />
           </a>
         </div>
       </div>

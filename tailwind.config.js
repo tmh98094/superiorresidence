@@ -9,9 +9,9 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                serif: ['"Cormorant Garamond"', 'serif'],
-                display: ['"Cinzel"', 'serif'],
-                sans: ['"Montserrat"', 'sans-serif'],
+                display: ['Optima', 'serif'],
+                serif: ['New York', 'Georgia', 'serif'],
+                sans: ['Century Gothic', 'system-ui', 'sans-serif'],
             },
             colors: {
                 'forest-black': '#0a0f0d',

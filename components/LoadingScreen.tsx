@@ -59,29 +59,11 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadComplete }) 
       {/* Logo */}
       <div className="mb-12">
         <div className="flex flex-col items-center">
-          {/* Logo Icon */}
-          <div className="mb-4">
-            <svg
-              width="48"
-              height="36"
-              viewBox="0 0 40 30"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="text-stone-100"
-            >
-              <path d="M20 0L40 30H0L20 0Z" fill="currentColor" fillOpacity="0.2" />
-              <path d="M20 5L36 28H4L20 5Z" stroke="currentColor" strokeWidth="1" />
-              <path d="M20 12L30 28H10L20 12Z" fill="currentColor" />
-            </svg>
-          </div>
-
-          {/* Brand Name */}
-          <h1 className="font-display tracking-[0.2em] text-2xl text-stone-100 whitespace-nowrap">
-            SUPERIOR
-          </h1>
-          <span className="font-sans text-[0.5rem] tracking-[0.3em] text-stone-400 uppercase">
-            Residence
-          </span>
+          <img
+            src="/images/logo1.png"
+            alt="Superior Residence"
+            className="w-32 h-auto mb-4"
+          />
         </div>
       </div>
 
