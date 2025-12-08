@@ -118,7 +118,7 @@ export const Hero: React.FC = () => {
       <div ref={logoContainerRef} className="absolute inset-0 z-[60] pointer-events-none">
         <div
           ref={logoRef}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-[2]"
         >
           <a href="#home" className="flex flex-col items-center cursor-pointer group pointer-events-auto">
             {/* Logo Icon */}
