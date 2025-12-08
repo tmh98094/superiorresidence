@@ -1,6 +1,7 @@
 import React from 'react';
 import { LanguageProvider } from './LanguageContext';
-import { AnimationProvider } from './AnimationContext';
+import { AnimationProvider, useAnimation } from './AnimationContext';
+import { LoadingScreen } from './components/LoadingScreen';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Prelude } from './components/Prelude';
@@ -13,23 +14,34 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { Floaters } from './components/Floaters';
 
+const AppContent: React.FC = () => {
+  const { state, setLoadingComplete } = useAnimation();
+
+  return (
+    <>
+      {state.isLoading && <LoadingScreen onLoadComplete={setLoadingComplete} />}
+      <div className="min-h-screen bg-forest-black overflow-x-hidden selection:bg-gold-accent selection:text-white">
+        <Navbar />
+        <Hero />
+        <Prelude />
+        <LushGreens />
+        <Unveiling />
+        <SanctuaryCards />
+        <Location />
+        <GoogleMapEmbed />
+        <Contact />
+        <Footer />
+        <Floaters />
+      </div>
+    </>
+  );
+};
+
 function App() {
   return (
     <LanguageProvider>
       <AnimationProvider>
-        <div className="min-h-screen bg-forest-black overflow-x-hidden selection:bg-gold-accent selection:text-white">
-          <Navbar />
-          <Hero />
-          <Prelude />
-          <LushGreens />
-          <Unveiling />
-          <SanctuaryCards />
-          <Location />
-          <GoogleMapEmbed />
-          <Contact />
-          <Footer />
-          <Floaters />
-        </div>
+        <AppContent />
       </AnimationProvider>
     </LanguageProvider>
   );

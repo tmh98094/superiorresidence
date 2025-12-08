@@ -13,6 +13,8 @@ export const Hero: React.FC = () => {
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Don't start animation until loading is complete
+    if (state.isLoading) return;
     if (!logoRef.current || !logoContainerRef.current || !heroTextRef.current || !scrollIndicatorRef.current) return;
 
     const timeline = gsap.timeline({
@@ -93,7 +95,7 @@ export const Hero: React.FC = () => {
     return () => {
       timeline.kill();
     };
-  }, [setLogoInHeader, setShowNavItems, setShowHeroText]);
+  }, [state.isLoading, setLogoInHeader, setShowNavItems, setShowHeroText]);
 
   return (
     <div id="home" className="relative w-full h-screen overflow-hidden">

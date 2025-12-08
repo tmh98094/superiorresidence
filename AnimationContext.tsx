@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';
 
 interface AnimationState {
+  isLoading: boolean;
   introComplete: boolean;
   logoInHeader: boolean;
   showNavItems: boolean;
@@ -9,6 +10,7 @@ interface AnimationState {
 
 interface AnimationContextType {
   state: AnimationState;
+  setLoadingComplete: () => void;
   setIntroComplete: () => void;
   setLogoInHeader: () => void;
   setShowNavItems: () => void;
@@ -19,11 +21,16 @@ const AnimationContext = createContext<AnimationContextType | undefined>(undefin
 
 export const AnimationProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [state, setState] = useState<AnimationState>({
+    isLoading: true,
     introComplete: false,
     logoInHeader: false,
     showNavItems: false,
     showHeroText: false,
   });
+
+  const setLoadingComplete = useCallback(() => {
+    setState((prev) => ({ ...prev, isLoading: false }));
+  }, []);
 
   const setIntroComplete = useCallback(() => {
     setState((prev) => ({ ...prev, introComplete: true }));
@@ -45,6 +52,7 @@ export const AnimationProvider: React.FC<{ children: ReactNode }> = ({ children 
     <AnimationContext.Provider
       value={{
         state,
+        setLoadingComplete,
         setIntroComplete,
         setLogoInHeader,
         setShowNavItems,
