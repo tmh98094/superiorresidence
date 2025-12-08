@@ -62,7 +62,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadComplete }) 
           <img
             src="/images/logo1.png"
             alt="Superior Residence"
-            className="w-32 h-auto mb-4"
+            className="w-96 h-auto mb-4"
           />
         </div>
       </div>

@@ -33,7 +33,7 @@ export const SanctuaryCards: React.FC = () => {
   ];
 
   return (
-    <section className="bg-forest-black py-16 md:py-24 relative overflow-hidden">
+    <section className="py-16 md:py-24 relative overflow-hidden" style={{ backgroundColor: '#2a3530' }}>
       <div className="max-w-[1800px] mx-auto">
         <FadeIn className="mb-12 px-6 md:px-12 text-center md:text-left">
           <span className="font-sans text-xs tracking-[0.2em] text-gold-accent block mb-4">

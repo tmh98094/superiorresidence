@@ -121,11 +121,11 @@ export const Hero: React.FC = () => {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-[2]"
         >
           <a href="#home" className="flex flex-col items-center cursor-pointer group pointer-events-auto">
-            {/* Logo - Gold PNG */}
+            {/* Logo - Gold PNG (3x larger) */}
             <img
               src="/images/logo1.png"
               alt="Superior Residence"
-              className="w-24 h-auto transition-opacity duration-500 group-hover:opacity-80"
+              className="w-72 h-auto transition-opacity duration-500 group-hover:opacity-80"
             />
           </a>
         </div>

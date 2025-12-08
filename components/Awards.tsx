@@ -6,7 +6,7 @@ export const Awards: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative py-20 md:py-32 bg-forest-black overflow-hidden">
+    <section className="relative py-20 md:py-32 overflow-hidden" style={{ backgroundColor: '#2a3530' }}>
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn direction="up" className="text-center mb-12">
           <span className="block font-sans text-xs tracking-widest text-gold-accent mb-4">

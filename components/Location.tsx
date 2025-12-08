@@ -27,8 +27,8 @@ export const Location: React.FC = () => {
           alt="Location Map"
           className="w-full h-full object-cover"
         />
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/60"></div>
+        {/* Dark Overlay with #2a3530 tint */}
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(42, 53, 48, 0.85)' }}></div>
       </div>
 
       {/* Location Heading - Top Left Corner */}

@@ -91,7 +91,7 @@ export const Unveiling: React.FC = () => {
           <img
             src="/images/logo1.png"
             alt="Superior Residence"
-            className="w-32 md:w-40 h-auto mx-auto"
+            className="w-96 md:w-[32rem] h-auto mx-auto"
           />
         </div>
       </div>

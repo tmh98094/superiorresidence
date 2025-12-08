@@ -32,6 +32,28 @@
     @apply antialiased;
   }
 
+  /* Font Option 1 - New Fonts (Optima, New York, Century Gothic) */
+  body.font-option-1 .font-display {
+    font-family: 'Optima', serif;
+  }
+  body.font-option-1 .font-serif {
+    font-family: 'New York', Georgia, serif;
+  }
+  body.font-option-1 .font-sans {
+    font-family: 'Century Gothic', system-ui, sans-serif;
+  }
+
+  /* Font Option 2 - Original Fonts (Cinzel, Cormorant Garamond, Montserrat) */
+  body.font-option-2 .font-display {
+    font-family: 'Cinzel', serif;
+  }
+  body.font-option-2 .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  body.font-option-2 .font-sans {
+    font-family: 'Montserrat', sans-serif;
+  }
+
   /* Custom scrollbar for webkit */
   ::-webkit-scrollbar {
     width: 8px;

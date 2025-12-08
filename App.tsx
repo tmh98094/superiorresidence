@@ -1,6 +1,7 @@
 import React from 'react';
 import { LanguageProvider } from './LanguageContext';
 import { AnimationProvider, useAnimation } from './AnimationContext';
+import { FontProvider } from './FontContext';
 import { LoadingScreen } from './components/LoadingScreen';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -42,9 +43,11 @@ const AppContent: React.FC = () => {
 function App() {
   return (
     <LanguageProvider>
-      <AnimationProvider>
-        <AppContent />
-      </AnimationProvider>
+      <FontProvider>
+        <AnimationProvider>
+          <AppContent />
+        </AnimationProvider>
+      </FontProvider>
     </LanguageProvider>
   );
 }
