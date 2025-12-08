@@ -53,8 +53,8 @@ export const Unveiling: React.FC = () => {
       />
       <div className="absolute inset-0 bg-black/60"></div>
 
-      {/* Centered Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+      {/* Centered Content - Moved up 100px */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-10" style={{ marginTop: '-100px' }}>
         {/* UNVEILING Text */}
         <div
           className={`transition-all duration-700 ${

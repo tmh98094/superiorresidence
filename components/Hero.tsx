@@ -38,7 +38,7 @@ export const Hero: React.FC = () => {
       .to(
         logoRef.current,
         {
-          y: '-45vh', // Move up to header position (adjusted higher)
+          y: 'calc(-45vh + 15px)', // Move up to header position with 15px offset
           scale: 1,
           duration: 1.2,
           onStart: () => {
