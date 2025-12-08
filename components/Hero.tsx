@@ -168,7 +168,7 @@ export const Hero: React.FC = () => {
       {/* Scroll Indicator */}
       <div
         ref={scrollIndicatorRef}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 z-20 animate-bounce opacity-0"
+        className="fixed bottom-8 left-1/2 -translate-x-1/2 text-white/50 z-20 animate-bounce opacity-0"
       >
         <ChevronDown size={32} strokeWidth={1} />
       </div>
