@@ -55,9 +55,9 @@ export const Hero: React.FC = () => {
               logoContainerRef.current.style.bottom = 'auto';
               logoContainerRef.current.style.height = '6rem'; // Match navbar height (py-6 = 1.5rem top + 1.5rem bottom)
               
-              // Position logo in the center of the fixed navbar
+              // Position logo in the center of the fixed navbar (moved down 15px)
               logoRef.current.style.position = 'absolute';
-              logoRef.current.style.top = '50%';
+              logoRef.current.style.top = 'calc(50% + 15px)';
               logoRef.current.style.left = '50%';
               logoRef.current.style.transform = 'translate(-50%, -50%)';
             }

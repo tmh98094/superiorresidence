@@ -105,7 +105,7 @@ export const Contact: React.FC = () => {
                   <p className="font-sans text-[0.6rem] text-stone-500 tracking-[0.2em] uppercase">
                     {t('contact_developed_by')}
                   </p>
-                  <p className="font-display text-stone-300 tracking-widest">SUPERIOR RESIDENCE</p>
+                  <p className="font-display text-stone-300 tracking-widest">SUPERIOR PROPERTY DEVELOPMENT</p>
                 </div>
               </div>
             </FadeIn>

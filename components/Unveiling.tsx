@@ -70,14 +70,14 @@ export const Unveiling: React.FC = () => {
 
         {/* Vertical Decorative Line */}
         <div
-          className={`my-8 transition-all duration-700 ${
+          className={`my-4 transition-all duration-700 ${
             animationPhase >= 2
               ? 'opacity-100 scale-y-100'
               : 'opacity-0 scale-y-0'
           }`}
           style={{ transformOrigin: 'top' }}
         >
-          <div className="w-[1px] h-24 bg-gradient-to-b from-gold-accent via-gold-accent/50 to-transparent"></div>
+          <div className="w-[1px] h-16 bg-gradient-to-b from-gold-accent via-gold-accent/50 to-transparent"></div>
         </div>
 
         {/* Logo */}
