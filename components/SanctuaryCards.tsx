@@ -51,7 +51,7 @@ export const SanctuaryCards: React.FC = () => {
           {ITEMS.map((item, idx) => (
             <div
               key={item.id}
-              className="relative flex-1 group overflow-hidden border-b md:border-b-0 md:border-r border-stone-800 transition-[flex] duration-700 ease-in-out hover:flex-[2] grayscale hover:grayscale-0"
+              className="relative flex-1 group overflow-hidden border-b md:border-b-0 md:border-r border-stone-800 transition-[flex] duration-700 ease-in-out hover:flex-[2]"
             >
               <img
                 src={item.image}
