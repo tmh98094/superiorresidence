@@ -53,7 +53,7 @@ export const Unveiling: React.FC = () => {
       />
       <div className="absolute inset-0 bg-black/60"></div>
 
-      {/* Centered Content - Moved up 100px */}
+      {/* Centered Content - Moved up */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10" style={{ marginTop: '-100px' }}>
         {/* UNVEILING Text */}
         <div
@@ -80,7 +80,7 @@ export const Unveiling: React.FC = () => {
           <div className="w-[1px] h-16 bg-gradient-to-b from-gold-accent via-gold-accent/50 to-transparent"></div>
         </div>
 
-        {/* Logo */}
+        {/* Logo - Cropped to center, removing padding */}
         <div
           className={`transition-all duration-700 ${
             animationPhase >= 3
@@ -88,11 +88,13 @@ export const Unveiling: React.FC = () => {
               : 'opacity-0 translate-y-4'
           }`}
         >
-          <img
-            src="/images/logo1.png"
-            alt="Superior Residence"
-            className="w-96 md:w-[32rem] h-auto mx-auto"
-          />
+          <div className="w-64 h-64 md:w-80 md:h-80 relative overflow-hidden mx-auto">
+            <img
+              src="/images/logo1.png"
+              alt="Superior Residence"
+              className="absolute inset-0 w-full h-full object-cover object-center scale-150"
+            />
+          </div>
         </div>
       </div>
     </section>
