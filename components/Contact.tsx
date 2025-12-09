@@ -68,11 +68,11 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="relative py-32 bg-stone-900 overflow-hidden">
+    <section id="contact" className="relative py-32 overflow-hidden" style={{ backgroundColor: 'rgb(42, 53, 48)' }}>
       {/* Background Texture & Image */}
       <div className="absolute inset-0">
         <img
-          src="/images/texture leaf.png"
+          src="/images/leave.png"
           className="w-full h-full object-cover opacity-20 mix-blend-overlay grayscale"
           alt="Texture"
         />

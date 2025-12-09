@@ -46,7 +46,8 @@ export const translations = {
 
         // Awards
         awards_label: 'RECOGNITION',
-        awards_title: 'A COLLECTION OF AWARD WINNING HOMES BY PROPERTYGURU',
+        awards_title: 'A COLLECTION OF AWARD WINNING HOMES BY',
+        awards_title_bold: 'PROPERTYGURU',
 
         // Location
         location_heading: 'Nestled in Ayer Hitam, where comfort meets convenience.',
@@ -182,7 +183,8 @@ export const translations = {
 
         // Awards
         awards_label: '荣誉',
-        awards_title: 'PROPERTYGURU 获奖住宅系列',
+        awards_title: 'PROPERTYGURU',
+        awards_title_bold: '获奖住宅系列',
 
         // Location
         location_heading: '坐落在亚依淡，舒适与便利的交汇处。',

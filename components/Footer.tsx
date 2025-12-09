@@ -7,7 +7,7 @@ export const Footer: React.FC = () => {
   const { t } = useLanguage();
   const { fontOption, toggleFont } = useFont();
   return (
-    <footer className="bg-forest-black text-stone-500 py-12 border-t border-stone-900">
+    <footer className="text-stone-500 py-12 border-t border-stone-700" style={{ backgroundColor: 'rgb(0, 0, 0)' }}>
       <div className="max-w-[1800px] mx-auto px-6">
         {/* Logo */}
         <div className="flex justify-center mb-6">
