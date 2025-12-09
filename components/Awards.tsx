@@ -6,7 +6,7 @@ export const Awards: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative pt-8 md:pt-10 pb-2 overflow-hidden" style={{ backgroundColor: 'rgb(10, 15, 13)' }}>
+    <section className="relative pt-8 md:pt-10 pb-2 overflow-hidden" style={{ backgroundColor: '#2a3530' }}>
       <div className="max-w-4xl mx-auto px-6">
         <FadeIn direction="up" className="text-center mb-6">
           <span className="block font-sans text-[0.65rem] tracking-widest text-gold-accent mb-2">
@@ -22,10 +22,7 @@ export const Awards: React.FC = () => {
             <img
               src="/images/propertyguru-award.png"
               alt="PropertyGuru Asia Property Awards"
-              className="w-full h-auto rounded-xl shadow-2xl hover:scale-105 transition-transform duration-500"
-              style={{ 
-                filter: 'drop-shadow(0 10px 30px rgba(197, 160, 89, 0.15))',
-              }}
+              className="w-full h-auto"
             />
           </div>
         </FadeIn>
