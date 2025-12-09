@@ -9,17 +9,19 @@ export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  // New navigation structure: Home | Prelude | Floor Plan | Site Plan | Location | Register | EN/中
+  // Navigation: Concept | Site Plan | Location | Amenities | Features | Gallery | Unit Plans | Site Progress
   const LEFT_NAV_ITEMS = [
-    { label: t('nav_home'), href: '#home' },
-    { label: t('nav_prelude'), href: '#prelude' },
-    { label: t('nav_floorplan'), href: '#floorplan' },
+    { label: 'Concept', href: '#concept' },
+    { label: 'Site Plan', href: '#siteplan' },
+    { label: 'Location', href: '#location' },
+    { label: 'Amenities', href: '#amenities' },
   ];
 
   const RIGHT_NAV_ITEMS = [
-    { label: t('nav_siteplan'), href: '#siteplan' },
-    { label: t('nav_location'), href: '#location' },
-    { label: t('nav_register'), href: '#contact' },
+    { label: 'Features', href: '#features' },
+    { label: 'Gallery', href: '#gallery' },
+    { label: 'Unit Plans', href: '#unitplans' },
+    { label: 'Site Progress', href: 'https://superiorpropertydevelopment.com.my/superior-residences/', external: true },
   ];
 
   useEffect(() => {
@@ -84,8 +86,10 @@ export const Navbar: React.FC = () => {
                 <a
                   key={item.label}
                   href={item.href}
+                  target={(item as any).external ? '_blank' : undefined}
+                  rel={(item as any).external ? 'noopener noreferrer' : undefined}
                   className="font-sans text-[10px] lg:text-xs tracking-[0.2em] uppercase text-stone-300 hover:text-gold-accent transition-colors duration-300 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-gold-accent after:transition-all hover:after:w-full"
-                  style={{ transitionDelay: `${(index + 3) * 50}ms` }}
+                  style={{ transitionDelay: `${(index + 4) * 50}ms` }}
                 >
                   {item.label}
                 </a>

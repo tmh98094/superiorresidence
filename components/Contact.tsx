@@ -97,17 +97,14 @@ export const Contact: React.FC = () => {
             </FadeIn>
 
             <FadeIn delay={200} className="hidden lg:block mt-24">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gold-accent/20 flex items-center justify-center">
-                  <span className="font-display text-gold-accent font-bold text-xl">S</span>
-                </div>
-                <div>
-                  <p className="font-sans text-[0.6rem] text-stone-500 tracking-[0.2em] uppercase">
-                    {t('contact_developed_by')}
-                  </p>
-                  <p className="font-display text-stone-300 tracking-widest">SUPERIOR PROPERTY DEVELOPMENT</p>
-                </div>
-              </div>
+              <p className="font-sans text-[0.6rem] text-stone-500 tracking-[0.2em] uppercase mb-3">
+                {t('contact_developed_by')}
+              </p>
+              <img
+                src="/images/SPD_Logo.png"
+                alt="Superior Property Development"
+                className="h-16 w-auto object-contain"
+              />
             </FadeIn>
           </div>
 
@@ -183,16 +180,22 @@ export const Contact: React.FC = () => {
                   className="block w-full bg-transparent border-b border-stone-600 py-3 text-stone-500 focus:outline-none focus:border-gold-accent transition-colors text-xs uppercase tracking-widest appearance-none rounded-none"
                 >
                   <option value="" className="bg-forest-black">
-                    {t('contact_price_label')}
+                    I'M INTERESTED IN
                   </option>
-                  <option value="RM 2M - RM 3M" className="bg-forest-black">
-                    {t('contact_price_1')}
+                  <option value="2-Storey Semi-D 45'x85 | 3,413 sq.ft" className="bg-forest-black">
+                    2-Storey Semi-D 45'x85 | 3,413 sq.ft
                   </option>
-                  <option value="RM 3M - RM 5M" className="bg-forest-black">
-                    {t('contact_price_2')}
+                  <option value="2-Storey Terrace 22'x75 | 2,527-2,759 sq.ft" className="bg-forest-black">
+                    2-Storey Terrace 22'x75 | 2,527-2,759 sq.ft
                   </option>
-                  <option value="Above RM 5M" className="bg-forest-black">
-                    {t('contact_price_3')}
+                  <option value="Rumah Mampu Biaya (B) 1-Storey Terrace 18'x70 | 856 sq.ft" className="bg-forest-black">
+                    Rumah Mampu Biaya (B) 1-Storey 18'x70 | 856 sq.ft
+                  </option>
+                  <option value="Rumah Mampu Biaya (C) 1-Storey Terrace 20'x70 | 1,008 sq.ft" className="bg-forest-black">
+                    Rumah Mampu Biaya (C) 1-Storey 20'x70 | 1,008 sq.ft
+                  </option>
+                  <option value="Rumah Mampu Biaya (D) 2-Storey Terrace 20'x70 | 1,434 sq.ft" className="bg-forest-black">
+                    Rumah Mampu Biaya (D) 2-Storey 20'x70 | 1,434 sq.ft
                   </option>
                 </select>
                 <div className="absolute right-0 top-3 pointer-events-none text-stone-500">

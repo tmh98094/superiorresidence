@@ -1,18 +1,18 @@
 import React from 'react';
 import { FadeIn } from './FadeIn';
-import { Shield, Trees, Map, UserCheck, Video, Lock } from 'lucide-react';
+import { Users, Heart, MapPin, Store, Building, Home } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 export const Location: React.FC = () => {
   const { t } = useLanguage();
 
   const FEATURES = [
-    { id: '1', icon: Map, title: t('feature_1_title'), description: t('feature_1_desc') },
-    { id: '2', icon: Trees, title: t('feature_2_title'), description: t('feature_2_desc') },
-    { id: '3', icon: Shield, title: t('feature_3_title'), description: t('feature_3_desc') },
-    { id: '4', icon: Video, title: t('feature_4_title'), description: t('feature_4_desc') },
-    { id: '5', icon: Lock, title: t('feature_5_title'), description: t('feature_5_desc') },
-    { id: '6', icon: UserCheck, title: t('feature_6_title'), description: t('feature_6_desc') },
+    { id: '1', icon: Users, title: t('feature_1_title'), description: t('feature_1_desc') },
+    { id: '2', icon: Heart, title: t('feature_2_title'), description: t('feature_2_desc') },
+    { id: '3', icon: MapPin, title: t('feature_3_title'), description: t('feature_3_desc') },
+    { id: '4', icon: Store, title: t('feature_4_title'), description: t('feature_4_desc') },
+    { id: '5', icon: Building, title: t('feature_5_title'), description: t('feature_5_desc') },
+    { id: '6', icon: Home, title: t('feature_6_title'), description: t('feature_6_desc') },
   ];
 
   return (
