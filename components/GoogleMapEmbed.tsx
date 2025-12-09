@@ -5,9 +5,9 @@ import { useLanguage } from '../LanguageContext';
 export const GoogleMapEmbed: React.FC = () => {
   const { t } = useLanguage();
 
-  // Google Maps embed URL for Taman Mekar Emas Ayer Hitam
+  // Google Maps embed URL for W58F+GQ Ayer Hitam, Johor, Malaysia (satellite view)
   const mapEmbedUrl =
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.2!2d103.1!3d1.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwNTQnMDAuMCJOIDEwM8KwMDYnMDAuMCJF!5e0!3m2!1sen!2smy!4v1234567890';
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.8!2d103.1833!3d1.9333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d05e0000000001%3A0x1!2sW58F%2BGQ+Ayer+Hitam%2C+Johor%2C+Malaysia!5e1!3m2!1sen!2smy!4v1702200000000';
 
   return (
     <section className="relative py-16 md:py-24" style={{ backgroundColor: 'rgb(42, 53, 48)' }}>
