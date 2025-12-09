@@ -96,7 +96,7 @@ export const Contact: React.FC = () => {
               </p>
             </FadeIn>
 
-            <FadeIn delay={200} className="hidden lg:block mt-24">
+            <FadeIn delay={200} className="mt-12 lg:mt-24">
               <p className="font-sans text-[0.6rem] text-stone-500 tracking-[0.2em] uppercase mb-3">
                 {t('contact_developed_by')}
               </p>

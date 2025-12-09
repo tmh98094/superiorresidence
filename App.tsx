@@ -15,6 +15,7 @@ import { GoogleMapEmbed } from './components/GoogleMapEmbed';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { Floaters } from './components/Floaters';
+import { MusicPlayer } from './components/MusicPlayer';
 
 const AppContent: React.FC = () => {
   const { state, setLoadingComplete } = useAnimation();
@@ -40,6 +41,7 @@ const AppContent: React.FC = () => {
         <Contact />
         <Footer />
         <Floaters />
+        <MusicPlayer />
       </div>
     </>
   );
