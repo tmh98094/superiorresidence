@@ -101,7 +101,7 @@ export const Contact: React.FC = () => {
                 {t('contact_developed_by')}
               </p>
               <img
-                src="/images/SPD_Logo.png"
+                src="/images/SPD_LOGO.png"
                 alt="Superior Property Development"
                 className="h-16 w-auto object-contain"
               />
