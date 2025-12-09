@@ -94,17 +94,17 @@ export const Navbar: React.FC = () => {
                   {item.label}
                 </a>
               ))}
-              <div className="font-sans text-[10px] text-stone-500 border-l border-stone-700 pl-6 flex items-center gap-2 pointer-events-auto">
+              <div className="font-sans text-xs text-stone-300 border-l border-stone-500 pl-6 flex items-center gap-2 pointer-events-auto">
                 <button
                   onClick={() => setLanguage('en')}
-                  className={`cursor-pointer transition-colors pointer-events-auto ${language === 'en' ? 'text-gold-accent' : 'hover:text-white'}`}
+                  className={`cursor-pointer transition-colors pointer-events-auto ${language === 'en' ? 'text-gold-accent font-bold' : 'text-white hover:text-gold-accent'}`}
                 >
                   EN
                 </button>
-                <span>|</span>
+                <span className="text-stone-400">|</span>
                 <button
                   onClick={() => setLanguage('cn')}
-                  className={`cursor-pointer transition-colors pointer-events-auto ${language === 'cn' ? 'text-gold-accent' : 'hover:text-white'}`}
+                  className={`cursor-pointer transition-colors pointer-events-auto ${language === 'cn' ? 'text-gold-accent font-bold' : 'text-white hover:text-gold-accent'}`}
                 >
                   中
                 </button>

@@ -12,7 +12,7 @@ const FontContext = createContext<FontContextType | undefined>(undefined);
 export const FontProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [fontOption, setFontOption] = useState<FontOption>(() => {
     const saved = localStorage.getItem('fontOption');
-    return (saved as FontOption) || 'option1';
+    return (saved as FontOption) || 'option2';
   });
 
   useEffect(() => {

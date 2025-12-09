@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 
 export const MusicPlayer: React.FC = () => {
-  const [isMuted, setIsMuted] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -11,18 +11,37 @@ export const MusicPlayer: React.FC = () => {
       audioRef.current.volume = 0.3;
       audioRef.current.loop = true;
     }
-  }, []);
+
+    // Auto-play on first user interaction (click, touch, scroll)
+    const startMusic = () => {
+      if (!hasStarted && audioRef.current) {
+        audioRef.current.play().then(() => {
+          setHasStarted(true);
+        }).catch(console.error);
+      }
+    };
+
+    window.addEventListener('click', startMusic, { once: true });
+    window.addEventListener('touchstart', startMusic, { once: true });
+    window.addEventListener('scroll', startMusic, { once: true });
+
+    return () => {
+      window.removeEventListener('click', startMusic);
+      window.removeEventListener('touchstart', startMusic);
+      window.removeEventListener('scroll', startMusic);
+    };
+  }, [hasStarted]);
 
   const toggleMute = () => {
     if (audioRef.current) {
       if (isMuted) {
-        audioRef.current.play().then(() => {
-          setIsPlaying(true);
-          setIsMuted(false);
-        }).catch(console.error);
+        audioRef.current.muted = false;
+        if (!hasStarted) {
+          audioRef.current.play().then(() => setHasStarted(true)).catch(console.error);
+        }
+        setIsMuted(false);
       } else {
-        audioRef.current.pause();
-        setIsPlaying(false);
+        audioRef.current.muted = true;
         setIsMuted(true);
       }
     }
