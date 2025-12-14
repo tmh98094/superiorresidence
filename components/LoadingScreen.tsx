@@ -8,16 +8,10 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadComplete }) 
   const [progress, setProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
 
-  // List of all images to preload
+  // Only preload critical above-fold images for faster initial load
   const imagesToPreload = [
     '/images/1 hero.png',
-    '/images/2 concept.png',
-    '/images/3 location.png',
-    '/images/texture leaf.png',
-    '/images/Card1.png',
-    '/images/Card2.png',
-    '/images/Card3.png',
-    '/images/Card4.png',
+    '/images/logo1.png',
   ];
 
   useEffect(() => {
