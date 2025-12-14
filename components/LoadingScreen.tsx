@@ -8,22 +8,33 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadComplete }) 
   const [progress, setProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
 
-  // Only preload critical above-fold images for faster initial load
+  // Images to preload
   const imagesToPreload = [
     '/images/1 hero.png',
     '/images/logo1.png',
+    '/images/2 concept.png',
+    '/images/texture leaf.png',
+  ];
+
+  // Fonts to wait for
+  const fontsToLoad = [
+    'Cinzel',
+    'Cormorant Garamond', 
+    'Montserrat',
+    'Optima',
+    'Ma Shan Zheng',
   ];
 
   useEffect(() => {
-    let loadedCount = 0;
-    const totalImages = imagesToPreload.length;
+    let loadedItems = 0;
+    const totalItems = imagesToPreload.length + fontsToLoad.length;
 
     const updateProgress = () => {
-      loadedCount++;
-      const currentProgress = Math.round((loadedCount / totalImages) * 100);
+      loadedItems++;
+      const currentProgress = Math.round((loadedItems / totalItems) * 100);
       setProgress(currentProgress);
 
-      if (loadedCount === totalImages) {
+      if (loadedItems >= totalItems) {
         // Wait a moment before fading out
         setTimeout(() => {
           setIsComplete(true);
@@ -35,19 +46,47 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadComplete }) 
       }
     };
 
-    // Preload all images
+    // Preload images
     imagesToPreload.forEach((src) => {
       const img = new Image();
       img.onload = updateProgress;
-      img.onerror = updateProgress; // Still count as loaded even if error
+      img.onerror = updateProgress;
       img.src = src;
     });
+
+    // Wait for fonts to load
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        // Check each font
+        fontsToLoad.forEach((fontName) => {
+          document.fonts.check(`16px "${fontName}"`)
+            ? updateProgress()
+            : setTimeout(updateProgress, 100); // Fallback if font not found
+        });
+      });
+    } else {
+      // Fallback for browsers without font loading API
+      fontsToLoad.forEach(() => {
+        setTimeout(updateProgress, 500);
+      });
+    }
+
+    // Safety timeout - complete after 5 seconds max
+    const safetyTimeout = setTimeout(() => {
+      if (!isComplete) {
+        setProgress(100);
+        setIsComplete(true);
+        setTimeout(onLoadComplete, 500);
+      }
+    }, 5000);
+
+    return () => clearTimeout(safetyTimeout);
   }, []);
 
   return (
     <div
       className={`fixed inset-0 z-[100] bg-forest-black flex flex-col items-center justify-center transition-opacity duration-500 ${
-        isComplete ? 'opacity-0' : 'opacity-100'
+        isComplete ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
       {/* Logo */}
