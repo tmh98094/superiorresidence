@@ -57,24 +57,23 @@ export const Location: React.FC = () => {
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
             {FEATURES.map((feature, idx) => (
               <FadeIn
                 key={feature.id}
                 delay={idx * 100}
                 className="flex flex-col items-center text-center group cursor-default"
               >
-                <div className="w-20 h-20 rounded-full border-2 border-stone-600 flex items-center justify-center mb-4 group-hover:border-gold-accent group-hover:bg-gold-accent/10 transition-all duration-500">
+                <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full border-2 border-stone-600 flex items-center justify-center mb-4 md:mb-6 group-hover:border-gold-accent group-hover:bg-gold-accent/10 transition-all duration-500">
                   <feature.icon
-                    className="text-stone-300 group-hover:text-gold-accent transition-colors"
-                    size={32}
+                    className="text-stone-300 group-hover:text-gold-accent transition-colors w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12"
                     strokeWidth={1.5}
                   />
                 </div>
-                <h4 className="font-sans text-xs font-bold uppercase tracking-widest text-white mb-2">
+                <h4 className="font-sans text-xs md:text-sm lg:text-base font-bold uppercase tracking-widest text-white mb-2 md:mb-3">
                   {feature.title}
                 </h4>
-                <p className="font-serif text-stone-400 text-sm italic">
+                <p className="font-serif text-stone-400 text-sm md:text-base lg:text-lg italic">
                   {feature.description}
                 </p>
               </FadeIn>

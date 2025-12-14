@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
         <div className="flex justify-center mb-6">
           <div className="w-48 h-48 relative overflow-hidden">
             <img
-              src="/images/logo2.png"
+              src="/images/logo1.png"
               alt="Superior Residence"
               className="absolute inset-0 w-full h-full object-cover object-center scale-150"
             />
@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Font Toggle Button */}
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center gap-4 mb-6">
           <button
             onClick={toggleFont}
             className="flex items-center gap-2 px-4 py-2 bg-stone-900 hover:bg-stone-800 text-stone-300 hover:text-gold-accent rounded-md transition-all duration-300 text-xs font-sans"

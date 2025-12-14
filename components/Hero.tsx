@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { useAnimation } from '../AnimationContext';
@@ -11,6 +11,16 @@ export const Hero: React.FC = () => {
   const logoContainerRef = useRef<HTMLDivElement>(null);
   const heroTextRef = useRef<HTMLDivElement>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Track scroll to hide hero logo when scrolled
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 300);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     // Don't start animation until loading is complete
@@ -30,8 +40,11 @@ export const Hero: React.FC = () => {
     gsap.set(heroTextRef.current, { opacity: 0, y: 20 });
     gsap.set(scrollIndicatorRef.current, { opacity: 0 });
 
-    // Calculate the target position (45% of viewport height minus 15px for offset)
-    const targetY = -(window.innerHeight * 0.45) + 15;
+    // Calculate the target position to move logo to navbar - responsive based on screen size
+    const isMobile = window.innerWidth < 768;
+    const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+    const targetOffset = isMobile ? 40 : isTablet ? 48 : 56;
+    const targetY = -(window.innerHeight * 0.5) + targetOffset;
 
     // Animation sequence
     timeline
@@ -59,12 +72,14 @@ export const Hero: React.FC = () => {
               logoContainerRef.current.style.left = '0';
               logoContainerRef.current.style.right = '0';
               logoContainerRef.current.style.bottom = 'auto';
-              logoContainerRef.current.style.height = '6rem'; // Match navbar height (py-6 = 1.5rem top + 1.5rem bottom)
+              // Set responsive height based on screen width
+              const isMobile = window.innerWidth < 768;
+              const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+              logoContainerRef.current.style.height = isMobile ? '5rem' : isTablet ? '6rem' : '7rem';
               
-              // Position logo in the center of the fixed navbar (moved down 15px)
-              // Keep the transform from GSAP to avoid jump
+              // Position logo in the fixed navbar
               logoRef.current.style.position = 'absolute';
-              logoRef.current.style.top = 'calc(50% + 15px)';
+              logoRef.current.style.top = '50%';
               logoRef.current.style.left = '50%';
               logoRef.current.style.transform = 'translate(-50%, -50%) scale(1)';
               
@@ -124,18 +139,21 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-forest-black/90"></div>
       </div>
 
-      {/* Animated Logo - Starts centered, moves to top, becomes fixed */}
-      <div ref={logoContainerRef} className="absolute inset-0 z-[60] pointer-events-none">
+      {/* Animated Logo - Starts centered, moves to top, becomes fixed - STAYS VISIBLE when scrolled */}
+      <div 
+        ref={logoContainerRef} 
+        className="absolute inset-0 z-[60] pointer-events-none"
+      >
         <div
           ref={logoRef}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-[2]"
         >
           <a href="#home" className="flex flex-col items-center cursor-pointer group pointer-events-auto">
-            {/* Logo - Gold PNG (3x larger) */}
+            {/* Logo - Icon2 */}
             <img
               src="/images/logo1.png"
               alt="Superior Residence"
-              className="w-72 h-auto transition-opacity duration-500 group-hover:opacity-80"
+              className="w-40 md:w-48 lg:w-64 h-auto transition-opacity duration-500 group-hover:opacity-80"
             />
           </a>
         </div>

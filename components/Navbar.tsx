@@ -9,24 +9,23 @@ export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  // Navigation: Concept | Site Plan | Location | Amenities | Features | Gallery | Unit Plans | Site Progress
+  // New navigation structure: Home | Prelude | Floor Plan | Site Plan | Location | Register | EN/中
   const LEFT_NAV_ITEMS = [
-    { label: 'Concept', href: '#concept' },
-    { label: 'Site Plan', href: '#siteplan' },
-    { label: 'Location', href: '#location' },
-    { label: 'Amenities', href: '#amenities' },
+    { label: t('nav_home'), href: '#home' },
+    { label: t('nav_prelude'), href: '#prelude' },
+    { label: t('nav_floorplan'), href: '#floorplan' },
   ];
 
   const RIGHT_NAV_ITEMS = [
-    { label: 'Features', href: '#features' },
-    { label: 'Gallery', href: '#gallery' },
-    { label: 'Unit Plans', href: '#unitplans' },
-    { label: 'Site Progress', href: 'https://superiorpropertydevelopment.com.my/superior-residences/', external: true },
+    { label: t('nav_siteplan'), href: '#siteplan' },
+    { label: t('nav_location'), href: '#location' },
+    { label: t('nav_register'), href: '#contact' },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      // Change to black background when scrolled to prelude section
+      setScrolled(window.scrollY > 300);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -40,9 +39,9 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 bg-transparent py-6 border-none transition-opacity duration-500 ${
+        className={`fixed top-0 left-0 w-full z-50 pt-8 pb-8 md:pt-10 md:pb-12 lg:pt-12 lg:pb-14 border-none transition-all duration-500 ${
           state.showNavItems ? 'opacity-100' : 'opacity-0'
-        }`}
+        } ${scrolled ? 'md:bg-black/90 md:backdrop-blur-md bg-transparent' : 'bg-transparent'}`}
       >
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex justify-between items-center relative h-full">
 
@@ -55,7 +54,7 @@ export const Navbar: React.FC = () => {
           </button>
 
           {/* Left Desktop Links */}
-          <div className="hidden md:flex flex-1 justify-end pr-16 lg:pr-24">
+          <div className="hidden md:flex flex-1 justify-end pr-16 lg:pr-24 xl:pr-32">
             <div className={`flex space-x-8 lg:space-x-12 transition-all duration-500 ${
               state.showNavItems ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
             }`}>
@@ -63,7 +62,7 @@ export const Navbar: React.FC = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="font-sans text-[10px] lg:text-xs tracking-[0.2em] uppercase text-stone-300 hover:text-gold-accent transition-colors duration-300 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-gold-accent after:transition-all hover:after:w-full"
+                  className="font-sans text-sm lg:text-base tracking-[0.2em] uppercase text-stone-300 hover:text-gold-accent transition-colors duration-300 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-gold-accent after:transition-all hover:after:w-full"
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
                   {item.label}
@@ -78,7 +77,7 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Right Desktop Links */}
-          <div className="hidden md:flex flex-1 justify-start pl-16 lg:pl-24">
+          <div className="hidden md:flex flex-1 justify-start pl-16 lg:pl-24 xl:pl-32">
             <div className={`flex items-center space-x-8 lg:space-x-12 transition-all duration-500 ${
               state.showNavItems ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
             }`}>
@@ -86,28 +85,26 @@ export const Navbar: React.FC = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  target={(item as any).external ? '_blank' : undefined}
-                  rel={(item as any).external ? 'noopener noreferrer' : undefined}
-                  className="font-sans text-[10px] lg:text-xs tracking-[0.2em] uppercase text-stone-300 hover:text-gold-accent transition-colors duration-300 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-gold-accent after:transition-all hover:after:w-full"
-                  style={{ transitionDelay: `${(index + 4) * 50}ms` }}
+                  className="font-sans text-sm lg:text-base tracking-[0.2em] uppercase text-stone-300 hover:text-gold-accent transition-colors duration-300 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-gold-accent after:transition-all hover:after:w-full"
+                  style={{ transitionDelay: `${(index + 3) * 50}ms` }}
                 >
                   {item.label}
                 </a>
               ))}
-              <div className="font-sans text-xs text-stone-300 border-l border-stone-500 pl-6 flex items-center gap-2 pointer-events-auto">
-                <button
-                  onClick={() => setLanguage('en')}
+              <div className="font-sans text-base text-stone-300 border-l border-stone-500 pl-6 flex items-center gap-2 pointer-events-auto">
+                <a
+                  href="/#home"
                   className={`cursor-pointer transition-colors pointer-events-auto ${language === 'en' ? 'text-gold-accent font-bold' : 'text-white hover:text-gold-accent'}`}
                 >
                   EN
-                </button>
+                </a>
                 <span className="text-stone-400">|</span>
-                <button
-                  onClick={() => setLanguage('cn')}
+                <a
+                  href="/zh#home"
                   className={`cursor-pointer transition-colors pointer-events-auto ${language === 'cn' ? 'text-gold-accent font-bold' : 'text-white hover:text-gold-accent'}`}
                 >
                   中
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -130,25 +127,19 @@ export const Navbar: React.FC = () => {
             </a>
           ))}
           <div className="pt-8 mt-8 border-t border-stone-800 w-32 text-center flex items-center justify-center gap-3">
-            <button
-              onClick={() => {
-                setLanguage('en');
-                console.log('Language set to EN');
-              }}
+            <a
+              href="/#home"
               className={`text-sm font-sans transition-colors cursor-pointer ${language === 'en' ? 'text-gold-accent' : 'text-stone-400 hover:text-white'}`}
             >
               EN
-            </button>
+            </a>
             <span className="text-stone-600">|</span>
-            <button
-              onClick={() => {
-                setLanguage('cn');
-                console.log('Language set to CN');
-              }}
+            <a
+              href="/zh#home"
               className={`text-sm font-sans transition-colors cursor-pointer ${language === 'cn' ? 'text-gold-accent' : 'text-stone-400 hover:text-white'}`}
             >
               中
-            </button>
+            </a>
           </div>
         </div>
       </nav>

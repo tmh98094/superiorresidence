@@ -14,7 +14,7 @@ export const Unveiling: React.FC = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
@@ -26,12 +26,12 @@ export const Unveiling: React.FC = () => {
 
   useEffect(() => {
     if (isVisible) {
-      // Phase 1: Show "UNVEILING" text
-      const timer1 = setTimeout(() => setAnimationPhase(1), 200);
-      // Phase 2: Show vertical line
-      const timer2 = setTimeout(() => setAnimationPhase(2), 800);
-      // Phase 3: Show leaf icon and "Superior Residence"
-      const timer3 = setTimeout(() => setAnimationPhase(3), 1400);
+      // Phase 1: Show "UNVEILING" text - faster
+      const timer1 = setTimeout(() => setAnimationPhase(1), 100);
+      // Phase 2: Show vertical line - faster
+      const timer2 = setTimeout(() => setAnimationPhase(2), 300);
+      // Phase 3: Show leaf icon and "Superior Residence" - faster
+      const timer3 = setTimeout(() => setAnimationPhase(3), 500);
 
       return () => {
         clearTimeout(timer1);

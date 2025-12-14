@@ -54,6 +54,29 @@
     font-family: 'Montserrat', sans-serif;
   }
 
+  /* Chinese Font - Only applies when language is CN */
+  /* English fonts first for Latin chars, Ma Shan Zheng for Chinese characters */
+  
+  body.lang-cn.font-option-2 .font-display {
+    font-family: 'Cinzel', 'Ma Shan Zheng', serif;
+  }
+  body.lang-cn.font-option-2 .font-serif {
+    font-family: 'Cormorant Garamond', 'Ma Shan Zheng', serif;
+  }
+  body.lang-cn.font-option-2 .font-sans {
+    font-family: 'Montserrat', 'Ma Shan Zheng', sans-serif;
+  }
+  
+  body.lang-cn.font-option-1 .font-display {
+    font-family: 'Optima', 'Ma Shan Zheng', serif;
+  }
+  body.lang-cn.font-option-1 .font-serif {
+    font-family: 'New York', 'Ma Shan Zheng', Georgia, serif;
+  }
+  body.lang-cn.font-option-1 .font-sans {
+    font-family: 'Century Gothic', 'Ma Shan Zheng', system-ui, sans-serif;
+  }
+
   /* Custom scrollbar for webkit */
   ::-webkit-scrollbar {
     width: 8px;
