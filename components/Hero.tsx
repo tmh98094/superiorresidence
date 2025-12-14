@@ -65,8 +65,8 @@ export const Hero: React.FC = () => {
           onComplete: () => {
             // Change logo container to fixed positioning at navbar height
             if (logoContainerRef.current && logoRef.current) {
-              // First, get the current position before changing to fixed
-              const currentTransform = window.getComputedStyle(logoRef.current).transform;
+              // Get current computed position
+              const logoRect = logoRef.current.getBoundingClientRect();
               
               logoContainerRef.current.style.position = 'fixed';
               logoContainerRef.current.style.top = '0';
@@ -77,16 +77,17 @@ export const Hero: React.FC = () => {
               // Mobile: pt-8 pb-8 = 64px, Tablet: pt-10 pb-12 = 88px, Desktop: pt-12 pb-14 = 104px
               const isMobile = window.innerWidth < 768;
               const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
-              logoContainerRef.current.style.height = isMobile ? '64px' : isTablet ? '88px' : '104px';
+              const navHeight = isMobile ? 64 : isTablet ? 88 : 104;
+              logoContainerRef.current.style.height = `${navHeight}px`;
               
-              // Position logo in the fixed navbar
+              // Position logo in the fixed navbar - use exact pixel position to avoid jump
               logoRef.current.style.position = 'absolute';
-              logoRef.current.style.top = '50%';
+              logoRef.current.style.top = `${navHeight / 2}px`;
               logoRef.current.style.left = '50%';
               logoRef.current.style.transform = 'translate(-50%, -50%) scale(1)';
               
               // Clear GSAP's inline y transform
-              gsap.set(logoRef.current, { y: 0 });
+              gsap.set(logoRef.current, { y: 0, clearProps: 'y' });
             }
             // Show nav items
             setTimeout(() => {
@@ -188,7 +189,7 @@ export const Hero: React.FC = () => {
       {/* Scroll Indicator */}
       <div
         ref={scrollIndicatorRef}
-        className="fixed bottom-8 left-1/2 -translate-x-1/2 text-white/50 z-20 animate-bounce opacity-0"
+        className="fixed bottom-8 left-0 right-0 flex justify-center text-white/50 z-20 animate-bounce opacity-0"
       >
         <ChevronDown size={32} strokeWidth={1} />
       </div>

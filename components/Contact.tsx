@@ -180,7 +180,7 @@ export const Contact: React.FC = () => {
                   className="block w-full bg-transparent border-b border-stone-600 py-3 text-stone-500 focus:outline-none focus:border-gold-accent transition-colors text-xs uppercase tracking-widest appearance-none rounded-none"
                 >
                   <option value="" className="bg-forest-black">
-                    I'M INTERESTED IN
+                    {t('contact_interested_in' as any)}
                   </option>
                   <option value="2-Storey Semi-D 45'x85 | 3,413 sq.ft" className="bg-forest-black">
                     2-Storey Semi-D 45'x85 | 3,413 sq.ft
