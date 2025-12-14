@@ -65,9 +65,6 @@ export const Hero: React.FC = () => {
           onComplete: () => {
             // Change logo container to fixed positioning at navbar height
             if (logoContainerRef.current && logoRef.current) {
-              // Get current computed position
-              const logoRect = logoRef.current.getBoundingClientRect();
-              
               logoContainerRef.current.style.position = 'fixed';
               logoContainerRef.current.style.top = '0';
               logoContainerRef.current.style.left = '0';
@@ -80,14 +77,20 @@ export const Hero: React.FC = () => {
               const navHeight = isMobile ? 64 : isTablet ? 88 : 104;
               logoContainerRef.current.style.height = `${navHeight}px`;
               
-              // Position logo in the fixed navbar - use exact pixel position to avoid jump
+              // Position logo in the fixed navbar center
               logoRef.current.style.position = 'absolute';
-              logoRef.current.style.top = `${navHeight / 2}px`;
+              logoRef.current.style.top = '50%';
               logoRef.current.style.left = '50%';
-              logoRef.current.style.transform = 'translate(-50%, -50%) scale(1)';
-              
-              // Clear GSAP's inline y transform
-              gsap.set(logoRef.current, { y: 0, clearProps: 'y' });
+              // Clear all GSAP transforms and set final position
+              gsap.set(logoRef.current, { 
+                x: 0, 
+                y: 0, 
+                scale: 1,
+                xPercent: -50,
+                yPercent: -50,
+                clearProps: 'transform'
+              });
+              logoRef.current.style.transform = 'translate(-50%, -50%)';
             }
             // Show nav items
             setTimeout(() => {
@@ -149,7 +152,7 @@ export const Hero: React.FC = () => {
       >
         <div
           ref={logoRef}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-[2]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         >
           <a href="#home" className="flex flex-col items-center cursor-pointer group pointer-events-auto">
             {/* Logo - Icon2 */}

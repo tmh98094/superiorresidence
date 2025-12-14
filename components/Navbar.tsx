@@ -4,7 +4,7 @@ import { useLanguage } from '../LanguageContext';
 import { useAnimation } from '../AnimationContext';
 
 export const Navbar: React.FC = () => {
-  const { language, setLanguage, t } = useLanguage();
+  const { t } = useLanguage();
   const { state } = useAnimation();
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -51,18 +51,18 @@ export const Navbar: React.FC = () => {
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          </button>                       
 
           {/* Left Desktop Links */}
-          <div className="hidden md:flex flex-1 justify-end pr-16 lg:pr-24 xl:pr-32">
-            <div className={`flex space-x-8 lg:space-x-12 transition-all duration-500 ${
+          <div className="hidden md:flex flex-1 justify-end pr-12 lg:pr-20 xl:pr-28">
+            <div className={`flex space-x-4 lg:space-x-8 xl:space-x-10 transition-all duration-500 ${
               state.showNavItems ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
             }`}>
               {LEFT_NAV_ITEMS.map((item, index) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="font-sans text-sm lg:text-base tracking-[0.2em] uppercase text-stone-300 hover:text-gold-accent transition-colors duration-300 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-gold-accent after:transition-all hover:after:w-full"
+                  className="font-sans text-[10px] lg:text-xs xl:text-sm tracking-[0.15em] uppercase text-stone-300 hover:text-gold-accent transition-colors duration-300 whitespace-nowrap relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-gold-accent after:transition-all hover:after:w-full"
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
                   {item.label}
@@ -77,35 +77,20 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Right Desktop Links */}
-          <div className="hidden md:flex flex-1 justify-start pl-16 lg:pl-24 xl:pl-32">
-            <div className={`flex items-center space-x-8 lg:space-x-12 transition-all duration-500 ${
+          <div className="hidden md:flex flex-1 justify-start pl-12 lg:pl-20 xl:pl-28">
+            <div className={`flex items-center space-x-4 lg:space-x-8 xl:space-x-10 transition-all duration-500 ${
               state.showNavItems ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
             }`}>
               {RIGHT_NAV_ITEMS.map((item, index) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="font-sans text-sm lg:text-base tracking-[0.2em] uppercase text-stone-300 hover:text-gold-accent transition-colors duration-300 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-gold-accent after:transition-all hover:after:w-full"
+                  className="font-sans text-[10px] lg:text-xs xl:text-sm tracking-[0.15em] uppercase text-stone-300 hover:text-gold-accent transition-colors duration-300 whitespace-nowrap relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-gold-accent after:transition-all hover:after:w-full"
                   style={{ transitionDelay: `${(index + 3) * 50}ms` }}
                 >
                   {item.label}
                 </a>
               ))}
-              <div className="font-sans text-base text-stone-300 border-l border-stone-500 pl-6 flex items-center gap-2 pointer-events-auto">
-                <a
-                  href="/#home"
-                  className={`cursor-pointer transition-colors pointer-events-auto ${language === 'en' ? 'text-gold-accent font-bold' : 'text-white hover:text-gold-accent'}`}
-                >
-                  EN
-                </a>
-                <span className="text-stone-400">|</span>
-                <a
-                  href="/zh#home"
-                  className={`cursor-pointer transition-colors pointer-events-auto ${language === 'cn' ? 'text-gold-accent font-bold' : 'text-white hover:text-gold-accent'}`}
-                >
-                  中
-                </a>
-              </div>
             </div>
           </div>
 
@@ -126,21 +111,6 @@ export const Navbar: React.FC = () => {
               {item.label}
             </a>
           ))}
-          <div className="pt-8 mt-8 border-t border-stone-800 w-32 text-center flex items-center justify-center gap-3">
-            <a
-              href="/#home"
-              className={`text-sm font-sans transition-colors cursor-pointer ${language === 'en' ? 'text-gold-accent' : 'text-stone-400 hover:text-white'}`}
-            >
-              EN
-            </a>
-            <span className="text-stone-600">|</span>
-            <a
-              href="/zh#home"
-              className={`text-sm font-sans transition-colors cursor-pointer ${language === 'cn' ? 'text-gold-accent' : 'text-stone-400 hover:text-white'}`}
-            >
-              中
-            </a>
-          </div>
         </div>
       </nav>
     </>
