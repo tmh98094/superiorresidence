@@ -31,10 +31,12 @@ export const Hero: React.FC = () => {
       defaults: { ease: 'power2.inOut' },
     });
 
-    // Initial state - logo is large and centered
+    // Initial state - logo is large and centered (matches inline style)
     gsap.set(logoRef.current, { 
       scale: 2, 
-      y: '0vh',
+      xPercent: -50,
+      yPercent: -50,
+      y: 0,
       opacity: 1 
     });
     gsap.set(heroTextRef.current, { opacity: 0, y: 20 });
@@ -152,10 +154,11 @@ export const Hero: React.FC = () => {
       >
         <div
           ref={logoRef}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          className="absolute top-1/2 left-1/2"
+          style={{ transform: 'translate(-50%, -50%) scale(2)' }}
         >
           <a href="#home" className="flex flex-col items-center cursor-pointer group pointer-events-auto">
-            {/* Logo - Icon2 */}
+            {/* Logo */}
             <img
               src="/images/logo1.png"
               alt="Superior Residence"

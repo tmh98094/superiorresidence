@@ -4,7 +4,7 @@ import { useLanguage } from '../LanguageContext';
 import { useAnimation } from '../AnimationContext';
 
 export const Navbar: React.FC = () => {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const { state } = useAnimation();
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -91,6 +91,22 @@ export const Navbar: React.FC = () => {
                   {item.label}
                 </a>
               ))}
+              {/* Language Toggle */}
+              <div className="font-sans text-sm text-stone-300 border-l border-stone-500 pl-4 lg:pl-6 flex items-center gap-2 pointer-events-auto">
+                <a
+                  href="/#home"
+                  className={`cursor-pointer transition-colors ${language === 'en' ? 'text-gold-accent font-bold' : 'text-white hover:text-gold-accent'}`}
+                >
+                  EN
+                </a>
+                <span className="text-stone-400">|</span>
+                <a
+                  href="/zh#home"
+                  className={`cursor-pointer transition-colors ${language === 'cn' ? 'text-gold-accent font-bold' : 'text-white hover:text-gold-accent'}`}
+                >
+                  中
+                </a>
+              </div>
             </div>
           </div>
 
@@ -111,6 +127,22 @@ export const Navbar: React.FC = () => {
               {item.label}
             </a>
           ))}
+          {/* Mobile Language Toggle */}
+          <div className="pt-8 mt-8 border-t border-stone-800 w-32 text-center flex items-center justify-center gap-3">
+            <a
+              href="/#home"
+              className={`text-sm font-sans transition-colors cursor-pointer ${language === 'en' ? 'text-gold-accent' : 'text-stone-400 hover:text-white'}`}
+            >
+              EN
+            </a>
+            <span className="text-stone-600">|</span>
+            <a
+              href="/zh#home"
+              className={`text-sm font-sans transition-colors cursor-pointer ${language === 'cn' ? 'text-gold-accent' : 'text-stone-400 hover:text-white'}`}
+            >
+              中
+            </a>
+          </div>
         </div>
       </nav>
     </>
