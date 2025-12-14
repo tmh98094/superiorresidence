@@ -41,10 +41,11 @@ export const Hero: React.FC = () => {
     gsap.set(scrollIndicatorRef.current, { opacity: 0 });
 
     // Calculate the target position to move logo to navbar - responsive based on screen size
+    // Mobile: pt-8 pb-8 = 64px, Tablet: pt-10 pb-12 = 88px, Desktop: pt-12 pb-14 = 104px
     const isMobile = window.innerWidth < 768;
     const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
-    const targetOffset = isMobile ? 40 : isTablet ? 48 : 56;
-    const targetY = -(window.innerHeight * 0.5) + targetOffset;
+    const navbarHeight = isMobile ? 64 : isTablet ? 88 : 104;
+    const targetY = -(window.innerHeight * 0.5) + (navbarHeight / 2);
 
     // Animation sequence
     timeline
@@ -72,10 +73,11 @@ export const Hero: React.FC = () => {
               logoContainerRef.current.style.left = '0';
               logoContainerRef.current.style.right = '0';
               logoContainerRef.current.style.bottom = 'auto';
-              // Set responsive height based on screen width
+              // Set responsive height based on screen width to match navbar
+              // Mobile: pt-8 pb-8 = 64px, Tablet: pt-10 pb-12 = 88px, Desktop: pt-12 pb-14 = 104px
               const isMobile = window.innerWidth < 768;
               const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
-              logoContainerRef.current.style.height = isMobile ? '5rem' : isTablet ? '6rem' : '7rem';
+              logoContainerRef.current.style.height = isMobile ? '64px' : isTablet ? '88px' : '104px';
               
               // Position logo in the fixed navbar
               logoRef.current.style.position = 'absolute';
