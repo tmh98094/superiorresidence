@@ -41,35 +41,35 @@ export const Floaters: React.FC<FloatersProps> = ({
       {/* VR-360 Button */}
       <button
         onClick={handleVRClick}
-        className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 rounded-full flex flex-col items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group"
+        className="w-14 h-14 bg-stone-800/80 hover:bg-stone-700 backdrop-blur-sm rounded-full flex flex-col items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 border border-stone-600 group"
         aria-label="VR-360 Tour"
         title="VR-360 Tour"
       >
-        <Globe2 size={22} className="text-white" />
-        <span className="text-[8px] font-bold text-white -mt-0.5">360°</span>
+        <Globe2 size={22} className="text-gold-accent" />
+        <span className="text-[8px] font-bold text-gold-accent -mt-0.5">360°</span>
       </button>
 
       {/* E-Brochure Button */}
       <button
         onClick={handleBrochureClick}
-        className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 rounded-full flex flex-col items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group relative"
+        className="w-14 h-14 bg-stone-800/80 hover:bg-stone-700 backdrop-blur-sm rounded-full flex flex-col items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 border border-stone-600 group relative"
         aria-label="E-Brochure Download"
         title="E-Brochure Download"
       >
-        <BookOpen size={20} className="text-white" />
-        <Download size={10} className="text-white absolute bottom-2 right-2" />
+        <BookOpen size={20} className="text-gold-accent" />
+        <Download size={10} className="text-gold-accent absolute bottom-2 right-2" />
       </button>
 
       {/* Form Registration Button */}
       <button
         onClick={handleFormClick}
-        className="w-14 h-14 bg-gold-accent hover:bg-gold-accent/90 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group"
+        className="w-14 h-14 bg-stone-800/80 hover:bg-stone-700 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 border border-stone-600 group"
         aria-label="Register Interest"
         title="Register Interest"
       >
         <FileText
           size={22}
-          className="text-forest-black group-hover:text-white transition-colors"
+          className="text-gold-accent"
         />
       </button>
 

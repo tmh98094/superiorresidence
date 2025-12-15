@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { LanguageProvider } from './LanguageContext';
 import { AnimationProvider, useAnimation } from './AnimationContext';
 import { FontProvider } from './FontContext';
@@ -17,18 +17,46 @@ const Contact = lazy(() => import('./components/Contact').then(m => ({ default: 
 const Footer = lazy(() => import('./components/Footer').then(m => ({ default: m.Footer })));
 const Floaters = lazy(() => import('./components/Floaters').then(m => ({ default: m.Floaters })));
 const MusicPlayer = lazy(() => import('./components/MusicPlayer').then(m => ({ default: m.MusicPlayer })));
+const LocationPage = lazy(() => import('./components/LocationPage').then(m => ({ default: m.LocationPage })));
 
 // Simple loading fallback
 const LazyFallback = () => <div className="min-h-[50vh] bg-forest-black" />;
 
 const AppContent: React.FC = () => {
   const { state, setLoadingComplete } = useAnimation();
+  const [currentPage, setCurrentPage] = useState<'home' | 'location'>('home');
 
-  // Scroll to top on mount/refresh
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
+  // Check URL for location page
+  useEffect(() => {
+    const checkRoute = () => {
+      const path = window.location.pathname;
+      if (path.includes('/location') || path.includes('/zh/location')) {
+        setCurrentPage('location');
+      } else {
+        setCurrentPage('home');
+      }
+    };
+    
+    checkRoute();
+    window.addEventListener('popstate', checkRoute);
+    return () => window.removeEventListener('popstate', checkRoute);
   }, []);
 
+  // Scroll to top on mount/refresh
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
+  // Location Page
+  if (currentPage === 'location') {
+    return (
+      <Suspense fallback={<LazyFallback />}>
+        <LocationPage />
+      </Suspense>
+    );
+  }
+
+  // Home Page
   return (
     <>
       {state.isLoading && <LoadingScreen onLoadComplete={setLoadingComplete} />}

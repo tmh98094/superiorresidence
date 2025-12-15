@@ -15,8 +15,8 @@ export default defineConfig(({ mode }) => {
           name: 'spa-fallback',
           configureServer(server) {
             server.middlewares.use((req, res, next) => {
-              // Handle /zh and /en routes as SPA
-              if (req.url?.startsWith('/zh') || req.url?.startsWith('/en')) {
+              // Handle /zh, /en, and /location routes as SPA
+              if (req.url?.startsWith('/zh') || req.url?.startsWith('/en') || req.url?.startsWith('/location')) {
                 req.url = '/';
               }
               next();

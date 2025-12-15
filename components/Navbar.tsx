@@ -18,7 +18,7 @@ export const Navbar: React.FC = () => {
 
   const RIGHT_NAV_ITEMS = [
     { label: t('nav_siteplan'), href: '#siteplan' },
-    { label: t('nav_location'), href: '#location' },
+    { label: t('nav_location'), href: language === 'cn' ? '/zh/location' : '/location' },
     { label: t('nav_register'), href: '#contact' },
   ];
 
@@ -42,7 +42,7 @@ export const Navbar: React.FC = () => {
         className={`fixed top-0 left-0 w-full z-50 pt-8 pb-8 md:pt-10 md:pb-12 lg:pt-12 lg:pb-14 border-none transition-all duration-500 ${
           state.showNavItems ? 'opacity-100' : 'opacity-0'
         } bg-transparent`}
-        style={scrolled ? { backgroundColor: 'rgba(42, 53, 48, 0.85)' } : {}}
+        style={scrolled ? { backgroundColor: 'rgba(42, 53, 48, 0.70)' } : {}}
       >
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex justify-between items-center relative h-full">
 
@@ -63,7 +63,9 @@ export const Navbar: React.FC = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="font-sans text-[10px] lg:text-xs xl:text-sm tracking-[0.15em] uppercase text-stone-300 hover:text-gold-accent transition-colors duration-300 whitespace-nowrap relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-gold-accent after:transition-all hover:after:w-full"
+                  className={`font-sans font-bold tracking-[0.15em] uppercase text-stone-300 hover:text-gold-accent transition-colors duration-300 whitespace-nowrap relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-gold-accent after:transition-all hover:after:w-full ${
+                    language === 'cn' ? 'text-sm lg:text-base xl:text-lg' : 'text-[10px] lg:text-xs xl:text-sm'
+                  }`}
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
                   {item.label}
@@ -86,7 +88,9 @@ export const Navbar: React.FC = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="font-sans text-[10px] lg:text-xs xl:text-sm tracking-[0.15em] uppercase text-stone-300 hover:text-gold-accent transition-colors duration-300 whitespace-nowrap relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-gold-accent after:transition-all hover:after:w-full"
+                  className={`font-sans font-bold tracking-[0.15em] uppercase text-stone-300 hover:text-gold-accent transition-colors duration-300 whitespace-nowrap relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-gold-accent after:transition-all hover:after:w-full ${
+                    language === 'cn' ? 'text-sm lg:text-base xl:text-lg' : 'text-[10px] lg:text-xs xl:text-sm'
+                  }`}
                   style={{ transitionDelay: `${(index + 3) * 50}ms` }}
                 >
                   {item.label}
