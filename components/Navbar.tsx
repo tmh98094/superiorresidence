@@ -41,7 +41,7 @@ export const Navbar: React.FC = () => {
       <nav
         className={`fixed top-0 left-0 w-full z-50 pt-8 pb-8 md:pt-10 md:pb-12 lg:pt-12 lg:pb-14 border-none transition-all duration-500 ${
           state.showNavItems ? 'opacity-100' : 'opacity-0'
-        } ${scrolled ? 'md:backdrop-blur-md bg-transparent' : 'bg-transparent'}`}
+        } bg-transparent`}
         style={scrolled ? { backgroundColor: 'rgba(42, 53, 48, 0.85)' } : {}}
       >
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex justify-between items-center relative h-full">
