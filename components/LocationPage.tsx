@@ -42,18 +42,18 @@ export const LocationPage: React.FC = () => {
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between">
           <a
             href={homeUrl}
-            className="flex items-center gap-2 text-stone-300 hover:text-gold-accent transition-colors"
+            className="flex items-center gap-1 md:gap-2 text-stone-300 hover:text-gold-accent transition-colors"
           >
-            <ArrowLeft size={20} />
-            <span className="font-sans text-sm tracking-wider uppercase">
-              {language === 'cn' ? '返回首页' : 'Back to Home'}
+            <ArrowLeft size={16} className="md:w-5 md:h-5" />
+            <span className="font-sans text-xs md:text-sm tracking-wider uppercase whitespace-nowrap">
+              {language === 'cn' ? '返回' : 'Back'}
             </span>
           </a>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <MapPin size={20} className="text-gold-accent" />
-              <span className="font-display text-lg md:text-xl text-white">
-                {language === 'cn' ? '位置详情' : 'Location Details'}
+          <div className="flex items-center gap-2 md:gap-4">
+            <div className="flex items-center gap-1 md:gap-2">
+              <MapPin size={16} className="text-gold-accent md:w-5 md:h-5" />
+              <span className="font-display text-sm md:text-xl text-white whitespace-nowrap">
+                {language === 'cn' ? '位置' : 'Location'}
               </span>
             </div>
             {/* Language Toggle */}

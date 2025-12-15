@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { useAnimation } from '../AnimationContext';
@@ -11,16 +11,6 @@ export const Hero: React.FC = () => {
   const logoContainerRef = useRef<HTMLDivElement>(null);
   const heroTextRef = useRef<HTMLDivElement>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
-  const [scrolled, setScrolled] = useState(false);
-
-  // Track scroll to hide hero logo when scrolled
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 300);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     // Don't start animation until loading is complete
@@ -31,23 +21,36 @@ export const Hero: React.FC = () => {
       defaults: { ease: 'power2.inOut' },
     });
 
-    // Initial state - logo is large and centered (matches inline style)
+    // Get navbar height based on screen size
+    const isMobile = window.innerWidth < 768;
+    const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+    const navbarHeight = isMobile ? 64 : isTablet ? 88 : 104;
+
+    // Set container to fixed from the start - this avoids any position switching
+    logoContainerRef.current.style.position = 'fixed';
+    logoContainerRef.current.style.top = '0';
+    logoContainerRef.current.style.left = '0';
+    logoContainerRef.current.style.right = '0';
+    logoContainerRef.current.style.height = '100vh';
+
+    // Calculate the Y offset needed to move from center to navbar
+    const viewportHeight = window.innerHeight;
+    const startY = viewportHeight / 2; // Logo starts at center
+    const endY = (navbarHeight / 2) + 12; // Logo ends at navbar center + 15px lower
+    const moveDistance = startY - endY; // How far to move up
+
+    // Initial state - logo at center of viewport
     gsap.set(logoRef.current, { 
-      scale: 2, 
+      top: '50%',
+      left: '50%',
       xPercent: -50,
       yPercent: -50,
       y: 0,
+      scale: 2,
       opacity: 1 
     });
     gsap.set(heroTextRef.current, { opacity: 0, y: 20 });
     gsap.set(scrollIndicatorRef.current, { opacity: 0 });
-
-    // Calculate the target position to move logo to navbar - responsive based on screen size
-    // Mobile: pt-8 pb-8 = 64px, Tablet: pt-10 pb-12 = 88px, Desktop: pt-12 pb-14 = 104px
-    const isMobile = window.innerWidth < 768;
-    const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
-    const navbarHeight = isMobile ? 64 : isTablet ? 88 : 104;
-    const targetY = -(window.innerHeight * 0.5) + (navbarHeight / 2);
 
     // Animation sequence
     timeline
@@ -57,44 +60,23 @@ export const Hero: React.FC = () => {
       .to(
         logoRef.current,
         {
-          y: targetY, // Move up to header position with 15px offset
+          y: -moveDistance, // Move up by this amount
           scale: 1,
           duration: 1.2,
           onStart: () => {
-            // Trigger navbar to show (it will fade in behind the logo)
             setLogoInHeader();
           },
           onComplete: () => {
-            // Change logo container to fixed positioning at navbar height
+            // Shrink container and reposition logo
             if (logoContainerRef.current && logoRef.current) {
-              logoContainerRef.current.style.position = 'fixed';
-              logoContainerRef.current.style.top = '0';
-              logoContainerRef.current.style.left = '0';
-              logoContainerRef.current.style.right = '0';
-              logoContainerRef.current.style.bottom = 'auto';
-              // Set responsive height based on screen width to match navbar
-              // Mobile: pt-8 pb-8 = 64px, Tablet: pt-10 pb-12 = 88px, Desktop: pt-12 pb-14 = 104px
-              const isMobile = window.innerWidth < 768;
-              const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
-              const navHeight = isMobile ? 64 : isTablet ? 88 : 104;
-              logoContainerRef.current.style.height = `${navHeight}px`;
-              
-              // Position logo in the fixed navbar center
-              logoRef.current.style.position = 'absolute';
-              logoRef.current.style.top = '50%';
-              logoRef.current.style.left = '50%';
-              // Clear all GSAP transforms and set final position
-              gsap.set(logoRef.current, { 
-                x: 0, 
-                y: 0, 
-                scale: 1,
-                xPercent: -50,
-                yPercent: -50,
-                clearProps: 'transform'
+              logoContainerRef.current.style.height = `${navbarHeight}px`;
+              // Reset to percentage-based centering within navbar
+              gsap.set(logoRef.current, {
+                top: '62%', // Slightly below center (5px lower)
+                y: 0,
+                yPercent: -50
               });
-              logoRef.current.style.transform = 'translate(-50%, -50%)';
             }
-            // Show nav items
             setTimeout(() => {
               setShowNavItems();
             }, 100);
@@ -102,9 +84,7 @@ export const Hero: React.FC = () => {
         },
         '+=0'
       )
-      // Wait for nav items to appear, then fade in hero text
       .to({}, { duration: 0.2 })
-      // Fade in hero text
       .to(
         heroTextRef.current,
         {
@@ -117,7 +97,6 @@ export const Hero: React.FC = () => {
         },
         '+=0'
       )
-      // Fade in scroll indicator
       .to(
         scrollIndicatorRef.current,
         {
@@ -154,8 +133,8 @@ export const Hero: React.FC = () => {
       >
         <div
           ref={logoRef}
-          className="absolute top-1/2 left-1/2"
-          style={{ transform: 'translate(-50%, -50%) scale(2)' }}
+          className="absolute"
+          style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%) scale(2)' }}
         >
           <a href="#home" className="flex flex-col items-center cursor-pointer group pointer-events-auto">
             {/* Logo */}
