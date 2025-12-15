@@ -160,9 +160,9 @@ export const Hero: React.FC = () => {
           <a href="#home" className="flex flex-col items-center cursor-pointer group pointer-events-auto">
             {/* Logo */}
             <img
-              src="/images/logo1.png"
+              src="/images/try.png"
               alt="Superior Residence"
-              className="w-40 md:w-48 lg:w-64 h-auto transition-opacity duration-500 group-hover:opacity-80"
+              className="w-36 md:w-44 lg:w-58 h-auto transition-opacity duration-500 group-hover:opacity-80"
             />
           </a>
         </div>
