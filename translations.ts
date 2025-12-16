@@ -40,7 +40,7 @@ export const translations = {
         // Concept/Prelude
         prelude_label: 'PRELUDE',
         prelude_title: 'WHERE GENERATIONS CAN THRIVE',
-        prelude_text_1: 'Amid the rush of the modern world, Superior Residence Taman Indah Jaya stands as a return to what truly endures - family, nature and quiet strength of roots that run deep.',
+        prelude_text_1: 'Amid the rush of the modern world, Superior Residences Taman Indah Jaya stands as a return to what truly endures - family, nature and quiet strength of roots that run deep.',
         prelude_text_2: 'Here, luxury is not loud, it is lived. Each home is built not only with stone and timber, but with intention - to ground, to nourish, and to carry forward a legacy of harmony.',
         prelude_text_3: 'Here, nature is not the backdrop - it is the heart of the home, where prosperity blooms.',
 
@@ -55,7 +55,7 @@ export const translations = {
         location_title_1: 'BANJARAN',
         location_title_2: 'TITIWANGSA',
         location_subtitle: 'Live amidst one of the oldest rainforests in the world',
-        location_description: 'Nestled in the heart of Ayer Hitam, Superior Residence offers a perfect blend of tranquility and accessibility.',
+        location_description: 'Nestled in the heart of Ayer Hitam, Superior Residences offers a perfect blend of tranquility and accessibility.',
 
         // Masterplan
         masterplan_title_1: 'ALL THIS,',
@@ -63,8 +63,8 @@ export const translations = {
         masterplan_subtitle: 'Strategically located to provide seclusion without isolation.',
 
         // Features
-        features_title_1: 'SUPERIOR RESIDENCE',
-        features_title_2: 'PREMIUM LIVING',
+        features_title_1: 'SUPERIOR RESIDENCES',
+        features_title_2: 'TAMAN INDAH JAYA',
         feature_1_title: 'Low Density',
         feature_1_desc: 'Peaceful living environment',
         feature_2_title: 'Family-Oriented',
@@ -135,7 +135,7 @@ export const translations = {
         footer_sales_enquiry: 'Sales Enquiry',
         footer_privacy: 'Privacy Policy',
         footer_terms: 'Terms of Use',
-        footer_rights: '© 2024 Superior Residence. All Rights Reserved.',
+        footer_rights: '© 2025 Superior Residences. All Rights Reserved.',
     },
     cn: {
         // Navbar
@@ -178,7 +178,7 @@ export const translations = {
         // Concept/Prelude
         prelude_label: '序言',
         prelude_title: '世代繁荣之地',
-        prelude_text_1: '在现代世界的喧嚣中，Superior Residence Taman Indah Jaya 代表着对真正持久事物的回归——家庭、自然和深深扎根的宁静力量。',
+        prelude_text_1: '在现代世界的喧嚣中，Superior Residences Taman Indah Jaya 代表着对真正持久事物的回归——家庭、自然和深深扎根的宁静力量。',
         prelude_text_2: '在这里，奢华不是喧嚣的，而是生活的。每个家不仅用石头和木材建造，更是用意图建造——扎根、滋养，并传承和谐的遗产。',
         prelude_text_3: '在这里，自然不是背景——它是家的核心，繁荣在此绽放。',
 
@@ -201,8 +201,8 @@ export const translations = {
         masterplan_subtitle: '战略位置提供隐居而不孤立。',
 
         // Features
-        features_title_1: 'SUPERIOR RESIDENCE',
-        features_title_2: '优质生活',
+        features_title_1: 'SUPERIOR RESIDENCES',
+        features_title_2: 'TAMAN INDAH JAYA',
         feature_1_title: '低密度',
         feature_1_desc: '宁静的居住环境',
         feature_2_title: '家庭导向',
@@ -273,7 +273,7 @@ export const translations = {
         footer_sales_enquiry: '销售咨询',
         footer_privacy: '隐私政策',
         footer_terms: '使用条款',
-        footer_rights: '© 2024 Superior Residence. 保留所有权利。',
+        footer_rights: '© 2025 Superior Residences. 保留所有权利。',
     }
 };
 

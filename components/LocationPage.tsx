@@ -52,7 +52,7 @@ export const LocationPage: React.FC = () => {
           <div className="flex items-center gap-2 md:gap-4">
             <div className="flex items-center gap-1 md:gap-2">
               <MapPin size={16} className="text-gold-accent md:w-5 md:h-5" />
-              <span className="font-display text-sm md:text-xl text-white whitespace-nowrap">
+              <span className={`font-display text-sm md:text-xl text-white whitespace-nowrap ${language === 'cn' ? 'nav-chinese' : ''}`}>
                 {language === 'cn' ? '位置' : 'Location'}
               </span>
             </div>
@@ -67,7 +67,7 @@ export const LocationPage: React.FC = () => {
               <span className="text-stone-400">|</span>
               <a
                 href="/zh/location"
-                className={`cursor-pointer transition-colors ${language === 'cn' ? 'text-gold-accent font-bold' : 'text-white hover:text-gold-accent'}`}
+                className={`cursor-pointer transition-colors nav-chinese ${language === 'cn' ? 'text-gold-accent font-bold' : 'text-white hover:text-gold-accent'}`}
               >
                 中
               </a>
@@ -87,7 +87,7 @@ export const LocationPage: React.FC = () => {
               {language === 'cn' ? '战略位置' : 'Strategic Location'}
             </p>
             <h1 className="font-display text-3xl md:text-5xl lg:text-6xl text-white mb-4">
-              Superior Residence
+              Superior Residences
             </h1>
             <p className="font-display text-xl md:text-2xl text-stone-400">
               Taman Indah Jaya, Ayer Hitam
@@ -98,7 +98,7 @@ export const LocationPage: React.FC = () => {
           <div className="relative rounded-lg overflow-hidden shadow-2xl cursor-pointer md:cursor-default" onClick={openFullscreen}>
             <img
               src="/images/detailedlocation.jpg"
-              alt="Superior Residence Location Map"
+              alt="Superior Residences Location Map"
               className="w-full h-auto object-contain"
             />
             {/* Mobile tap indicator */}
@@ -123,14 +123,14 @@ export const LocationPage: React.FC = () => {
           </p>
           <h2 className="font-display text-2xl md:text-3xl text-white mb-8 leading-relaxed">
             {language === 'cn' 
-              ? '"在这里，您将享受低密度社区的宁静，同时拥有城镇便利设施的便捷。成熟的社区基础设施，让您的家庭在安全、舒适的环境中茁壮成长。"'
-              : '"Here, you\'ll enjoy the tranquility of a low-density community while having convenient access to town amenities. Mature community infrastructure ensures your family thrives in a safe, comfortable environment."'}
+              ? '在这里，您将享受低密度社区的宁静，同时拥有城镇便利设施的便捷。成熟的社区基础设施，让您的家庭在安全、舒适的环境中茁壮成长。'
+              : 'Here, you\'ll enjoy the tranquility of a low-density community while having convenient access to town amenities. Mature community infrastructure ensures your family thrives in a safe, comfortable environment.'}
           </h2>
           <div className="w-16 h-[1px] bg-gold-accent mx-auto mb-8"></div>
-          <p className="text-stone-400 leading-relaxed">
+          <p className="font-serif text-stone-400 leading-relaxed text-lg">
             {language === 'cn'
-              ? 'Superior Residence Taman Indah Jaya 位于亚依淡的成熟社区，周边设施齐全。邻近油站、诊所、餐饮、银行、市场和学校，满足您的日常所需，让生活更加便捷舒适。'
-              : 'Superior Residence Taman Indah Jaya is nestled in a well-established community in Ayer Hitam. Enjoy convenient access to nearby amenities including petrol stations, clinics, eateries, banks, markets, and schools - everything you need for comfortable daily living.'}
+              ? 'Superior Residences Taman Indah Jaya 位于亚依淡的成熟社区，周边设施齐全。邻近油站、诊所、餐饮、银行、市场和学校，满足您的日常所需，让生活更加便捷舒适。'
+              : 'Superior Residences Taman Indah Jaya is nestled in a well-established community in Ayer Hitam. Enjoy convenient access to nearby amenities including petrol stations, clinics, eateries, banks, markets, and schools - everything you need for comfortable daily living.'}
           </p>
         </div>
       </section>
@@ -202,7 +202,7 @@ export const LocationPage: React.FC = () => {
               >
                 <img
                   src="/images/detailedlocation.jpg"
-                  alt="Superior Residence Location Map"
+                  alt="Superior Residences Location Map"
                   className="max-w-none select-none rounded"
                   style={{ 
                     width: `${zoom * 100}%`,

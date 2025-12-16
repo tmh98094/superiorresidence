@@ -39,7 +39,7 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 pt-8 pb-8 md:pt-10 md:pb-12 lg:pt-12 lg:pb-14 border-none transition-all duration-500 ${
+        className={`fixed top-0 left-0 w-full z-50 pt-12 pb-12 md:pt-16 md:pb-16 lg:pt-19 lg:pb-19 border-none transition-all duration-500 ${
           state.showNavItems ? 'opacity-100' : 'opacity-0'
         } bg-transparent`}
         style={scrolled ? { backgroundColor: 'rgba(42, 53, 48, 0.70)' } : {}}
@@ -64,7 +64,7 @@ export const Navbar: React.FC = () => {
                   key={item.label}
                   href={item.href}
                   className={`font-sans font-bold tracking-[0.15em] uppercase text-stone-300 hover:text-gold-accent transition-colors duration-300 whitespace-nowrap relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-gold-accent after:transition-all hover:after:w-full ${
-                    language === 'cn' ? 'text-sm lg:text-base xl:text-lg' : 'text-[10px] lg:text-xs xl:text-sm'
+                    language === 'cn' ? 'text-sm lg:text-base xl:text-lg nav-chinese' : 'text-[10px] lg:text-xs xl:text-sm'
                   }`}
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
@@ -89,7 +89,7 @@ export const Navbar: React.FC = () => {
                   key={item.label}
                   href={item.href}
                   className={`font-sans font-bold tracking-[0.15em] uppercase text-stone-300 hover:text-gold-accent transition-colors duration-300 whitespace-nowrap relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-gold-accent after:transition-all hover:after:w-full ${
-                    language === 'cn' ? 'text-sm lg:text-base xl:text-lg' : 'text-[10px] lg:text-xs xl:text-sm'
+                    language === 'cn' ? 'text-sm lg:text-base xl:text-lg nav-chinese' : 'text-[10px] lg:text-xs xl:text-sm'
                   }`}
                   style={{ transitionDelay: `${(index + 3) * 50}ms` }}
                 >
@@ -107,7 +107,7 @@ export const Navbar: React.FC = () => {
                 <span className="text-stone-400">|</span>
                 <a
                   href="/zh#home"
-                  className={`cursor-pointer transition-colors ${language === 'cn' ? 'text-gold-accent font-bold' : 'text-white hover:text-gold-accent'}`}
+                  className={`cursor-pointer transition-colors nav-chinese ${language === 'cn' ? 'text-gold-accent font-bold' : 'text-white hover:text-gold-accent'}`}
                 >
                   中
                 </a>
@@ -127,7 +127,7 @@ export const Navbar: React.FC = () => {
               key={item.label}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="font-display text-2xl text-stone-200 hover:text-gold-accent transition-colors"
+              className={`font-display text-2xl text-stone-200 hover:text-gold-accent transition-colors ${language === 'cn' ? 'nav-chinese' : ''}`}
             >
               {item.label}
             </a>
@@ -143,7 +143,7 @@ export const Navbar: React.FC = () => {
             <span className="text-stone-600">|</span>
             <a
               href="/zh#home"
-              className={`text-sm font-sans transition-colors cursor-pointer ${language === 'cn' ? 'text-gold-accent' : 'text-stone-400 hover:text-white'}`}
+              className={`text-sm font-sans nav-chinese transition-colors cursor-pointer ${language === 'cn' ? 'text-gold-accent' : 'text-stone-400 hover:text-white'}`}
             >
               中
             </a>

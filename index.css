@@ -32,49 +32,26 @@
     @apply antialiased;
   }
 
-  /* Font Option 1 - New Fonts (Optima, New York, Century Gothic) */
-  body.font-option-1 .font-display {
+  /* Default Fonts - Optima, New York, Century Gothic */
+  .font-display {
     font-family: 'Optima', serif;
   }
-  body.font-option-1 .font-serif {
+  .font-serif {
     font-family: 'New York', Georgia, serif;
   }
-  body.font-option-1 .font-sans {
+  .font-sans {
     font-family: 'Century Gothic', system-ui, sans-serif;
   }
 
-  /* Font Option 2 - Original Fonts (Cinzel, Cormorant Garamond, Montserrat) */
-  body.font-option-2 .font-display {
-    font-family: 'Cinzel', serif;
-  }
-  body.font-option-2 .font-serif {
-    font-family: 'Cormorant Garamond', serif;
-  }
-  body.font-option-2 .font-sans {
-    font-family: 'Montserrat', sans-serif;
-  }
-
-  /* Chinese Font - Only applies when language is CN */
-  /* English fonts first for Latin chars, Ma Shan Zheng for Chinese characters */
-  
-  body.lang-cn.font-option-2 .font-display {
-    font-family: 'Cinzel', 'Ma Shan Zheng', serif;
-  }
-  body.lang-cn.font-option-2 .font-serif {
-    font-family: 'Cormorant Garamond', 'Ma Shan Zheng', serif;
-  }
-  body.lang-cn.font-option-2 .font-sans {
-    font-family: 'Montserrat', 'Ma Shan Zheng', sans-serif;
-  }
-  
-  body.lang-cn.font-option-1 .font-display {
+  /* Chinese Font - Only applies to titles when language is CN */
+  /* For mixed text, English fonts handle Latin chars, Chinese fonts handle Chinese chars */
+  body.lang-cn .font-display {
     font-family: 'Optima', 'Ma Shan Zheng', serif;
   }
-  body.lang-cn.font-option-1 .font-serif {
-    font-family: 'New York', 'Ma Shan Zheng', Georgia, serif;
-  }
-  body.lang-cn.font-option-1 .font-sans {
-    font-family: 'Century Gothic', 'Ma Shan Zheng', system-ui, sans-serif;
+
+  /* Special class for Chinese navbar text */
+  body.lang-cn .nav-chinese {
+    font-family: 'Ma Shan Zheng', 'Century Gothic', system-ui, sans-serif !important;
   }
 
   /* Custom scrollbar for webkit */
@@ -101,6 +78,11 @@
   .ken-burns-bg {
     animation: ken-burns 25s ease-out infinite alternate;
   }
+  
+  /* Custom logo sizes - 30% larger than original */
+  .w-47 { width: 11.75rem; } /* 188px - was 144px (w-36) */
+  .w-57 { width: 14.25rem; } /* 228px - was 176px (w-44) */
+  .w-75 { width: 18.75rem; } /* 300px - was 232px (w-58) */
 }
 
 /* Logo Intro Animation */

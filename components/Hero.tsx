@@ -21,10 +21,10 @@ export const Hero: React.FC = () => {
       defaults: { ease: 'power2.inOut' },
     });
 
-    // Get navbar height based on screen size
+    // Get navbar height based on screen size - increased to fully contain larger logo
     const isMobile = window.innerWidth < 768;
     const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
-    const navbarHeight = isMobile ? 64 : isTablet ? 88 : 104;
+    const navbarHeight = isMobile ? 96 : isTablet ? 128 : 152;
 
     // Set container to fixed from the start - this avoids any position switching
     logoContainerRef.current.style.position = 'fixed';
@@ -36,7 +36,7 @@ export const Hero: React.FC = () => {
     // Calculate the Y offset needed to move from center to navbar
     const viewportHeight = window.innerHeight;
     const startY = viewportHeight / 2; // Logo starts at center
-    const endY = (navbarHeight / 2) + 12; // Logo ends at navbar center + 15px lower
+    const endY = (navbarHeight / 2); // Logo ends at navbar center
     const moveDistance = startY - endY; // How far to move up
 
     // Initial state - logo at center of viewport
@@ -72,7 +72,7 @@ export const Hero: React.FC = () => {
               logoContainerRef.current.style.height = `${navbarHeight}px`;
               // Reset to percentage-based centering within navbar
               gsap.set(logoRef.current, {
-                top: '62%', // Slightly below center (5px lower)
+                top: '50%', // Perfect center
                 y: 0,
                 yPercent: -50
               });
@@ -139,9 +139,9 @@ export const Hero: React.FC = () => {
           <a href="#home" className="flex flex-col items-center cursor-pointer group pointer-events-auto">
             {/* Logo */}
             <img
-              src="/images/try.png"
-              alt="Superior Residence"
-              className="w-36 md:w-44 lg:w-58 h-auto transition-opacity duration-500 group-hover:opacity-80"
+              src="/images/logo1.webp"
+              alt="Superior Residences"
+              className="w-47 md:w-57 lg:w-75 h-auto transition-opacity duration-500 group-hover:opacity-80"
             />
           </a>
         </div>

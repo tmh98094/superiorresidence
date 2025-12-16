@@ -50,7 +50,7 @@ export const Location: React.FC = () => {
               <h3 className="font-display text-3xl md:text-5xl text-white mb-2">
                 {t('features_title_1')}
               </h3>
-              <h3 className="font-serif text-2xl md:text-4xl text-gold-accent italic">
+              <h3 className="font-display text-2xl md:text-4xl text-gold-accent">
                 {t('features_title_2')}
               </h3>
             </FadeIn>

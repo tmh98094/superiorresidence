@@ -20,7 +20,7 @@ export const Features: React.FC = () => {
     <section id="homes" className="bg-forest-dark py-24 border-y border-stone-800/50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h3 className="font-serif text-3xl md:text-4xl text-stone-200">
+          <h3 className="font-display text-3xl md:text-4xl text-stone-200">
             {t('features_title_1')}<br />
             {t('features_title_2')}
           </h3>

@@ -1,11 +1,9 @@
 import React from 'react';
-import { Facebook, Instagram, Type } from 'lucide-react';
+import { Facebook, Instagram } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
-import { useFont } from '../FontContext';
 
 export const Footer: React.FC = () => {
   const { t } = useLanguage();
-  const { fontOption, toggleFont } = useFont();
   return (
     <footer className="text-stone-500 py-12 border-t border-stone-700" style={{ backgroundColor: 'rgb(0, 0, 0)' }}>
       <div className="max-w-[1800px] mx-auto px-6">
@@ -14,21 +12,10 @@ export const Footer: React.FC = () => {
           <div className="w-48 h-48 relative overflow-hidden">
             <img
               src="/images/logo1.png"
-              alt="Superior Residence"
+              alt="Superior Residences"
               className="absolute inset-0 w-full h-full object-cover object-center scale-150"
             />
           </div>
-        </div>
-
-        {/* Font Toggle Button */}
-        <div className="flex justify-center gap-4 mb-6">
-          <button
-            onClick={toggleFont}
-            className="flex items-center gap-2 px-4 py-2 bg-stone-900 hover:bg-stone-800 text-stone-300 hover:text-gold-accent rounded-md transition-all duration-300 text-xs font-sans"
-          >
-            <Type size={16} />
-            <span>Font: {fontOption === 'option1' ? 'Optima' : 'Original'}</span>
-          </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-xs font-sans">
