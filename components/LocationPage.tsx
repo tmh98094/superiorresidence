@@ -87,7 +87,7 @@ export const LocationPage: React.FC = () => {
               {language === 'cn' ? '战略位置' : 'Strategic Location'}
             </p>
             <h1 className="font-display text-3xl md:text-5xl lg:text-6xl text-white mb-4">
-              Superior Residences
+              SUPERIOR RESIDENCES
             </h1>
             <p className="font-display text-xl md:text-2xl text-stone-400">
               Taman Indah Jaya, Ayer Hitam
