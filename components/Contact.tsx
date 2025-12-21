@@ -82,7 +82,7 @@ export const Contact: React.FC = () => {
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-end">
           {/* Left: Heading */}
-          <div className="flex flex-col justify-center h-full">
+          <div className="flex flex-col justify-center h-full text-center lg:text-left">
             <FadeIn>
               <h2 className="font-display text-5xl md:text-7xl text-white mb-8 leading-[0.9]">
                 {t('contact_your')}
@@ -91,12 +91,12 @@ export const Contact: React.FC = () => {
                 <br />
                 <span className="text-gold-accent">{t('contact_awaits')}</span>
               </h2>
-              <p className="font-serif text-stone-400 text-lg md:text-xl max-w-md leading-relaxed">
+              <p className="font-serif text-stone-400 text-lg md:text-xl max-w-md leading-relaxed text-center lg:text-justify mx-auto lg:mx-0">
                 {t('contact_subtitle')}
               </p>
             </FadeIn>
 
-            <FadeIn delay={200} className="mt-12 lg:mt-24">
+            <FadeIn delay={200} className="mt-12 lg:mt-24 flex flex-col items-center lg:items-start">
               <p className="font-sans text-[0.6rem] text-stone-500 tracking-[0.2em] uppercase mb-3">
                 {t('contact_developed_by')}
               </p>
@@ -122,12 +122,12 @@ export const Contact: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="block w-full bg-transparent border-b border-stone-600 py-3 text-stone-200 focus:outline-none focus:border-gold-accent transition-colors peer placeholder-transparent"
-                  placeholder={t('contact_name')}
+                  className="block w-full bg-transparent border-b border-stone-600 py-3 pt-6 text-stone-200 focus:outline-none focus:border-gold-accent transition-colors peer"
+                  placeholder=" "
                 />
                 <label
                   htmlFor="name"
-                  className="absolute left-0 top-3 text-stone-500 text-xs font-bold tracking-widest uppercase transition-all peer-focus:-top-4 peer-focus:text-[0.6rem] peer-focus:text-gold-accent peer-not-placeholder-shown:-top-4 peer-not-placeholder-shown:text-[0.6rem]"
+                  className="absolute left-0 top-6 text-stone-500 text-xs font-bold tracking-widest uppercase transition-all peer-focus:top-1 peer-focus:text-[0.6rem] peer-focus:text-gold-accent peer-[:not(:placeholder-shown)]:top-1 peer-[:not(:placeholder-shown)]:text-[0.6rem]"
                 >
                   {t('contact_name')}
                 </label>
@@ -141,12 +141,12 @@ export const Contact: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="block w-full bg-transparent border-b border-stone-600 py-3 text-stone-200 focus:outline-none focus:border-gold-accent transition-colors peer placeholder-transparent"
-                  placeholder={t('contact_email')}
+                  className="block w-full bg-transparent border-b border-stone-600 py-3 pt-6 text-stone-200 focus:outline-none focus:border-gold-accent transition-colors peer"
+                  placeholder=" "
                 />
                 <label
                   htmlFor="email"
-                  className="absolute left-0 top-3 text-stone-500 text-xs font-bold tracking-widest uppercase transition-all peer-focus:-top-4 peer-focus:text-[0.6rem] peer-focus:text-gold-accent peer-not-placeholder-shown:-top-4 peer-not-placeholder-shown:text-[0.6rem]"
+                  className="absolute left-0 top-6 text-stone-500 text-xs font-bold tracking-widest uppercase transition-all peer-focus:top-1 peer-focus:text-[0.6rem] peer-focus:text-gold-accent peer-[:not(:placeholder-shown)]:top-1 peer-[:not(:placeholder-shown)]:text-[0.6rem]"
                 >
                   {t('contact_email')}
                 </label>
@@ -160,12 +160,12 @@ export const Contact: React.FC = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="block w-full bg-transparent border-b border-stone-600 py-3 text-stone-200 focus:outline-none focus:border-gold-accent transition-colors peer placeholder-transparent"
-                  placeholder={t('contact_phone_placeholder')}
+                  className="block w-full bg-transparent border-b border-stone-600 py-3 pt-6 text-stone-200 focus:outline-none focus:border-gold-accent transition-colors peer"
+                  placeholder=" "
                 />
                 <label
                   htmlFor="phone"
-                  className="absolute left-0 top-3 text-stone-500 text-xs font-bold tracking-widest uppercase transition-all peer-focus:-top-4 peer-focus:text-[0.6rem] peer-focus:text-gold-accent peer-not-placeholder-shown:-top-4 peer-not-placeholder-shown:text-[0.6rem]"
+                  className="absolute left-0 top-6 text-stone-500 text-xs font-bold tracking-widest uppercase transition-all peer-focus:top-1 peer-focus:text-[0.6rem] peer-focus:text-gold-accent peer-[:not(:placeholder-shown)]:top-1 peer-[:not(:placeholder-shown)]:text-[0.6rem]"
                 >
                   {t('contact_mobile')}
                 </label>
@@ -187,15 +187,6 @@ export const Contact: React.FC = () => {
                   </option>
                   <option value="2-Storey Terrace 22'x75 | 2,527-2,759 sq.ft" className="bg-forest-black">
                     2-Storey Terrace 22'x75 | 2,527-2,759 sq.ft
-                  </option>
-                  <option value="Rumah Mampu Biaya (B) 1-Storey Terrace 18'x70 | 856 sq.ft" className="bg-forest-black">
-                    Rumah Mampu Biaya (B) 1-Storey 18'x70 | 856 sq.ft
-                  </option>
-                  <option value="Rumah Mampu Biaya (C) 1-Storey Terrace 20'x70 | 1,008 sq.ft" className="bg-forest-black">
-                    Rumah Mampu Biaya (C) 1-Storey 20'x70 | 1,008 sq.ft
-                  </option>
-                  <option value="Rumah Mampu Biaya (D) 2-Storey Terrace 20'x70 | 1,434 sq.ft" className="bg-forest-black">
-                    Rumah Mampu Biaya (D) 2-Storey 20'x70 | 1,434 sq.ft
                   </option>
                 </select>
                 <div className="absolute right-0 top-3 pointer-events-none text-stone-500">

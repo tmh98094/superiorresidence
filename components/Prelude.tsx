@@ -23,13 +23,13 @@ export const Prelude: React.FC = () => {
                 {t('prelude_title')}
               </h2>
               <div className="w-12 h-[1px] bg-stone-600 mb-8"></div>
-              <p className="font-serif text-base md:text-lg text-stone-300 leading-relaxed mb-6">
+              <p className="font-serif text-base md:text-lg text-stone-300 leading-relaxed mb-6 text-justify">
                 {t('prelude_text_1')}
               </p>
-              <p className="font-serif text-base md:text-lg text-stone-300 leading-relaxed mb-6">
+              <p className="font-serif text-base md:text-lg text-stone-300 leading-relaxed mb-6 text-justify">
                 {t('prelude_text_2')}
               </p>
-              <p className="font-serif text-base md:text-lg text-stone-300 leading-relaxed italic">
+              <p className="font-serif text-base md:text-lg text-stone-300 leading-relaxed italic text-justify">
                 {t('prelude_text_3')}
               </p>
             </FadeIn>
@@ -39,16 +39,17 @@ export const Prelude: React.FC = () => {
         {/* Right Side - Video (60%) */}
         <div className="w-full md:w-[60%] relative">
           <FadeIn direction="left" delay={300}>
-            <div className="h-[50vh] md:h-screen w-full relative">
+            <div className="h-[50vh] md:h-screen w-full relative overflow-hidden">
               <video
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-[103%] object-cover"
+                style={{ top: '0', transform: 'translateY(-1.5%)' }}
                 autoPlay
                 muted
                 loop
                 playsInline
                 poster="/images/2 concept.png"
               >
-                <source src="/videos/broll2.mp4" type="video/mp4" />
+                <source src="/videos/house.mp4" type="video/mp4" />
               </video>
               {/* Fallback image if video doesn't load */}
               <img

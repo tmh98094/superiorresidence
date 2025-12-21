@@ -27,6 +27,28 @@
   font-display: swap;
 }
 
+/* CHINESE FONT RULES */
+/* Default: Century Gothic for all Chinese body text */
+body.lang-cn * {
+  font-family: 'Century Gothic', system-ui, sans-serif !important;
+}
+
+/* Specific headings use Noto Serif SC */
+body.lang-cn .font-display,
+body.lang-cn h1,
+body.lang-cn h2,
+body.lang-cn h3,
+body.lang-cn h4,
+body.lang-cn h5,
+body.lang-cn h6 {
+  font-family: 'Noto Serif SC', 'Century Gothic', system-ui, sans-serif !important;
+}
+
+/* Navigation items use Noto Serif SC */
+body.lang-cn .nav-chinese {
+  font-family: 'Noto Serif SC', 'Century Gothic', system-ui, sans-serif !important;
+}
+
 @layer base {
   body {
     @apply antialiased;
@@ -43,15 +65,9 @@
     font-family: 'Century Gothic', system-ui, sans-serif;
   }
 
-  /* Chinese Font - Only applies to titles when language is CN */
-  /* For mixed text, English fonts handle Latin chars, Chinese fonts handle Chinese chars */
-  body.lang-cn .font-display {
-    font-family: 'Optima', 'Ma Shan Zheng', serif;
-  }
-
-  /* Special class for Chinese navbar text */
-  body.lang-cn .nav-chinese {
-    font-family: 'Ma Shan Zheng', 'Century Gothic', system-ui, sans-serif !important;
+  /* Justified text for all copywriting */
+  .text-justify {
+    text-align: justify;
   }
 
   /* Custom scrollbar for webkit */

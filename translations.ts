@@ -13,7 +13,7 @@ export const translations = {
 
         // Hero
         hero_subtitle: 'Freehold Landed Homes',
-        hero_title: 'A sanctuary of heart and homes.',
+        hero_title: 'A Sanctuary of Heart and Homes.',
         hero_title_1: 'FOR THOSE WHO',
         hero_title_2: 'LIVE THE EXTRAORDINARY',
 
@@ -69,13 +69,13 @@ export const translations = {
         feature_1_desc: 'Peaceful living environment',
         feature_2_title: 'Family-Oriented',
         feature_2_desc: 'Safe community for families',
-        feature_3_title: 'Prime Location',
+        feature_3_title: 'Strategic Location',
         feature_3_desc: 'Central to Batu Pahat, Kluang, Yong Peng & Machap',
         feature_4_title: 'Town Convenience',
         feature_4_desc: 'Near petrol stations, clinics, eateries, banks & market',
         feature_5_title: 'Community Maturity',
         feature_5_desc: 'Established neighbourhood with functioning infrastructure',
-        feature_6_title: 'Spacious Layouts',
+        feature_6_title: 'Spacious Front Porch',
         feature_6_desc: 'Single Storey: 24ft car porch | Semi-D: 27ft car porch',
 
         // Services
@@ -207,13 +207,13 @@ export const translations = {
         feature_1_desc: '宁静的居住环境',
         feature_2_title: '家庭导向',
         feature_2_desc: '适合家庭的安全社区',
-        feature_3_title: '优越位置',
+        feature_3_title: '战略位置',
         feature_3_desc: '毗邻峇株巴辖、居銮、永平及马接',
         feature_4_title: '城镇便利',
         feature_4_desc: '邻近油站、诊所、餐饮、银行及市场',
         feature_5_title: '成熟社区',
         feature_5_desc: '完善基础设施的成熟住宅区',
-        feature_6_title: '宽敞格局',
+        feature_6_title: '宽敞前廊',
         feature_6_desc: '单层：24尺车廊 | 半独立：27尺车廊',
 
         // Services

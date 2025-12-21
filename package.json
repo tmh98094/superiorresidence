@@ -11,12 +11,15 @@
     "replace-images": "node scripts/replace-images.cjs"
   },
   "dependencies": {
+    "@iconify/react": "^6.0.2",
     "gsap": "^3.13.0",
     "lucide-react": "^0.555.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@iconify-json/hugeicons": "^1.2.20",
+    "@iconify-json/mdi": "^1.2.3",
     "@types/node": "^22.14.0",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",

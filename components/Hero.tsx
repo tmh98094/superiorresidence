@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { useAnimation } from '../AnimationContext';
@@ -11,6 +11,19 @@ export const Hero: React.FC = () => {
   const logoContainerRef = useRef<HTMLDivElement>(null);
   const heroTextRef = useRef<HTMLDivElement>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+
+  // Hide scroll indicator when user scrolls past hero section
+  useEffect(() => {
+    const handleScroll = () => {
+      // Hide when scrolled past 300px (entering prelude section)
+      if (window.scrollY > 300) {
+        setShowScrollIndicator(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     // Don't start animation until loading is complete
@@ -171,13 +184,15 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div
-        ref={scrollIndicatorRef}
-        className="fixed bottom-8 left-0 right-0 flex justify-center text-white/50 z-20 animate-bounce opacity-0"
-      >
-        <ChevronDown size={32} strokeWidth={1} />
-      </div>
+      {/* Scroll Indicator - Only shows on first load, hides after scrolling */}
+      {showScrollIndicator && (
+        <div
+          ref={scrollIndicatorRef}
+          className="fixed bottom-8 left-0 right-0 flex justify-center text-white/50 z-20 animate-bounce opacity-0"
+        >
+          <ChevronDown size={32} strokeWidth={1} />
+        </div>
+      )}
     </div>
   );
 };

@@ -1,18 +1,19 @@
 import React from 'react';
 import { FadeIn } from './FadeIn';
-import { Users, Heart, MapPin, Store, Building, Home } from 'lucide-react';
+import { Users, Heart, MapPin, Store, Building } from 'lucide-react';
+import { Icon } from '@iconify/react';
 import { useLanguage } from '../LanguageContext';
 
 export const Location: React.FC = () => {
   const { t } = useLanguage();
 
   const FEATURES = [
-    { id: '1', icon: Users, title: t('feature_1_title'), description: t('feature_1_desc') },
-    { id: '2', icon: Heart, title: t('feature_2_title'), description: t('feature_2_desc') },
-    { id: '3', icon: MapPin, title: t('feature_3_title'), description: t('feature_3_desc') },
-    { id: '4', icon: Store, title: t('feature_4_title'), description: t('feature_4_desc') },
-    { id: '5', icon: Building, title: t('feature_5_title'), description: t('feature_5_desc') },
-    { id: '6', icon: Home, title: t('feature_6_title'), description: t('feature_6_desc') },
+    { id: '1', icon: Users, title: t('feature_1_title'), description: t('feature_1_desc'), isIconify: false },
+    { id: '2', icon: Heart, title: t('feature_2_title'), description: t('feature_2_desc'), isIconify: false },
+    { id: '3', icon: MapPin, title: t('feature_3_title'), description: t('feature_3_desc'), isIconify: false },
+    { id: '4', icon: Store, title: t('feature_4_title'), description: t('feature_4_desc'), isIconify: false },
+    { id: '5', icon: Building, title: t('feature_5_title'), description: t('feature_5_desc'), isIconify: false },
+    { id: '6', icon: 'hugeicons:car-parking-02', title: t('feature_6_title'), description: t('feature_6_desc'), isIconify: true },
   ];
 
   return (
@@ -65,10 +66,14 @@ export const Location: React.FC = () => {
                 className="flex flex-col items-center text-center group cursor-default"
               >
                 <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full border-2 border-stone-600 flex items-center justify-center mb-4 md:mb-6 group-hover:border-gold-accent group-hover:bg-gold-accent/10 transition-all duration-500">
-                  <feature.icon
-                    className="text-stone-300 group-hover:text-gold-accent transition-colors w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12"
-                    strokeWidth={1.5}
-                  />
+                  {feature.isIconify ? (
+                    <Icon icon={feature.icon as string} className="text-stone-300 group-hover:text-gold-accent transition-colors w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
+                  ) : (
+                    <feature.icon
+                      className="text-stone-300 group-hover:text-gold-accent transition-colors w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12"
+                      strokeWidth={1.5}
+                    />
+                  )}
                 </div>
                 <h4 className="font-sans text-xs md:text-sm lg:text-base font-bold uppercase tracking-widest text-white mb-2 md:mb-3">
                   {feature.title}

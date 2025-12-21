@@ -7,7 +7,6 @@ import { Hero } from './components/Hero';
 
 // Lazy load below-fold components for better initial load performance
 const Prelude = lazy(() => import('./components/Prelude').then(m => ({ default: m.Prelude })));
-const LushGreens = lazy(() => import('./components/LushGreens').then(m => ({ default: m.LushGreens })));
 const Unveiling = lazy(() => import('./components/Unveiling').then(m => ({ default: m.Unveiling })));
 const SanctuaryCards = lazy(() => import('./components/SanctuaryCards').then(m => ({ default: m.SanctuaryCards })));
 const Location = lazy(() => import('./components/Location').then(m => ({ default: m.Location })));
@@ -64,7 +63,6 @@ const AppContent: React.FC = () => {
         <Hero />
         <Suspense fallback={<LazyFallback />}>
           <Prelude />
-          <LushGreens />
           <Unveiling />
           <SanctuaryCards />
           <Location />
@@ -80,6 +78,24 @@ const AppContent: React.FC = () => {
 };
 
 function App() {
+  // Ensure page always starts at top on load/refresh
+  useEffect(() => {
+    // Disable browser's automatic scroll restoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    
+    // Immediate scroll to top
+    window.scrollTo(0, 0);
+    
+    // Also scroll to top after a short delay to ensure all content is loaded
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <LanguageProvider>
       <AnimationProvider>

@@ -42,7 +42,7 @@ export const Navbar: React.FC = () => {
         className={`fixed top-0 left-0 w-full z-50 pt-12 pb-12 md:pt-16 md:pb-16 lg:pt-19 lg:pb-19 border-none transition-all duration-500 ${
           state.showNavItems ? 'opacity-100' : 'opacity-0'
         } bg-transparent`}
-        style={scrolled ? { backgroundColor: 'rgba(42, 53, 48, 0.70)' } : {}}
+        style={scrolled ? { backgroundColor: 'rgba(42, 53, 48, 1)' } : {}}
       >
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex justify-between items-center relative h-full">
 
