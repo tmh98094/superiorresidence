@@ -35,10 +35,6 @@ export const Footer: React.FC = () => {
                 <a href="https://superiorpropertydevelopment.com.my" target="_blank" rel="noopener noreferrer" className="text-gold-accent hover:text-white transition-colors">
                   superiorpropertydevelopment.com.my
                 </a>
-                <span className="hidden md:inline">|</span>
-                <a href="#contact" className="text-gold-accent hover:text-white transition-colors">
-                  {language === 'cn' ? '联系我们' : 'Contact Us'}
-                </a>
               </div>
               
               {/* Operating Hours merged under company details */}
