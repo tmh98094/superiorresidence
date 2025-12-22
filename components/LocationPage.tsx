@@ -103,6 +103,10 @@ export const LocationPage: React.FC = () => {
               src="/images/locationmap.webp"
               alt="Superior Residences Location Map"
               className="w-full max-h-[60vh] md:max-h-[70vh] object-contain mx-auto"
+              style={{ 
+                filter: 'brightness(1) contrast(0.8) saturate(1.05) hue-rotate(-5deg)',
+                imageRendering: 'high-quality'
+              }}
             />
             {/* Zoom hint overlay */}
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
@@ -212,7 +216,9 @@ export const LocationPage: React.FC = () => {
                   className="max-w-none select-none rounded"
                   style={{ 
                     width: `${zoom * 100}%`,
-                    maxWidth: `${zoom * 100}vw`
+                    maxWidth: `${zoom * 100}vw`,
+                    filter: 'brightness(1) contrast(0.8) saturate(1.05) hue-rotate(-5deg)',
+                    imageRendering: 'high-quality'
                   }}
                   draggable={false}
                 />
