@@ -53,13 +53,17 @@ export const Footer: React.FC = () => {
                 </p>
                 <div className="flex gap-4 justify-center md:justify-start">
                   <a
-                    href="#"
+                    href="https://www.facebook.com/p/Superior-Property-Development-61558856129917/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-stone-800 hover:bg-gold-accent flex items-center justify-center transition-colors group"
                   >
                     <Facebook className="w-5 h-5 text-stone-400 group-hover:text-black" />
                   </a>
                   <a
-                    href="#"
+                    href="https://www.instagram.com/superiorpropertydevelopment/?hl=en"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-stone-800 hover:bg-gold-accent flex items-center justify-center transition-colors group"
                   >
                     <Instagram className="w-5 h-5 text-stone-400 group-hover:text-black" />

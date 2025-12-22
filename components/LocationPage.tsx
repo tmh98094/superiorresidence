@@ -100,7 +100,7 @@ export const LocationPage: React.FC = () => {
             onClick={openFullscreen}
           >
             <img
-              src="/images/detailedlocation.jpg"
+              src="/images/locationmap.webp"
               alt="Superior Residences Location Map"
               className="w-full max-h-[60vh] md:max-h-[70vh] object-contain mx-auto"
             />
@@ -207,7 +207,7 @@ export const LocationPage: React.FC = () => {
                 style={{ minWidth: zoom > 1 ? `${zoom * 100}%` : '100%' }}
               >
                 <img
-                  src="/images/detailedlocation.jpg"
+                  src="/images/locationmap.webp"
                   alt="Superior Residences Location Map"
                   className="max-w-none select-none rounded"
                   style={{ 
