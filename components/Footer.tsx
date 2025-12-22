@@ -45,6 +45,27 @@ export const Footer: React.FC = () => {
                 <p>Monday – Friday: 8:30 am – 5:30 pm</p>
                 <p>Closed on Saturday & Sunday</p>
               </div>
+              
+              {/* Stay Connected Section */}
+              <div className="mt-6">
+                <p className="text-white font-medium mb-3 text-sm">
+                  {t('stay_connected')}
+                </p>
+                <div className="flex gap-4 justify-center md:justify-start">
+                  <a
+                    href="#"
+                    className="w-10 h-10 rounded-full bg-stone-800 hover:bg-gold-accent flex items-center justify-center transition-colors group"
+                  >
+                    <Facebook className="w-5 h-5 text-stone-400 group-hover:text-black" />
+                  </a>
+                  <a
+                    href="#"
+                    className="w-10 h-10 rounded-full bg-stone-800 hover:bg-gold-accent flex items-center justify-center transition-colors group"
+                  >
+                    <Instagram className="w-5 h-5 text-stone-400 group-hover:text-black" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

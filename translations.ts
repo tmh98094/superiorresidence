@@ -136,6 +136,7 @@ export const translations = {
         footer_privacy: 'Privacy Policy',
         footer_terms: 'Terms of Use',
         footer_rights: '© 2025 Superior Residences. All Rights Reserved.',
+        stay_connected: 'Stay Connected',
     },
     cn: {
         // Navbar
@@ -274,6 +275,7 @@ export const translations = {
         footer_privacy: '隐私政策',
         footer_terms: '使用条款',
         footer_rights: '© 2025 Superior Residences. 保留所有权利。',
+        stay_connected: '保持联系',
     }
 };
 
