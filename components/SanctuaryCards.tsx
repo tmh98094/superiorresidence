@@ -15,19 +15,19 @@ export const SanctuaryCards: React.FC = () => {
     {
       id: 2,
       title: t('sanctuary_2_title'),
-      image: '/images/Card2.png',
+      image: '/images/Card2.png?v=2024122201',
       description: t('sanctuary_2_desc'),
     },
     {
       id: 3,
       title: t('sanctuary_3_title'),
-      image: '/images/Card3.jpg',
+      image: '/images/Card3.jpg?v=2024122201',
       description: t('sanctuary_3_desc'),
     },
     {
       id: 4,
       title: t('sanctuary_4_title'),
-      image: '/images/Card4.png',
+      image: '/images/Card4.png?v=2024122201',
       description: t('sanctuary_4_desc'),
     },
   ];
