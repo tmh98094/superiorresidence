@@ -12,12 +12,18 @@ export const Hero: React.FC = () => {
   const heroTextRef = useRef<HTMLDivElement>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  // Hide scroll indicator when user scrolls past hero section
+  // Handle scroll for visibility states
   useEffect(() => {
     const handleScroll = () => {
-      // Hide when scrolled past 300px (entering prelude section)
-      if (window.scrollY > 300) {
+      const scrollY = window.scrollY;
+
+      // Update scrolled state for logo visibility (threshold 100px)
+      setIsScrolled(scrollY > 100);
+
+      // Hide scroll indicator when scrolled past 300px
+      if (scrollY > 300) {
         setShowScrollIndicator(false);
       }
     };
@@ -36,8 +42,7 @@ export const Hero: React.FC = () => {
 
     // Get navbar height based on screen size - increased to fully contain larger logo
     const isMobile = window.innerWidth < 768;
-    const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
-    const navbarHeight = isMobile ? 96 : isTablet ? 128 : 152;
+    const navbarHeight = isMobile ? 80 : 96; // 80px = 5rem, 96px = 6rem
 
     // Set container to fixed from the start - this avoids any position switching
     logoContainerRef.current.style.position = 'fixed';
@@ -53,29 +58,30 @@ export const Hero: React.FC = () => {
     const moveDistance = startY - endY; // How far to move up
 
     // Initial state - logo at center of viewport
-    gsap.set(logoRef.current, { 
+    gsap.set(logoRef.current, {
       top: '50%',
       left: '50%',
       xPercent: -50,
       yPercent: -50,
       y: 0,
-      scale: 2,
-      opacity: 1 
+      scale: 2, // Start at 2x zoom as requested
+      opacity: 1
     });
     gsap.set(heroTextRef.current, { opacity: 0, y: 20 });
     gsap.set(scrollIndicatorRef.current, { opacity: 0 });
 
     // Animation sequence
     timeline
-      // Wait 1 second with logo centered
-      .to({}, { duration: 1 })
-      // Float logo to header position and scale down
+      // Wait 0.5s with logo centered at 2x
+      .to({}, { duration: 0.5 })
+      // Move up and slowly zoom out
       .to(
         logoRef.current,
         {
           y: -moveDistance, // Move up by this amount
-          scale: 1,
-          duration: 1.2,
+          scale: 1, // Zoom out to normal size (1x)
+          duration: 2.5, // Slower duration for "slowly zooming out" effect
+          ease: 'power2.inOut',
           onStart: () => {
             setLogoInHeader();
           },
@@ -139,23 +145,25 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-forest-black/90"></div>
       </div>
 
-      {/* Animated Logo - Starts centered, moves to top, becomes fixed - STAYS VISIBLE when scrolled */}
-      <div 
-        ref={logoContainerRef} 
-        className="absolute inset-0 z-[60] pointer-events-none"
+      {/* Animated Logo - Starts centered, moves to top, becomes fixed - HIDES when scrolled */}
+      <div
+        ref={logoContainerRef}
+        className={`absolute inset-0 z-[50] pointer-events-none transition-opacity duration-300 ${isScrolled ? 'opacity-0' : 'opacity-100'}`}
       >
         <div
           ref={logoRef}
-          className="absolute"
+          className="absolute overflow-hidden"
           style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%) scale(2)' }}
         >
           <a href="#home" className="flex flex-col items-center cursor-pointer group pointer-events-auto">
-            {/* Logo */}
-            <img
-              src="/images/logo1.webp"
-              alt="Superior Residences"
-              className="w-47 md:w-57 lg:w-75 h-auto transition-opacity duration-500 group-hover:opacity-80"
-            />
+            {/* Logo - Refined sizing and cropping to show full image */}
+            <div className="relative w-64 md:w-80 lg:w-96 h-[5rem] md:h-[6rem] lg:h-[7rem] overflow-hidden flex items-center justify-center">
+              <img
+                src="/images/logo1s.png"
+                alt="Superior Residences"
+                className="w-full h-[80%] object-contain transition-opacity duration-500 group-hover:opacity-80"
+              />
+            </div>
           </a>
         </div>
       </div>

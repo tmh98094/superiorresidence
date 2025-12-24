@@ -98,31 +98,15 @@ export const LogoIntro: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-forest-black/90"></div>
       </div>
 
-      {/* Animated Logo */}
+      {/* Animated Logo - Using PNG for consistency */}
       <div ref={logoRef} className="relative z-10 flex flex-col items-center">
-        {/* Logo Icon - Same size as navbar */}
-        <div className="mb-2">
-          <svg
-            width="32"
-            height="24"
-            viewBox="0 0 40 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="text-stone-100"
-          >
-            <path d="M20 0L40 30H0L20 0Z" fill="currentColor" fillOpacity="0.2" />
-            <path d="M20 5L36 28H4L20 5Z" stroke="currentColor" strokeWidth="1" />
-            <path d="M20 12L30 28H10L20 12Z" fill="currentColor" />
-          </svg>
+        <div className="w-[30rem] h-56 relative overflow-hidden flex items-center justify-center">
+          <img
+            src="/images/logo1s.png"
+            alt="Superior Residence"
+            className="w-full h-[80%] object-contain"
+          />
         </div>
-
-        {/* Brand Name - Same size as navbar */}
-        <h1 className="font-display tracking-[0.2em] text-xl text-stone-100 whitespace-nowrap">
-          SUPERIOR
-        </h1>
-        <span className="font-sans text-[0.5rem] tracking-[0.3em] text-stone-400 uppercase">
-          Residence
-        </span>
       </div>
     </div>
   );

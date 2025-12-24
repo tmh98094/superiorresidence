@@ -34,7 +34,7 @@ const AppContent: React.FC = () => {
         setCurrentPage('home');
       }
     };
-    
+
     checkRoute();
     window.addEventListener('popstate', checkRoute);
     return () => window.removeEventListener('popstate', checkRoute);
@@ -78,22 +78,39 @@ const AppContent: React.FC = () => {
 };
 
 function App() {
-  // Ensure page always starts at top on load/refresh
+  // Handle Hash Scrolling
+  useEffect(() => {
+    // Only run if there is a hash
+    if (window.location.hash) {
+      // Small delay to allow Suspense components to mount
+      const timer = setTimeout(() => {
+        const id = window.location.hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 500); // 500ms delay to ensure DOM is ready
+      return () => clearTimeout(timer);
+    } else {
+      // Only force scroll to top if NO hash is present
+      // Immediate scroll to top
+      window.scrollTo(0, 0);
+
+      // Also scroll to top after a short delay to ensure all content is loaded
+      const timer = setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 100);
+
+      return () => clearTimeout(timer);
+    }
+  }, []); // Run once on mount
+
+  // Ensure page always starts at top on load/refresh IF no hash
   useEffect(() => {
     // Disable browser's automatic scroll restoration
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }
-    
-    // Immediate scroll to top
-    window.scrollTo(0, 0);
-    
-    // Also scroll to top after a short delay to ensure all content is loaded
-    const timer = setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 100);
-    
-    return () => clearTimeout(timer);
   }, []);
 
   return (

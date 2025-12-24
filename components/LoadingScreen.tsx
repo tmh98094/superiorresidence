@@ -11,7 +11,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadComplete }) 
   // Images to preload
   const imagesToPreload = [
     '/images/1 hero.png',
-    '/images/logo1.png',
+    '/images/logo1s.png',
     '/images/2 concept.png',
     '/images/texture leaf.png',
   ];
@@ -19,7 +19,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadComplete }) 
   // Fonts to wait for
   const fontsToLoad = [
     'Cinzel',
-    'Cormorant Garamond', 
+    'Cormorant Garamond',
     'Montserrat',
     'Optima',
     'Ma Shan Zheng',
@@ -85,18 +85,19 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadComplete }) 
 
   return (
     <div
-      className={`fixed inset-0 z-[100] bg-forest-black flex flex-col items-center justify-center transition-opacity duration-500 ${
-        isComplete ? 'opacity-0 pointer-events-none' : 'opacity-100'
-      }`}
+      className={`fixed inset-0 z-[100] bg-forest-black flex flex-col items-center justify-center transition-opacity duration-500 ${isComplete ? 'opacity-0 pointer-events-none' : 'opacity-100'
+        }`}
     >
-      {/* Logo */}
+      {/* Logo - Cropped to remove padding */}
       <div className="mb-12">
         <div className="flex flex-col items-center">
-          <img
-            src="/images/logo1.png"
-            alt="Superior Residence"
-            className="w-96 h-auto mb-4"
-          />
+          <div className="w-[30rem] h-56 relative overflow-hidden flex items-center justify-center">
+            <img
+              src="/images/logo1s.png"
+              alt="Superior Residence"
+              className="w-full h-[80%] object-contain"
+            />
+          </div>
         </div>
       </div>
 

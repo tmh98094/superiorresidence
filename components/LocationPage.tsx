@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, MapPin } from 'lucide-react';
+import { ArrowLeft, Maximize2, X, ZoomIn, ZoomOut } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
+import { Navbar } from './Navbar';
+import { Footer } from './Footer';
 
 export const LocationPage: React.FC = () => {
   const { language } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [zoom, setZoom] = useState(1);
+
+  const homeUrl = language === 'cn' ? '/zh#home' : '/#home';
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -19,7 +23,7 @@ export const LocationPage: React.FC = () => {
     setIsFullscreen(true);
     setZoom(1);
   };
-  
+
   const closeFullscreen = () => {
     setIsFullscreen(false);
     setZoom(1);
@@ -28,62 +32,18 @@ export const LocationPage: React.FC = () => {
   const zoomIn = () => setZoom(prev => Math.min(prev + 0.5, 3));
   const zoomOut = () => setZoom(prev => Math.max(prev - 0.5, 1));
 
-  const homeUrl = language === 'cn' ? '/zh#home' : '/#home';
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-900/20 via-teal-900/30 to-slate-800/40" style={{ backgroundColor: 'rgb(15, 23, 20)' }}>
-      {/* Fixed Header */}
-      <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-          scrolled ? 'py-4' : 'py-6'
-        }`}
-        style={{ backgroundColor: scrolled ? 'rgba(20, 40, 30, 0.95)' : 'rgba(20, 40, 30, 0.7)' }}
-      >
-        <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between">
-          <a
-            href={homeUrl}
-            className="flex items-center gap-1 md:gap-2 text-stone-300 hover:text-gold-accent transition-colors"
-          >
-            <ArrowLeft size={16} className="md:w-5 md:h-5" />
-            <span className="font-sans text-xs md:text-sm tracking-wider uppercase whitespace-nowrap">
-              {language === 'cn' ? '返回' : 'Back'}
-            </span>
-          </a>
-          <div className="flex items-center gap-2 md:gap-4">
-            <div className="flex items-center gap-1 md:gap-2">
-              <MapPin size={16} className="text-gold-accent md:w-5 md:h-5" />
-              <span className={`font-display text-sm md:text-xl text-white whitespace-nowrap ${language === 'cn' ? 'nav-chinese' : ''}`}>
-                {language === 'cn' ? '位置' : 'Location'}
-              </span>
-            </div>
-            {/* Language Toggle */}
-            <div className="font-sans text-sm text-stone-300 border-l border-stone-500 pl-4 flex items-center gap-2">
-              <a
-                href="/location"
-                className={`cursor-pointer transition-colors ${language === 'en' ? 'text-gold-accent font-bold' : 'text-white hover:text-gold-accent'}`}
-              >
-                EN
-              </a>
-              <span className="text-stone-400">|</span>
-              <a
-                href="/zh/location"
-                className={`cursor-pointer transition-colors nav-chinese ${language === 'cn' ? 'text-gold-accent font-bold' : 'text-white hover:text-gold-accent'}`}
-              >
-                中
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
+      {/* Global Navbar */}
+      <Navbar alwaysVisible />
 
       {/* Hero Section with Map Image */}
       <section className="pt-24 pb-12 md:pt-32 md:pb-16 bg-gradient-to-b from-transparent via-slate-900/10 to-emerald-900/15">
         <div className="max-w-[1800px] mx-auto px-6 md:px-12">
           {/* Title */}
           <div className="text-center mb-8 md:mb-12">
-            <p className={`text-gold-accent font-sans tracking-[0.3em] uppercase mb-4 ${
-              language === 'cn' ? 'text-sm md:text-base' : 'text-xs'
-            }`}>
+            <p className={`text-gold-accent font-sans tracking-[0.3em] uppercase mb-4 ${language === 'cn' ? 'text-sm md:text-base' : 'text-xs'
+              }`}>
               {language === 'cn' ? '战略位置' : 'Strategic Location'}
             </p>
             <h1 className="font-display text-3xl md:text-5xl lg:text-6xl text-white mb-4">
@@ -95,25 +55,23 @@ export const LocationPage: React.FC = () => {
           </div>
 
           {/* Map Image */}
-          <div 
-            className="relative rounded-lg overflow-hidden shadow-2xl cursor-zoom-in group" 
+          <div
+            className="relative rounded-lg overflow-hidden shadow-2xl cursor-zoom-in group"
             onClick={openFullscreen}
           >
             <img
-              src="/images/locationmap.webp"
+              src="/images/detailedlocation.png"
               alt="Superior Residences Location Map"
               className="w-full max-h-[60vh] md:max-h-[70vh] object-contain mx-auto"
-              style={{ 
-                filter: 'brightness(1) contrast(0.8) saturate(1.05) hue-rotate(-5deg)',
+              style={{
+                filter: 'brightness(1.2) contrast(0.8) saturate(1.05) hue-rotate(-5deg)',
                 imageRendering: 'high-quality'
               }}
             />
             {/* Zoom hint overlay */}
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
               <div className="bg-black/60 text-white px-4 py-2 rounded-full text-sm opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                </svg>
+                <Maximize2 size={20} />
                 {language === 'cn' ? '点击放大查看' : 'Click to zoom'}
               </div>
             </div>
@@ -121,18 +79,15 @@ export const LocationPage: React.FC = () => {
         </div>
       </section>
 
-
-
       {/* Description Section */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-emerald-900/15 via-teal-900/25 to-slate-800/30">
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
-          <p className={`text-gold-accent font-sans tracking-[0.3em] uppercase mb-6 ${
-            language === 'cn' ? 'text-sm md:text-base' : 'text-xs'
-          }`}>
+          <p className={`text-gold-accent font-sans tracking-[0.3em] uppercase mb-6 ${language === 'cn' ? 'text-sm md:text-base' : 'text-xs'
+            }`}>
             {language === 'cn' ? '理想居所' : 'Ideal Living'}
           </p>
           <h2 className="font-display text-2xl md:text-3xl text-white mb-8 leading-relaxed text-justify">
-            {language === 'cn' 
+            {language === 'cn'
               ? '在这里，您将享受低密度社区的宁静，同时拥有城镇便利设施的便捷。成熟的社区基础设施，让您的家庭在安全、舒适的环境中茁壮成长。'
               : 'Here, you\'ll enjoy the tranquility of a low-density community while having convenient access to town amenities. Mature community infrastructure ensures your family thrives in a safe, comfortable environment.'}
           </h2>
@@ -160,12 +115,12 @@ export const LocationPage: React.FC = () => {
 
       {/* Fullscreen Image Modal */}
       {isFullscreen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 md:p-8 lg:p-12"
           onClick={closeFullscreen}
         >
           {/* Container - full on mobile, constrained on desktop */}
-          <div 
+          <div
             className="relative bg-stone-900 rounded-lg shadow-2xl border border-stone-700 w-full h-full md:w-[90%] md:h-[90%] lg:w-[85%] lg:h-[85%] xl:w-[80%] xl:h-[80%] flex flex-col overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
@@ -177,9 +132,7 @@ export const LocationPage: React.FC = () => {
                   disabled={zoom <= 1}
                   className="w-8 h-8 bg-stone-700 hover:bg-stone-600 disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-lg flex items-center justify-center transition-colors"
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 12H6" />
-                  </svg>
+                  <ZoomOut size={16} />
                 </button>
                 <span className="text-stone-300 text-sm font-medium min-w-[50px] text-center">
                   {Math.round(zoom * 100)}%
@@ -189,35 +142,31 @@ export const LocationPage: React.FC = () => {
                   disabled={zoom >= 3}
                   className="w-8 h-8 bg-stone-700 hover:bg-stone-600 disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-lg flex items-center justify-center transition-colors"
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                  </svg>
+                  <ZoomIn size={16} />
                 </button>
               </div>
               <button
                 onClick={closeFullscreen}
                 className="w-8 h-8 bg-stone-700 hover:bg-red-600 text-white rounded-lg flex items-center justify-center transition-colors"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <X size={16} />
               </button>
             </div>
-            
+
             {/* Scrollable image area */}
             <div className="flex-1 overflow-auto bg-stone-950">
-              <div 
+              <div
                 className="min-h-full flex items-center justify-center p-2"
                 style={{ minWidth: zoom > 1 ? `${zoom * 100}%` : '100%' }}
               >
                 <img
-                  src="/images/locationmap.webp"
+                  src="/images/detailedlocation.png"
                   alt="Superior Residences Location Map"
                   className="max-w-none select-none rounded"
-                  style={{ 
+                  style={{
                     width: `${zoom * 100}%`,
                     maxWidth: `${zoom * 100}vw`,
-                    filter: 'brightness(1) contrast(0.8) saturate(1.05) hue-rotate(-5deg)',
+                    filter: 'brightness(1.2) contrast(0.8) saturate(1.05) hue-rotate(-5deg)',
                     imageRendering: 'high-quality'
                   }}
                   draggable={false}
@@ -227,6 +176,8 @@ export const LocationPage: React.FC = () => {
           </div>
         </div>
       )}
+
+      <Footer />
     </div>
   );
 };

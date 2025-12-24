@@ -58,9 +58,11 @@ body.lang-cn .nav-chinese {
   .font-display {
     font-family: 'Optima', serif;
   }
+
   .font-serif {
     font-family: 'New York', Georgia, serif;
   }
+
   .font-sans {
     font-family: 'Century Gothic', system-ui, sans-serif;
   }
@@ -74,16 +76,19 @@ body.lang-cn .nav-chinese {
   ::-webkit-scrollbar {
     width: 8px;
   }
+
   ::-webkit-scrollbar-track {
     background: #0a0f0d;
   }
+
   ::-webkit-scrollbar-thumb {
     background: #2a3530;
   }
+
   ::-webkit-scrollbar-thumb:hover {
     background: #c5a059;
   }
-  
+
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
@@ -94,11 +99,23 @@ body.lang-cn .nav-chinese {
   .ken-burns-bg {
     animation: ken-burns 25s ease-out infinite alternate;
   }
-  
+
   /* Custom logo sizes - 30% larger than original */
-  .w-47 { width: 11.75rem; } /* 188px - was 144px (w-36) */
-  .w-57 { width: 14.25rem; } /* 228px - was 176px (w-44) */
-  .w-75 { width: 18.75rem; } /* 300px - was 232px (w-58) */
+  .w-47 {
+    width: 11.75rem;
+  }
+
+  /* 188px - was 144px (w-36) */
+  .w-57 {
+    width: 14.25rem;
+  }
+
+  /* 228px - was 176px (w-44) */
+  .w-75 {
+    width: 18.75rem;
+  }
+
+  /* 300px - was 232px (w-58) */
 }
 
 /* Logo Intro Animation */
@@ -107,6 +124,7 @@ body.lang-cn .nav-chinese {
     transform: translate(0, 0) scale(1);
     opacity: 1;
   }
+
   100% {
     transform: translate(0, -45vh) scale(0.7);
     opacity: 0;
@@ -128,6 +146,7 @@ body.lang-cn .nav-chinese {
     opacity: 0;
     transform: translateY(10px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -136,4 +155,38 @@ body.lang-cn .nav-chinese {
 
 .animate-fade-in-up {
   animation: fadeInUp 500ms ease-out forwards;
+}
+
+.ease-parallax {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #c5a059;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
