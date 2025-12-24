@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Globe, Menu, X } from 'lucide-react';
+import { RiTranslate } from "react-icons/ri";
 import { useLanguage } from '../LanguageContext';
 import { useAnimation } from '../AnimationContext';
 
@@ -160,34 +161,45 @@ export const Navbar: React.FC<NavbarProps> = ({ alwaysVisible = false }) => {
               <div className={`space-y-[1vh] border-t border-white/10 pt-[1.5vh] transition-all duration-700 ${isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
                 }`} style={{ transitionDelay: '500ms' }}>
                 <span className="block font-sans text-[0.6rem] md:text-[0.7rem] font-bold tracking-[0.3em] text-stone-500 uppercase">Stay Connected</span>
-                <div className="flex gap-6">
+                <div className="flex gap-4">
                   <a
-                    href="https://facebook.com"
+                    href="https://www.facebook.com/p/Superior-Property-Development-61558856129917/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center space-x-3 text-stone-300 hover:text-gold-accent transition-colors"
+                    className="group"
+                    title="Facebook"
                   >
-                    <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-gold-accent/50 transition-colors">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-gold-accent group-hover:text-gold-accent transition-colors text-stone-300">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                       </svg>
                     </div>
-                    <span className="font-sans text-[0.6rem] md:text-[0.7rem] font-bold tracking-[0.2em] uppercase">Facebook</span>
                   </a>
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/superiorpropertydevelopment/?hl=en"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center space-x-3 text-stone-300 hover:text-gold-accent transition-colors"
+                    className="group"
+                    title="Instagram"
                   >
-                    <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-gold-accent/50 transition-colors">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-gold-accent group-hover:text-gold-accent transition-colors text-stone-300">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                       </svg>
                     </div>
-                    <span className="font-sans text-[0.6rem] md:text-[0.7rem] font-bold tracking-[0.2em] uppercase">Instagram</span>
+                  </a>
+                  <a
+                    href="https://superiorpropertydevelopment.com.my/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group"
+                    title="Website"
+                  >
+                    <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-gold-accent group-hover:text-gold-accent transition-colors text-stone-300">
+                      <Globe size={18} />
+                    </div>
                   </a>
                 </div>
               </div>
@@ -196,12 +208,8 @@ export const Navbar: React.FC<NavbarProps> = ({ alwaysVisible = false }) => {
               <div className={`transition-all duration-700 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`} style={{ transitionDelay: '700ms' }}>
                 <div className="flex items-center gap-4">
-                  <div className="p-2 border border-white/10 rounded-sm">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-stone-400">
-                      <circle cx="12" cy="12" r="10" />
-                      <line x1="2" y1="12" x2="22" y2="12" />
-                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                    </svg>
+                  <div className="p-2 border border-white/10 rounded-sm text-stone-400">
+                    <RiTranslate size={14} />
                   </div>
                   <div className="flex items-center gap-3 font-sans text-[0.6rem] md:text-xs font-bold tracking-[0.1em]">
                     <a
