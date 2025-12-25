@@ -137,7 +137,7 @@ export const Hero: React.FC = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url("/images/1 hero.png")',
+            backgroundImage: 'url("/images/1 hero.webp")',
             transformOrigin: 'center center',
           }}
         />

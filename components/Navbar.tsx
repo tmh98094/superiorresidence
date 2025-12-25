@@ -62,12 +62,15 @@ export const Navbar: React.FC<NavbarProps> = ({ alwaysVisible = false }) => {
         className={`fixed top-0 left-0 w-full z-[9999] transition-all duration-500 ${state.showNavItems || scrolled || alwaysVisible ? 'opacity-100' : 'opacity-0'
           } ${scrolled || alwaysVisible ? 'bg-[#202e27]/95 backdrop-blur-md shadow-lg border-b border-white/5' : 'bg-transparent'}`}
       >
-        <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex justify-between items-center h-20 md:h-24 transition-all duration-500">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex justify-between items-center h-20 md:h-24 transition-all duration-500 relative">
 
-          {/* Menu Toggle / Close Button */}
+          {/* === LEFT SIDE === */}
+          {/* Mobile/Scrolled: Hamburger Menu */}
+          {/* Desktop Hero: Left Navigation Links */}
           <div className="flex-1 flex justify-start z-[60]">
+            {/* Hamburger: Shown on Mobile OR when Scrolled/Not Home */}
             <button
-              className={`flex items-center space-x-2 group transition-colors duration-300 ${isOpen ? 'text-stone-100' : 'text-stone-100'}`}
+              className={`flex items-center space-x-2 group transition-colors duration-300 ${isHomePage && !scrolled && !alwaysVisible ? 'md:hidden' : 'flex'} ${isOpen ? 'text-stone-100' : 'text-stone-100'}`}
               onClick={() => setIsOpen(!isOpen)}
             >
               <div className={`relative w-6 h-6 flex items-center justify-center rounded-full border border-white/20 group-hover:border-gold-accent transition-colors`}>
@@ -77,12 +80,25 @@ export const Navbar: React.FC<NavbarProps> = ({ alwaysVisible = false }) => {
                 {isOpen ? 'Close' : 'Menu'}
               </span>
             </button>
+
+            {/* Left Nav Items: Shown ONLY on Desktop Hero */}
+            <div className={`hidden ${isHomePage && !scrolled && !alwaysVisible ? 'md:flex' : 'hidden'} items-center gap-8`}>
+              {LEFT_NAV_ITEMS.map((item) => (
+                <a
+                  key={item.label}
+                  href={getNavLink(item.href)}
+                  className="font-sans text-xs font-bold tracking-[0.2em] uppercase text-white hover:text-gold-accent transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Centered Logo - Visible only when scrolled or logoInHeader is true */}
-          {/* Using absolute positioning for mobile/tablet to ensure true centering without pushing side elements off-screen */}
-          <div className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-500 ${scrolled || alwaysVisible ? 'opacity-100' : 'opacity-0'} pointer-events-none`}>
-            <div className="relative w-64 md:w-80 lg:w-96 h-[5rem] md:h-[6rem] lg:h-[7rem] overflow-hidden pointer-events-auto flex items-center justify-center">
+          {/* === CENTER === */}
+          {/* Centered Logo - Always centered using absolute positioning */}
+          <div className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-500 ${scrolled || alwaysVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} z-[50]`}>
+            <div className="relative w-64 md:w-80 lg:w-96 h-[5rem] md:h-[6rem] lg:h-[7rem] overflow-hidden flex items-center justify-center">
               <a href="#home" className="block w-full h-[80%]">
                 <img
                   src="/images/logo1s.png"
@@ -93,15 +109,50 @@ export const Navbar: React.FC<NavbarProps> = ({ alwaysVisible = false }) => {
             </div>
           </div>
 
-          {/* Reserve Button */}
-          <div className="flex-1 flex justify-end">
+          {/* === RIGHT SIDE === */}
+          {/* Mobile/Scrolled: Reserve Button */}
+          {/* Desktop Hero: Right Navigation Links + Language */}
+          <div className="flex-1 flex justify-end items-center z-[60]">
+            {/* Reserve Button: Shown on Mobile OR when Scrolled/Not Home */}
             <a
               href="#contact"
-              className={`px-4 py-2 md:px-8 md:py-3 border font-sans text-[10px] md:text-xs font-bold tracking-[0.25em] uppercase transition-all duration-500 hover:bg-gold-accent hover:border-gold-accent hover:text-[#202e27] ${isOpen ? 'border-stone-100 text-stone-100' : 'border-stone-100 text-stone-100'
-                }`}
+              className={`px-4 py-2 md:px-8 md:py-3 border font-sans text-[10px] md:text-xs font-bold tracking-[0.25em] uppercase transition-all duration-500 hover:bg-gold-accent hover:border-gold-accent hover:text-[#202e27] ${isOpen ? 'border-stone-100 text-stone-100' : 'border-stone-100 text-stone-100'} ${isHomePage && !scrolled && !alwaysVisible ? 'md:hidden' : 'flex'}`}
             >
               Reserve
             </a>
+
+            {/* Right Nav Items: Shown ONLY on Desktop Hero */}
+            <div className={`hidden ${isHomePage && !scrolled && !alwaysVisible ? 'md:flex' : 'hidden'} items-center gap-8`}>
+              {RIGHT_NAV_ITEMS.map((item) => (
+                <a
+                  key={item.label}
+                  href={getNavLink(item.href)}
+                  className="font-sans text-xs font-bold tracking-[0.2em] uppercase text-white hover:text-gold-accent transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))}
+
+              {/* Language Divider */}
+              <div className="h-4 w-[1px] bg-white/20"></div>
+
+              {/* Language Toggle */}
+              <div className="flex items-center gap-3 font-sans text-xs font-bold tracking-[0.1em]">
+                <a
+                  href="/#home"
+                  className={`cursor-pointer transition-colors ${language === 'en' ? 'text-gold-accent' : 'text-stone-400 hover:text-white'}`}
+                >
+                  EN
+                </a>
+                <span className="text-stone-600">|</span>
+                <a
+                  href="/zh#home"
+                  className={`cursor-pointer transition-colors nav-chinese ${language === 'cn' ? 'text-gold-accent' : 'text-stone-400 hover:text-white'}`}
+                >
+                  中
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 

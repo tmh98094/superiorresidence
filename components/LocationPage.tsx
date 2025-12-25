@@ -12,6 +12,38 @@ export const LocationPage: React.FC = () => {
 
   const homeUrl = language === 'cn' ? '/zh#home' : '/#home';
 
+  // Drag state
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [startY, setStartY] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [scrollTop, setScrollTop] = useState(0);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollContainerRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+    setStartY(e.pageY - scrollContainerRef.current.offsetTop);
+    setScrollLeft(scrollContainerRef.current.scrollLeft);
+    setScrollTop(scrollContainerRef.current.scrollTop);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const y = e.pageY - scrollContainerRef.current.offsetTop;
+    const walkX = (x - startX);
+    const walkY = (y - startY);
+    scrollContainerRef.current.scrollLeft = scrollLeft - walkX;
+    scrollContainerRef.current.scrollTop = scrollTop - walkY;
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     const handleScroll = () => setScrolled(window.scrollY > 100);
@@ -31,6 +63,33 @@ export const LocationPage: React.FC = () => {
 
   const zoomIn = () => setZoom(prev => Math.min(prev + 0.5, 3));
   const zoomOut = () => setZoom(prev => Math.max(prev - 0.5, 1));
+
+  // Auto-center scroll when zooming in (only triggered when zoom changes)
+  useEffect(() => {
+    if (zoom > 1 && scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      // Small timeout to ensure layout has updated
+      setTimeout(() => {
+        container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
+        container.scrollTop = (container.scrollHeight - container.clientHeight) / 2;
+      }, 10);
+    }
+  }, [zoom]);
+
+  // Handle click on image (distinguish from drag)
+  const handleImageClick = (e: React.MouseEvent) => {
+    // Calculate distance moved during click
+    const moveX = Math.abs(e.pageX - scrollContainerRef.current!.offsetLeft - startX);
+    const moveY = Math.abs(e.pageY - scrollContainerRef.current!.offsetTop - startY);
+
+    // If movement is small (< 5px), treat as click
+    if (moveX < 5 && moveY < 5) {
+      if (zoom === 1) {
+        // Zoom in to 1.5x (150%) only
+        setZoom(1.5);
+      }
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-900/20 via-teal-900/30 to-slate-800/40" style={{ backgroundColor: 'rgb(15, 23, 20)' }}>
@@ -154,18 +213,31 @@ export const LocationPage: React.FC = () => {
             </div>
 
             {/* Scrollable image area */}
-            <div className="flex-1 overflow-auto bg-stone-950">
+            <div
+              ref={scrollContainerRef}
+              className={`flex-1 overflow-auto bg-stone-950`}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseUp}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              onClick={handleImageClick}
+            >
               <div
-                className="min-h-full flex items-center justify-center p-2"
-                style={{ minWidth: zoom > 1 ? `${zoom * 100}%` : '100%' }}
+                className={`min-h-full flex p-2 ${zoom === 1 ? 'w-full h-full items-center justify-center' : ''}`}
+                style={{
+                  minWidth: (zoom > 1) ? `${zoom * 100}%` : '100%',
+                  minHeight: (zoom > 1) ? `${zoom * 100}%` : '100%'
+                }}
               >
                 <img
                   src="/images/detailedlocation.png"
                   alt="Superior Residences Location Map"
-                  className="max-w-none select-none rounded"
+                  className={`select-none rounded ${zoom > 1 ? 'cursor-grab active:cursor-grabbing max-w-none' : 'max-w-full max-h-full object-contain cursor-zoom-in'}`}
                   style={{
-                    width: `${zoom * 100}%`,
-                    maxWidth: `${zoom * 100}vw`,
+                    width: zoom === 1 ? 'auto' : `${zoom * 100}%`,
+                    height: zoom === 1 ? 'auto' : 'auto',
+                    maxWidth: zoom === 1 ? '100%' : `${zoom * 100}vw`,
+                    maxHeight: zoom === 1 ? '100%' : 'none',
                     filter: 'brightness(1.2) contrast(0.8) saturate(1.05) hue-rotate(-5deg)',
                     imageRendering: 'high-quality'
                   }}
