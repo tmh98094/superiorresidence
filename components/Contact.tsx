@@ -69,13 +69,8 @@ export const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="relative py-32 overflow-hidden" style={{ backgroundColor: 'rgb(42, 53, 48)' }}>
-      {/* Background Texture & Image */}
+      {/* Background Texture & Gradient */}
       <div className="absolute inset-0">
-        <img
-          src="/images/leave.png"
-          className="w-full h-full object-cover opacity-20 mix-blend-overlay grayscale"
-          alt="Texture"
-        />
         <div className="absolute inset-0 bg-gradient-to-t from-forest-black via-forest-black/80 to-transparent"></div>
       </div>
 
@@ -182,10 +177,10 @@ export const Contact: React.FC = () => {
                   <option value="" className="bg-forest-black">
                     {t('contact_interested_in' as any)}
                   </option>
-                  <option value="2-Storey Semi-D 45'x85 | 3,413 sq.ft" className="bg-forest-black">
+                  <option value="2-Storey Semi-D 45'x85' | 3,413 sq.ft" className="bg-forest-black">
                     2-Storey Semi-D 45'x85 | 3,413 sq.ft
                   </option>
-                  <option value="2-Storey Terrace 22'x75 | 2,527-2,759 sq.ft" className="bg-forest-black">
+                  <option value="2-Storey Terrace 22'x75' | 2,527-2,759 sq.ft" className="bg-forest-black">
                     2-Storey Terrace 22'x75 | 2,527-2,759 sq.ft
                   </option>
                 </select>

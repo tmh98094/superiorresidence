@@ -159,7 +159,7 @@ export const Hero: React.FC = () => {
             {/* Logo - Refined sizing and cropping to show full image */}
             <div className="relative w-64 md:w-80 lg:w-96 h-[5rem] md:h-[6rem] lg:h-[7rem] overflow-hidden flex items-center justify-center">
               <img
-                src="/images/logo1s.png"
+                src="/images/logo3.png"
                 alt="Superior Residences"
                 className="w-full h-[80%] object-contain transition-opacity duration-500 group-hover:opacity-80"
               />

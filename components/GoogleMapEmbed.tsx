@@ -15,8 +15,10 @@ export const GoogleMapEmbed: React.FC = () => {
         {/* Heading */}
         <FadeIn direction="up">
           <h2 className="font-display text-2xl md:text-4xl text-white text-center mb-12 leading-relaxed max-w-4xl mx-auto">
-            {t('map_heading' as any)}
+            {t('map_heading' as any)}<br />
+            {t('map_heading_2' as any)}
           </h2>
+
         </FadeIn>
 
         {/* Google Map Embed */}
@@ -43,7 +45,7 @@ export const GoogleMapEmbed: React.FC = () => {
         {/* Address */}
         <FadeIn direction="up" delay={300}>
           <p className="text-center text-stone-400 text-sm mt-6">
-            Taman Mekar Emas Ayer Hitam, Jalan Mekar Emas, 86100 Ayer Hitam, Johor
+            Lot 101, Jalan Batu Pahat, Kampung Baru Ayer Hitam, 86100 Ayer Hitam, Johor Darul Ta'zim
           </p>
         </FadeIn>
       </div>

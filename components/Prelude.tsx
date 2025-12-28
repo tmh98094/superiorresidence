@@ -39,29 +39,31 @@ export const Prelude: React.FC = () => {
         {/* Right Side - Video (60%) */}
         <div className="w-full md:w-[60%] relative">
           <FadeIn direction="left" delay={300}>
-            <div className="h-[50vh] md:h-screen w-full relative overflow-hidden">
+            <div className="h-[50vh] md:h-screen w-full relative overflow-hidden bg-stone-800/50">
+              {/* Fallback placeholder - positioned behind video */}
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-stone-700 to-stone-900 flex items-center justify-center z-0">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gold-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                  </div>
+                  <p className="text-stone-400 text-sm">Superior Residences</p>
+                </div>
+              </div>
+              {/* Video - positioned above placeholder */}
               <video
-                className="absolute inset-0 w-full h-[103%] object-cover"
+                className="absolute inset-0 w-full h-[103%] object-cover z-10"
                 style={{ top: '0', transform: 'translateY(-1.5%)' }}
                 autoPlay
                 muted
                 loop
                 playsInline
-                poster="/images/2 concept.png"
               >
                 <source src="/videos/house.mp4" type="video/mp4" />
               </video>
-              {/* Fallback image if video doesn't load */}
-              <img
-                src="/images/2 concept.png"
-                alt="Superior Residence Nature"
-                className="absolute inset-0 w-full h-full object-cover"
-                style={{ display: 'none' }}
-                onError={(e) => {
-                  e.currentTarget.style.display = 'block';
-                }}
-              />
             </div>
+
           </FadeIn>
         </div>
       </div>

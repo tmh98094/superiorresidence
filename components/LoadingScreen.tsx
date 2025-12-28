@@ -10,10 +10,10 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadComplete }) 
 
   // Images to preload
   const imagesToPreload = [
-    '/images/1 hero.png',
-    '/images/logo1s.png',
-    '/images/2 concept.png',
-    '/images/texture leaf.png',
+    '/images/1 hero.webp',
+    '/images/logo1.webp',
+    '/images/3 location.webp',
+    '/images/texture leaf.webp',
   ];
 
   // Fonts to wait for
@@ -93,7 +93,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadComplete }) 
         <div className="flex flex-col items-center">
           <div className="w-[30rem] h-56 relative overflow-hidden flex items-center justify-center">
             <img
-              src="/images/logo1s.png"
+              src="/images/logo1.webp"
               alt="Superior Residence"
               className="w-full h-[80%] object-contain"
             />

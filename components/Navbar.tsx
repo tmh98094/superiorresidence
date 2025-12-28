@@ -87,7 +87,7 @@ export const Navbar: React.FC<NavbarProps> = ({ alwaysVisible = false }) => {
                 <a
                   key={item.label}
                   href={getNavLink(item.href)}
-                  className="font-sans text-xs font-bold tracking-[0.2em] uppercase text-white hover:text-gold-accent transition-colors"
+                  className={`font-sans text-xs font-bold tracking-[0.2em] uppercase text-white hover:text-gold-accent transition-colors ${language === 'cn' ? 'nav-chinese' : ''}`}
                 >
                   {item.label}
                 </a>
@@ -101,7 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({ alwaysVisible = false }) => {
             <div className="relative w-64 md:w-80 lg:w-96 h-[5rem] md:h-[6rem] lg:h-[7rem] overflow-hidden flex items-center justify-center">
               <a href="#home" className="block w-full h-[80%]">
                 <img
-                  src="/images/logo1s.png"
+                  src="/images/logo1.webp"
                   alt="Superior Residences"
                   className="w-full h-full object-contain"
                 />
@@ -110,24 +110,36 @@ export const Navbar: React.FC<NavbarProps> = ({ alwaysVisible = false }) => {
           </div>
 
           {/* === RIGHT SIDE === */}
-          {/* Mobile/Scrolled: Reserve Button */}
+          {/* Mobile/Scrolled: Language Toggle */}
           {/* Desktop Hero: Right Navigation Links + Language */}
           <div className="flex-1 flex justify-end items-center z-[60]">
-            {/* Reserve Button: Shown on Mobile OR when Scrolled/Not Home */}
-            <a
-              href="#contact"
-              className={`px-4 py-2 md:px-8 md:py-3 border font-sans text-[10px] md:text-xs font-bold tracking-[0.25em] uppercase transition-all duration-500 hover:bg-gold-accent hover:border-gold-accent hover:text-[#202e27] ${isOpen ? 'border-stone-100 text-stone-100' : 'border-stone-100 text-stone-100'} ${isHomePage && !scrolled && !alwaysVisible ? 'md:hidden' : 'flex'}`}
+            {/* Language Toggle: Shown on Mobile OR when Scrolled/Not Home */}
+            <div
+              className={`flex items-center gap-3 font-sans text-[10px] md:text-xs font-bold tracking-[0.1em] ${isHomePage && !scrolled && !alwaysVisible ? 'md:hidden' : 'flex'}`}
             >
-              Reserve
-            </a>
+              <a
+                href="/#home"
+                className={`cursor-pointer transition-colors ${language === 'en' ? 'text-gold-accent' : 'text-stone-400 hover:text-white'}`}
+              >
+                EN
+              </a>
+              <span className="text-stone-600">|</span>
+              <a
+                href="/zh#home"
+                className={`cursor-pointer transition-colors nav-chinese ${language === 'cn' ? 'text-gold-accent' : 'text-stone-400 hover:text-white'}`}
+              >
+                中
+              </a>
+            </div>
 
             {/* Right Nav Items: Shown ONLY on Desktop Hero */}
             <div className={`hidden ${isHomePage && !scrolled && !alwaysVisible ? 'md:flex' : 'hidden'} items-center gap-8`}>
+
               {RIGHT_NAV_ITEMS.map((item) => (
                 <a
                   key={item.label}
                   href={getNavLink(item.href)}
-                  className="font-sans text-xs font-bold tracking-[0.2em] uppercase text-white hover:text-gold-accent transition-colors"
+                  className={`font-sans text-xs font-bold tracking-[0.2em] uppercase text-white hover:text-gold-accent transition-colors ${language === 'cn' ? 'nav-chinese' : ''}`}
                 >
                   {item.label}
                 </a>
@@ -176,7 +188,7 @@ export const Navbar: React.FC<NavbarProps> = ({ alwaysVisible = false }) => {
             <div className="flex justify-center w-full shrink-0">
               <div className="relative w-full max-w-[420px] md:max-w-[525px] h-[15vh] max-h-[150px] overflow-hidden">
                 <img
-                  src="/images/logo1s.png"
+                  src="/images/logo1.webp"
                   alt="Superior Residences"
                   className="w-full h-full object-contain"
                 />
@@ -194,8 +206,8 @@ export const Navbar: React.FC<NavbarProps> = ({ alwaysVisible = false }) => {
                     }`}
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
-                  {/* Responsive font size: clamps nicely for mobile */}
-                  <span className={`font-display text-[clamp(1.5rem,4vh,2.5rem)] md:text-[clamp(1.8rem,3.5vh,2.8rem)] text-stone-100 hover:text-gold-accent transition-colors ${language === 'cn' ? 'nav-chinese' : ''
+                  {/* Responsive font size: smaller for mobile */}
+                  <span className={`font-display text-[clamp(1.2rem,3vh,2rem)] md:text-[clamp(1.5rem,3vh,2.2rem)] text-stone-100 hover:text-gold-accent transition-colors ${language === 'cn' ? 'nav-chinese' : ''
                     }`}>
                     {item.label}
                   </span>

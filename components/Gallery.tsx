@@ -10,16 +10,8 @@ export const Gallery: React.FC = () => {
 
   const GALLERY_IMAGES = [
     {
-      src: "/images/gallery 1.png",
+      src: "/images/gallery 1.webp",
       caption: t('gallery_1')
-    },
-    {
-      src: "/images/gallery 2.png",
-      caption: t('gallery_2')
-    },
-    {
-      src: "/images/gallery 3.png",
-      caption: t('gallery_3')
     }
   ];
 

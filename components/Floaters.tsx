@@ -11,7 +11,7 @@ interface FloatersProps {
 }
 
 export const Floaters: React.FC<FloatersProps> = ({
-  whatsappNumber = '60123456789',
+  whatsappNumber = '601139992997',
   formSectionId = 'contact',
   vrLink = 'https://www.arsgather.com/360/TAH/',
   brochureLink = '#',
@@ -57,32 +57,6 @@ export const Floaters: React.FC<FloatersProps> = ({
         title="Back to Top"
       >
         <ArrowUp size={18} className="md:w-[22px] md:h-[22px] text-gold-accent" />
-      </button>
-
-      {/* VR-360 Button */}
-      <button
-        onClick={handleVRClick}
-        className="w-12 h-12 md:w-14 md:h-14 bg-stone-800/80 hover:bg-stone-700 backdrop-blur-sm rounded-full flex flex-col items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 border border-stone-600 group"
-        aria-label="VR-360 Tour"
-        title="VR-360 Tour"
-      >
-        <svg className="w-[18px] h-[18px] md:w-[22px] md:h-[22px] text-gold-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <circle cx="12" cy="12" r="10" />
-          <ellipse cx="12" cy="12" rx="10" ry="4" />
-          <path d="M12 2v20" />
-        </svg>
-        <span className="text-[7px] md:text-[8px] font-bold text-gold-accent -mt-0.5">360°</span>
-      </button>
-
-      {/* E-Brochure Button */}
-      <button
-        onClick={handleBrochureClick}
-        className="w-12 h-12 md:w-14 md:h-14 bg-stone-800/80 hover:bg-stone-700 backdrop-blur-sm rounded-full flex flex-col items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 border border-stone-600 group relative"
-        aria-label="E-Brochure Download"
-        title="E-Brochure Download"
-      >
-        <BookOpen size={16} className="md:w-5 md:h-5 text-gold-accent" />
-        <Download size={8} className="md:w-[10px] md:h-[10px] text-gold-accent absolute bottom-1.5 right-1.5 md:bottom-2 md:right-2" />
       </button>
 
       {/* Form Registration Button */}

@@ -10,7 +10,7 @@ export const LocationMap: React.FC = () => {
       {/* Background Image - Mountain Range */}
       <div className="absolute inset-0">
         <img
-          src="/images/3 location.png"
+          src="/images/3 location.webp"
           alt="Mountains Background"
           className="w-full h-full object-cover opacity-30 mix-blend-luminosity"
         />
@@ -48,13 +48,6 @@ export const LocationMap: React.FC = () => {
             <FadeIn delay={300} className="w-full h-full">
               {/* Abstract Vertical Map */}
               <div className="relative w-full h-full flex justify-center items-center">
-                <img
-                  src="/images/5 features.png"
-                  className="absolute inset-0 w-full h-full object-cover opacity-40 mask-image-vertical"
-                  style={{ maskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)' }}
-                  alt="Topography"
-                />
-
                 {/* Map Points Line */}
                 <div className="absolute top-10 bottom-10 w-[2px] bg-gradient-to-b from-transparent via-white/20 to-transparent left-1/2 md:left-2/3 transform -translate-x-1/2"></div>
 
@@ -76,8 +69,8 @@ export const LocationMap: React.FC = () => {
                     <div className="absolute inset-0 bg-gold-accent rounded-full animate-ping opacity-50"></div>
                   </div>
                   <div className="ml-6">
-                    <span className="block font-display text-2xl text-white">ANYARA</span>
-                    <span className="block font-sans text-[0.6rem] tracking-[0.3em] text-gold-accent">HILLS</span>
+                    <span className="block font-display text-2xl text-white">SUPERIOR</span>
+                    <span className="block font-sans text-[0.6rem] tracking-[0.3em] text-gold-accent">RESIDENCES</span>
                   </div>
                 </div>
 

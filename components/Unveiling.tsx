@@ -57,11 +57,10 @@ export const Unveiling: React.FC = () => {
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10" style={{ marginTop: '-100px' }}>
         {/* UNVEILING Text */}
         <div
-          className={`transition-all duration-700 ${
-            animationPhase >= 1
+          className={`transition-all duration-700 ${animationPhase >= 1
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-4'
-          }`}
+            }`}
         >
           <span className="font-sans text-xs md:text-sm tracking-[0.5em] text-gold-accent uppercase">
             {t('unveiling_text')}
@@ -70,11 +69,10 @@ export const Unveiling: React.FC = () => {
 
         {/* Vertical Decorative Line */}
         <div
-          className={`my-4 transition-all duration-700 ${
-            animationPhase >= 2
+          className={`my-4 transition-all duration-700 ${animationPhase >= 2
               ? 'opacity-100 scale-y-100'
               : 'opacity-0 scale-y-0'
-          }`}
+            }`}
           style={{ transformOrigin: 'top' }}
         >
           <div className="w-[1px] h-16 bg-gradient-to-b from-gold-accent via-gold-accent/50 to-transparent"></div>
@@ -82,19 +80,19 @@ export const Unveiling: React.FC = () => {
 
         {/* Logo - Cropped to center, removing padding */}
         <div
-          className={`transition-all duration-700 ${
-            animationPhase >= 3
+          className={`transition-all duration-700 ${animationPhase >= 3
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-4'
-          }`}
+            }`}
         >
-          <div className="w-64 h-64 md:w-80 md:h-80 relative overflow-hidden mx-auto">
+          <div className="w-[332px] h-[332px] md:w-[416px] md:h-[416px] relative overflow-hidden mx-auto">
             <img
               src="/images/logo1.png"
               alt="Superior Residence"
               className="absolute inset-0 w-full h-full object-cover object-center scale-150"
             />
           </div>
+
         </div>
       </div>
     </section>

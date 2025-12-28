@@ -92,12 +92,12 @@ export const LocationPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-900/20 via-teal-900/30 to-slate-800/40" style={{ backgroundColor: 'rgb(15, 23, 20)' }}>
+    <div className="min-h-screen bg-forest-dark">
       {/* Global Navbar */}
       <Navbar alwaysVisible />
 
       {/* Hero Section with Map Image */}
-      <section className="pt-24 pb-12 md:pt-32 md:pb-16 bg-gradient-to-b from-transparent via-slate-900/10 to-emerald-900/15">
+      <section className="pt-24 pb-12 md:pt-32 md:pb-16">
         <div className="max-w-[1800px] mx-auto px-6 md:px-12">
           {/* Title */}
           <div className="text-center mb-8 md:mb-12">
@@ -139,7 +139,7 @@ export const LocationPage: React.FC = () => {
       </section>
 
       {/* Description Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-emerald-900/15 via-teal-900/25 to-slate-800/30">
+      <section className="py-16 md:py-24 bg-forest-black/50">
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
           <p className={`text-gold-accent font-sans tracking-[0.3em] uppercase mb-6 ${language === 'cn' ? 'text-sm md:text-base' : 'text-xs'
             }`}>
@@ -160,7 +160,8 @@ export const LocationPage: React.FC = () => {
       </section>
 
       {/* Back to Home Button */}
-      <section className="py-12 bg-gradient-to-b from-slate-800/30 to-emerald-800/25">
+      <section className="py-12 bg-forest-dark">
+
         <div className="text-center">
           <a
             href={homeUrl}

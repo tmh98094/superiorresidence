@@ -44,9 +44,10 @@ body.lang-cn h6 {
   font-family: 'Noto Serif SC', 'Century Gothic', system-ui, sans-serif !important;
 }
 
-/* Navigation items use Noto Serif SC */
+/* Navigation items use Noto Serif SC with thin weight for skinny look */
 body.lang-cn .nav-chinese {
   font-family: 'Noto Serif SC', 'Century Gothic', system-ui, sans-serif !important;
+  font-weight: 100 !important;
 }
 
 @layer base {

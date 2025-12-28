@@ -15,24 +15,16 @@ export const LushGreens: React.FC = () => {
           muted
           loop
           playsInline
-          poster="/images/2 concept.png"
           onError={() => setVideoError(true)}
         >
           <source src="/videos/lushgreens.mp4.mp4" type="video/mp4" />
         </video>
       ) : (
-        <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center"
-          style={{ backgroundImage: 'url("/images/2 concept.png")' }}
-        />
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-stone-700 to-stone-900" />
       )}
 
-      {/* Fallback image always present but hidden when video works */}
-      <img
-        src="/images/2 concept.png"
-        alt="Lush Greens"
-        className="absolute inset-0 w-full h-full object-cover -z-10"
-      />
+      {/* Fallback placeholder */}
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-stone-700 to-stone-900 -z-10"></div>
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
