@@ -64,10 +64,9 @@ export const Location: React.FC = () => {
 
           {/* Features Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
-            {FEATURES.map((feature, idx) => (
-              <FadeIn
+            {FEATURES.map((feature) => (
+              <div
                 key={feature.id}
-                delay={idx * 100}
                 className="flex flex-col items-center text-center group cursor-default"
               >
                 <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full border-2 border-stone-600 flex items-center justify-center mb-4 md:mb-6 group-hover:border-gold-accent group-hover:bg-gold-accent/10 transition-all duration-500">
@@ -86,9 +85,10 @@ export const Location: React.FC = () => {
                 <p className="font-serif text-stone-400 text-sm md:text-base lg:text-lg italic">
                   {feature.description}
                 </p>
-              </FadeIn>
+              </div>
             ))}
           </div>
+
         </div>
       </div>
     </section>
