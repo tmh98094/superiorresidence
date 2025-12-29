@@ -123,12 +123,12 @@ export const LocationPage: React.FC = () => {
               alt="Superior Residences Location Map"
               className="w-full max-h-[60vh] md:max-h-[70vh] object-contain mx-auto"
               style={{
-                filter: 'brightness(1.2) contrast(0.8) saturate(1.05) hue-rotate(-5deg)',
+                filter: 'brightness(0.8) contrast(0.8) saturate(1.05) hue-rotate(-5deg)',
                 imageRendering: 'high-quality'
               }}
             />
             {/* Zoom hint overlay */}
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+            <div className="absolute inset-0 bg-black/0 transition-colors flex items-center justify-center">
               <div className="bg-black/60 text-white px-4 py-2 rounded-full text-sm opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2">
                 <Maximize2 size={20} />
                 {language === 'cn' ? '点击放大查看' : 'Click to zoom'}
@@ -239,7 +239,7 @@ export const LocationPage: React.FC = () => {
                     height: zoom === 1 ? 'auto' : 'auto',
                     maxWidth: zoom === 1 ? '100%' : `${zoom * 100}vw`,
                     maxHeight: zoom === 1 ? '100%' : 'none',
-                    filter: 'brightness(1.2) contrast(0.8) saturate(1.05) hue-rotate(-5deg)',
+                    filter: 'brightness(0.8) contrast(0.8) saturate(1.05) hue-rotate(-5deg)',
                     imageRendering: 'high-quality'
                   }}
                   draggable={false}

@@ -56,6 +56,18 @@ export const Navbar: React.FC<NavbarProps> = ({ alwaysVisible = false }) => {
 
   // Removed state.logoInHeader check to ensure navbar is always present after loading
 
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   return (
     <>
       <nav
@@ -70,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({ alwaysVisible = false }) => {
           <div className="flex-1 flex justify-start z-[60]">
             {/* Hamburger: Shown on Mobile OR when Scrolled/Not Home */}
             <button
-              className={`flex items-center space-x-2 group transition-colors duration-300 ${isHomePage && !scrolled && !alwaysVisible ? 'md:hidden' : 'flex'} ${isOpen ? 'text-stone-100' : 'text-stone-100'}`}
+              className={`flex items-center space-x-2 group transition-colors duration-300 ${isHomePage && !scrolled && !alwaysVisible ? 'lg:hidden' : 'flex'} ${isOpen ? 'text-stone-100' : 'text-stone-100'}`}
               onClick={() => setIsOpen(!isOpen)}
             >
               <div className={`relative w-6 h-6 flex items-center justify-center rounded-full border border-white/20 group-hover:border-gold-accent transition-colors`}>
@@ -82,7 +94,7 @@ export const Navbar: React.FC<NavbarProps> = ({ alwaysVisible = false }) => {
             </button>
 
             {/* Left Nav Items: Shown ONLY on Desktop Hero */}
-            <div className={`hidden ${isHomePage && !scrolled && !alwaysVisible ? 'md:flex' : 'hidden'} items-center gap-8`}>
+            <div className={`hidden ${isHomePage && !scrolled && !alwaysVisible ? 'lg:flex' : 'hidden'} items-center gap-8`}>
               {LEFT_NAV_ITEMS.map((item) => (
                 <a
                   key={item.label}
@@ -115,7 +127,7 @@ export const Navbar: React.FC<NavbarProps> = ({ alwaysVisible = false }) => {
           <div className="flex-1 flex justify-end items-center z-[60]">
             {/* Language Toggle: Shown on Mobile OR when Scrolled/Not Home */}
             <div
-              className={`flex items-center gap-3 font-sans text-[10px] md:text-xs font-bold tracking-[0.1em] ${isHomePage && !scrolled && !alwaysVisible ? 'md:hidden' : 'flex'}`}
+              className={`flex items-center gap-3 font-sans text-[10px] md:text-xs font-bold tracking-[0.1em] ${isHomePage && !scrolled && !alwaysVisible ? 'lg:hidden' : 'flex'}`}
             >
               <a
                 href="/#home"
@@ -133,7 +145,7 @@ export const Navbar: React.FC<NavbarProps> = ({ alwaysVisible = false }) => {
             </div>
 
             {/* Right Nav Items: Shown ONLY on Desktop Hero */}
-            <div className={`hidden ${isHomePage && !scrolled && !alwaysVisible ? 'md:flex' : 'hidden'} items-center gap-8`}>
+            <div className={`hidden ${isHomePage && !scrolled && !alwaysVisible ? 'lg:flex' : 'hidden'} items-center gap-8`}>
 
               {RIGHT_NAV_ITEMS.map((item) => (
                 <a
@@ -177,10 +189,20 @@ export const Navbar: React.FC<NavbarProps> = ({ alwaysVisible = false }) => {
         />
 
         {/* Side Drawer Content */}
+        {/* Side Drawer Content */}
         <div
-          className={`fixed top-0 left-0 h-screen w-full md:w-[400px] bg-[#202e27] z-[100] transform transition-transform duration-700 ease-parallax flex flex-col pt-[2.5vh] pb-[2.5vh] px-8 md:px-16 border-r border-white/5 shadow-2xl ${isOpen ? 'translate-x-0' : '-translate-x-full'
+          className={`fixed top-0 left-0 h-[100dvh] w-full md:w-[400px] bg-[#202e27] z-[100] transform transition-transform duration-700 ease-parallax flex flex-col pt-[2.5vh] pb-[2.5vh] px-8 md:px-16 border-r border-white/5 shadow-2xl overflow-y-auto ${isOpen ? 'translate-x-0' : '-translate-x-full'
             }`}
         >
+          {/* Close Button (Visible inside drawer for mobile/tablet) */}
+          <div className="absolute top-6 right-6 md:hidden z-50">
+            <button
+              onClick={() => setIsOpen(false)}
+              className="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 text-stone-100 hover:border-gold-accent hover:text-gold-accent transition-colors"
+            >
+              <X size={20} />
+            </button>
+          </div>
           {/* Main Flex Container for Full Height Layout - Using justify-start to group content at top */}
           <div className="flex flex-col h-full justify-start">
 
