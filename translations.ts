@@ -51,8 +51,8 @@ export const translations = {
 
         // Location
         location_heading: 'Nestled in Ayer Hitam, where comfort meets convenience.',
-        map_heading: 'The charm of Superior Residences',
-        map_heading_2: 'Taman Indah Jaya, a desired enclave in Ayer Hitam.',
+        map_heading: 'The charm of Superior Residences @ Taman Indah Jaya,',
+        map_heading_2: 'a desired enclave in Ayer Hitam.',
         location_title_1: 'BANJARAN',
         location_title_2: 'TITIWANGSA',
         location_subtitle: 'Live amidst one of the oldest rainforests in the world',
@@ -65,7 +65,7 @@ export const translations = {
 
         // Features
         features_title_1: 'SUPERIOR RESIDENCES',
-        features_title_2: 'TAMAN INDAH JAYA',
+        features_title_2: '@ TAMAN INDAH JAYA',
         feature_1_title: 'Low Density',
         feature_1_desc: 'Double Storey Semi-D: 28 units | Double Storey Terrace: 21 units',
         feature_2_title: 'Multigenerational Living',
@@ -197,8 +197,8 @@ export const translations = {
 
         // Location
         location_heading: '坐落在亚依淡，舒适与便利的交汇处。',
-        map_heading: 'Superior Residences 的魅力',
-        map_heading_2: 'Taman Indah Jaya, 亚依淡的理想居所。',
+        map_heading: 'Superior Residences',
+        map_heading_2: '@ Taman Indah Jaya 的魅力, 亚依淡的理想居所。',
         location_title_1: '蒂迪旺沙',
 
         location_title_2: '山脉',
@@ -212,7 +212,7 @@ export const translations = {
 
         // Features
         features_title_1: 'SUPERIOR RESIDENCES',
-        features_title_2: 'TAMAN INDAH JAYA',
+        features_title_2: '@ TAMAN INDAH JAYA',
         feature_1_title: '低密度',
         feature_1_desc: '双层半独立式：28单位 | 双层排屋：21单位',
         feature_2_title: '多代同堂',

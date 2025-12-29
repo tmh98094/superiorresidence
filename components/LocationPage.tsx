@@ -109,7 +109,7 @@ export const LocationPage: React.FC = () => {
               SUPERIOR RESIDENCES
             </h1>
             <p className="font-display text-xl md:text-2xl text-stone-400">
-              Taman Indah Jaya, Ayer Hitam
+              @ Taman Indah Jaya, Ayer Hitam
             </p>
           </div>
 
@@ -153,8 +153,8 @@ export const LocationPage: React.FC = () => {
           <div className="w-16 h-[1px] bg-gold-accent mx-auto mb-8"></div>
           <p className="font-serif text-stone-400 leading-relaxed text-lg text-justify">
             {language === 'cn'
-              ? 'Superior Residences Taman Indah Jaya 位于亚依淡的成熟社区，周边设施齐全。邻近油站、诊所、餐饮、银行、市场和学校，满足您的日常所需，让生活更加便捷舒适。'
-              : 'Superior Residences Taman Indah Jaya is nestled in a well-established community in Ayer Hitam. Enjoy convenient access to nearby amenities including petrol stations, clinics, eateries, banks, markets, and schools - everything you need for comfortable daily living.'}
+              ? 'Superior Residences @ Taman Indah Jaya 位于亚依淡的成熟社区，周边设施齐全。邻近油站、诊所、餐饮、银行、市场和学校，满足您的日常所需，让生活更加便捷舒适。'
+              : 'Superior Residences @ Taman Indah Jaya is nestled in a well-established community in Ayer Hitam. Enjoy convenient access to nearby amenities including petrol stations, clinics, eateries, banks, markets, and schools - everything you need for comfortable daily living.'}
           </p>
         </div>
       </section>
@@ -232,7 +232,7 @@ export const LocationPage: React.FC = () => {
               >
                 <img
                   src="/images/detailedlocation.png"
-                  alt="Superior Residences Location Map"
+                  alt="Superior Residences @ Taman Indah Jaya Location Map"
                   className={`select-none rounded ${zoom > 1 ? 'cursor-grab active:cursor-grabbing max-w-none' : 'max-w-full max-h-full object-contain cursor-zoom-in'}`}
                   style={{
                     width: zoom === 1 ? 'auto' : `${zoom * 100}%`,

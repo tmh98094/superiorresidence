@@ -178,10 +178,10 @@ export const Contact: React.FC = () => {
                     {t('contact_interested_in' as any)}
                   </option>
                   <option value="2-Storey Semi-D 45'x85' | 3,413 sq.ft" className="bg-forest-black">
-                    2-Storey Semi-D 45'x85 | 3,413 sq.ft
+                    2-Storey Semi-D 45'x85' | 3,413 sq.ft
                   </option>
                   <option value="2-Storey Terrace 22'x75' | 2,527-2,759 sq.ft" className="bg-forest-black">
-                    2-Storey Terrace 22'x75 | 2,527-2,759 sq.ft
+                    2-Storey Terrace 22'x75' | 2,527-2,759 sq.ft
                   </option>
                 </select>
                 <div className="absolute right-0 top-3 pointer-events-none text-stone-500">
